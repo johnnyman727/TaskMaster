@@ -6,19 +6,30 @@ height:100%;
 
 @media screen{
 	#phone{
-		width:374px;
-		height:800px;
+		width:504px;
+		height:900px;
 		
-		background-image:url('../assets/phone.png');
-		background-size:374px
+		background-image:url('../assets/blank_phone.png');
+		background-size:504px;
 	}
 
-	#phoneContent {
+	#phoneContent{
 		position:relative;
-		width:327px;
-		height:575px;
-		left:22px;
-		top:116px;
+		width:326px;
+		height:486px;
+		left:90px;
+		top:168px;
+	}
+	
+	#phoneGlare{
+		position:absolute;
+		left:0;
+		top:0;
+		width:504px;
+		height:900px;
+	
+		background-image:url('../assets/phone_glare.png');
+		background-size:504px;
 	}
 }
 
