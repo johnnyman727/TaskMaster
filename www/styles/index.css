@@ -4,7 +4,7 @@ padding:0;
 height:100%; 
 }
 
-@media handheld{
+@media screen{
 	#phone{
 		width:374px;
 		height:800px;
@@ -22,7 +22,7 @@ height:100%;
 	}
 }
 
-@media screen{
+@media handheld{
 	#phone{
 		width:327px;
 		height:575px;
