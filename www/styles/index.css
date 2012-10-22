@@ -1,24 +1,23 @@
 body { 
-margin:0; 
-padding:0; 
-height:100%; 
+	margin:0; 
+	padding:0; 
+	height:100%; 
 }
 
 @media screen{
 	#phone{
 		width:504px;
 		height:900px;
-		
 		background-image:url('../assets/blank_phone.png');
 		background-size:504px;
 	}
 
 	#phoneContent{
 		position:relative;
-		width:326px;
-		height:486px;
-		left:90px;
-		top:168px;
+		width:318px;
+		height:478px;
+		left:94px;
+		top:172px;
 	}
 	
 	#phoneGlare{
@@ -27,20 +26,22 @@ height:100%;
 		top:0;
 		width:504px;
 		height:900px;
-	
-		background-image:url('../assets/phone_glare.png');
-		background-size:504px;
 	}
 }
 
 @media handheld{
 	#phone{
-		width:327px;
-		height:575px;
+		width:100%;
+		height:100%;
 		background:#000000;
 	}
 	
 	#phoneContent{
+		width:100%;
 		height:100%;
+	}
+	
+	#phoneGlare{
+		visibility:hidden;
 	}
 }
