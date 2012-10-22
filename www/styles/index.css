@@ -3,17 +3,33 @@ margin:0;
 padding:0; 
 height:100%; 
 }
-#phone {
-	height:100%;
+
+@media handheld{
+	#phone{
+		width:374px;
+		height:800px;
+		
+		background-image:url('../assets/phone.png');
+		background-size:374px
+	}
+
+	#phoneContent {
+		position:relative;
+		width:327px;
+		height:575px;
+		left:22px;
+		top:116px;
+	}
 }
 
-#phoneImage {
-	height:100%;
-	min-height:500px;
-	min-width:234px;
-}
-
-#phoneContent {
-	position:relative;
-	height:100px;
+@media screen{
+	#phone{
+		width:327px;
+		height:575px;
+		background:#000000;
+	}
+	
+	#phoneContent{
+		height:100%;
+	}
 }
