@@ -14,6 +14,12 @@ function ContactList(){
 			}
 		}
 	}
+	this.sort = function(){
+		this.contacts.sort(function(a,b){
+			if (a.name<b.name){return -1;}
+			if (a.name==b.name){return 0;}
+			if (a.name>b.name){return 1;}});
+	}
 }
 
 function updateAddFriendsHTML(cList){
@@ -32,11 +38,6 @@ function updateAddFriendsHTML(cList){
 		friendLI.find('img:first').attr('src',cList.contacts[i].imgPath);
 		friendLI.find('h1:first').html(cList.contacts[i].name);
 		
-		
-		//friendImg = friendLI.find('img:first');
-		//friendImg.attr('src',cList.contacts[i].imgPath)
-		//$(ulFriendsNode).append(friendItem);
-		
 		//Add friend node to the ul
 		ulFriendsNode.append(friendLI);
 	}
@@ -46,8 +47,8 @@ function updateAddFriendsHTML(cList){
 var contactNames = [];
 contactNames[0] = "Danny Marz";
 contactNames[1] = "Jasper Maniates-Selvin";
-contactNames[2] = "Kristine Kammers";
-contactNames[3] = "Matt Sternke";
+contactNames[2] = "Matt Sternke";
+contactNames[3] = "Kristine Kammers";
 contactNames[4] = "Michael Gallert";
 contactNames[5] = "Michelle Kammers";
 contactNames[6] = "Nicholas Pjevach";
@@ -70,5 +71,7 @@ contacts = new ContactList();
 for (var i=0; i < contactNames.length; i++){
 	contacts.addContact(new Contact(contactNames[i], contactImgPaths[i]));
 }
+
+contacts.sort();
 
 $(document).ready(function () {updateAddFriendsHTML(contacts)});
