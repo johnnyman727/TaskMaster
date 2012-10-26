@@ -1,24 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head> 
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Task Master</title>
 	<!--jQuery and custom style sheets-->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+	<link rel="stylesheet" href="./styles/themes/customTheme.css" />
+	<link rel="stylesheet" href="./styles/addFriends.css" />
 	<!--jQuery and jQuery Mobile-->
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<!--populate contacts-->
+	<script src="./scripts/contacts.js"></script>
 </head>
 	
 <body>
-<div data-role="page">
-	<div data-role="header">
-		<h1>Task Master</h1>
-	</div>
-	<div id="welcomeScreen" class="contentScreen" data-role="content">
-	</div>
-	<div class="contentScreen" data-role="content">
-		<p>Hey Jon! What do you think about <a href="http://jquerymobile.com/" target="_blank">jQuery mobile?</a></p>
-	</div>
+<!--Welcome Page-->
+
+<!--Add Friends-->
+<div data-role="page" id="addFriends">
+    <div data-role="header" data-position="fixed">
+        <h3>
+            Add Friends
+        </h3>
+    </div>
+    <div data-role="content">
+        <ul id="addFriendsList" data-role="listview" data-inset="false" data-filter="true" data-filter-placeholder="Find your friends...">
+            <li data-theme="a" data-icon="plus">
+                <a href="#" data-transition="turn">
+                    <img src="./assets/Friends/DanMarz.jpg" class="ui-li-thumb">
+					<h1>Danny Marz</h1>
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="slide">
+					<img src="./assets/Friends/PeterLokken.jpg" class="ui-li-thumb">
+                    Peter Lokken
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/MichelleKammers.jpg" class="ui-li-thumb">
+                    Michelle Kammers
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/KristineKammers.jpg" class="ui-li-thumb">
+                    Kristine Kammers
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/SeanOToole.jpg" class="ui-li-thumb">
+					Sean O'Toole
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/MichaelGallert.jpg" class="ui-li-thumb">
+					Michael Gallert
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/JasperManiatesSelvin.jpg" class="ui-li-thumb">
+					Jasper Maniates-Selvin
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/MattSternke.jpg" class="ui-li-thumb">
+					Matt Sternke
+                </a>
+            </li>
+            <li data-theme="c" data-icon="plus">
+                <a href="#page1" data-transition="turn">
+					<img src="./assets/Friends/NicholasPjevach.jpg" class="ui-li-thumb">
+					Nicholas Pjevach
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="footer" data-theme="f" data-position="fixed">
+		<ul data-role="listview">
+			<li>
+				<a href="#" data-icon="arrow-r" id="ContinueButton">
+					Continue
+				</a>
+			</li>
+		</ul>
+    </div>
 </div>
 </body>
 </html>
