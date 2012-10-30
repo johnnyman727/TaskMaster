@@ -16,7 +16,15 @@
 </head>
 	
 <body>
-<!--Welcome Page-->
+<!--Welcome Page--><div data-role="page" id="nextPage">
+    <div data-role="header" data-position="fixed">
+        <h3>Task Master</h3>
+    </div>
+    <div data-role="content">
+        <p>Welcome to Task Master!</p>
+		<a data-role="button" href="#addFriends">Continue</a>
+    </div>
+</div>
 
 <!--Add Friends-->
 <div data-role="page" id="addFriends">
@@ -35,15 +43,46 @@
             </li>
         </ul>
     </div>
-    <div data-role="footer" data-theme="f" data-position="fixed">
-		<ul data-role="listview">
-			<li>
-				<a href="#" data-icon="arrow-r" id="ContinueButton">
-					Continue
-				</a>
-			</li>
-		</ul>
-    </div>
+    <div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#addGroupPage" data-role="button" data-icon="plus">Add Group</a></li>
+				<li><a href="#samplePage" data-icon="arrow-r" data-theme="f" id="continueButton">Continue</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
+
+<!-- Add Group Page -->
+<div data-role="page" id="addGroupPage">
+    <div data-role="header" data-position="fixed">
+        <h3>Add Group</h3>
+    </div>
+    <div data-role="content">
+		
+    </div>
+    <div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#addFriends" data-role="button">
+					<h3>Add Group</h3>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- Sample Page -->
+<div data-role="page" id="samplePage">
+    <div data-role="header" data-position="fixed">
+        <h3>Sample Page</h3>
+    </div>
+    <div data-role="content">
+    </div>
+    <div data-role="footer" data-position="fixed">
+		<h3>Footer</h3>
+	</div>
+</div>
+
 </body>
 </html>
