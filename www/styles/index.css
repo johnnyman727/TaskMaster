@@ -24,15 +24,6 @@ body {
 		frameborder:1;
 		seamless:seamless;
 	}
-	
-	#phoneGlare{
-	/*Decorative reflection*/
-		position:absolute;
-		left:0;
-		top:0;
-		width:504px;
-		height:900px;
-	}
 }
 
 @media handheld{
@@ -50,10 +41,5 @@ body {
 		
 		frameborder:1;
 		seamless:seamless;
-	}
-	
-	#phoneGlare{
-	/*Hides the decorative reflection when viewed from a mobile device*/
-		visibility:hidden;
 	}
 }
