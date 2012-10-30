@@ -54,12 +54,12 @@
 </div>
 
 <!-- Add Group Page -->
-<div data-role="page" id="addGroupPage">
+<div data-role="page" data-theme="a" id="addGroupPage">
     <div data-role="header" data-position="fixed">
         <h3>Add Group</h3>
     </div>
     <div data-role="content">
-		
+		<form action="contacts.html" onsubmit="alert()"></form>
     </div>
     <div data-role="footer" data-position="fixed">
 		<div data-role="navbar">
@@ -72,12 +72,18 @@
 	</div>
 </div>
 
+<!-- Map Page -->
+<div data-role="page" id="mapPage">
+	<iframe src="map.html" seamless></iframe>
+</div>
+
 <!-- Sample Page -->
 <div data-role="page" id="samplePage">
     <div data-role="header" data-position="fixed">
         <h3>Sample Page</h3>
     </div>
     <div data-role="content">
+		<a href="#mapPage" data-role="button">Check out the map</a>
     </div>
     <div data-role="footer" data-position="fixed">
 		<h3>Footer</h3>
