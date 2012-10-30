@@ -44,11 +44,9 @@ function updateAddFriendsHTML(cList){
 		//Set the handler
 		friendButton.click({id:cList.contacts[i].id},toggleContactState);
 		
-		//Change the image and the name
+		//Change the image and the name, assign an id
 		friendLI.find('img:first').attr('src',cList.contacts[i].imgPath);
 		friendLI.find('h1:first').html(cList.contacts[i].name);
-		
-		//Assign the li an id
 		friendLI.attr('id',cList.contacts[i].id);
 		
 		//Add friend node to the ul
@@ -67,6 +65,3 @@ function updateContinueButton(){
 }
 
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts); updateContinueButton();});
-
-//$.cookie('phoneContacts',phoneContacts)
-//$.cookie('addedContacts',addedContacts)

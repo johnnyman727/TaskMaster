@@ -1,0 +1,19 @@
+#contentDiv{
+position: absolute;
+height: 100%;
+padding:0;
+}
+
+#welcomecontinuebutton {
+	position:relative;
+	bottom:-50%;
+	margin-top: -1.2em;
+}
+
+h2{
+padding: 10px;
+}
+
+h4{
+padding: 10px;
+}
