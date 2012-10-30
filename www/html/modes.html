@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--jQuery and custom style sheets-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="styles/jqm.css">
+	<!--jQuery and jQuery Mobile-->
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="scripts/jqm-docs.js"></script>
+</head>
+	
+<body>
+	<div data-role="page" style="width:500px">
+	<header data-role="header" class="ui-header ui-bar-a nav-glyphish-example" role="contentInfo">
+    <h1>GeoAlert</h1>
+    	<div data-role="navbar">
+			<ul>
+				<li><a href="#"><img class="custom-icon" src="../assets/list-icon.png" /></a></li>
+				<li><a href="#"><img class="custom-icon" src="../assets/add-icon.png" /></a></li>
+				<li><a href="#"><img class="custom-icon" src="../assets/map-icon.png" /></a></li>
+				<li><a href="#"><img class="custom-icon" src="../assets/add-friends-icon.png" /></a></li>
+			</ul>
+		</div><!-- /navbar -->
+		<div class="ui-header ui-bar-d nav-glyphish-example" id="share-list-container" > 
+			<ul>
+				<li data-theme="c">
+						<img class="user-image" src="http://sphotos-b.xx.fbcdn.net/hphotos-ash4/422186_10151147600205676_1487493643_n.jpg">
+						<div id="name-background"></div>
+						<div id="name-span">Me</div>
+					 
+				</li>
+			</ul>
+		</div>
+		</header>	
+	</div>
+</body>
+</html>
+
+<style>	
+
+		* {
+			font-family: "Rokkit", "Times New Roman",Georgia,Serif;
+			color: rgb(51, 51, 51); 
+			text-shadow: rgba(0, 0, 0, 0.298039) -5px 5px 5px; 
+			letter-spacing: 0px; 
+			text-decoration: none !important;
+		}
+
+		.friend_link {
+			height: 100%;
+			width: 100%;
+		}
+		.nav-glyphish-example .ui-btn .ui-btn-inner { 
+			padding-top: 40px !important; 
+		}
+
+		.nav-glyphish-example .ui-btn .ui-icon {  
+			height: 30px!important; 
+			margin-left: -15px !important; 
+			box-shadow: none!important; 
+			-moz-box-shadow: none!important; 
+			-webkit-box-shadow: none!important; 
+			-webkit-border-radius: 0 !important; 
+			border-radius: 0 !important; 
+		}
+
+		.custom-icon { 
+			height:40px;
+		}
+
+
+		img.user-image {
+			width:100%;																												
+			margin:auto;
+			z-index: -100;
+		}
+
+		.ui-navbar li .ui-btn .ui-btn-inner { 
+			padding-top: 0px; 
+		}
+
+		.nav-glyphish-example .ui-btn .ui-btn-inner { 
+			padding-top: 10px !important; 
+		}
+
+		#name-background {
+			position: absolute;
+			bottom: 0;
+			z-index: 1;
+			background-color: black;
+			opacity: .5;
+			text-align: center;
+			width: 100%;
+			height: 20px;
+		}
+
+		#name-span {
+			color: White; 
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			width: 100%;
+			z-index: 2;
+		}
+
+		#share-list-container { 
+			width:90px; 
+			height:400px; 
+			float:right; 
+			border-color: #8cc63f; 
+			-webkit-box-shadow: -2px 0px 4px 1px #000;
+    		box-shadow: -2px 0px 4px 1px #000;
+    	}
+
+    	#share-list-container ul {
+    		list-style-type: none;
+    		height:100%;
+    		width:100%;
+    		margin:0px;
+    		padding-left:0px;
+    	}
+		#share-list-container li { 
+			position: relative;
+			border-bottom-width: 1px;
+			border-bottom-style: ridge; 
+			border-color: black;
+			width:100%;
+			overflow: hidden;	
+			max-height: 100px;
+		}
+
+	</style>

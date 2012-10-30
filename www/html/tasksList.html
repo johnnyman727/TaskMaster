@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--jQuery and custom style sheets-->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<!--jQuery and jQuery Mobile-->
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+
+		<!--Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="contentScreen" data-role="content">
+			<div id="taskTitle"> Shared Tasks </div>
+			<div id="noTasks"> You have no tasks yet. Hit the add task button above to add and share a task. </div>
+		</div>
+	</body>
+</html>
+
+
+<style>
+
+* {
+	font-family: "Rokkit", "Times New Roman",Georgia,Serif;
+	color: rgb(51, 51, 51); 
+	text-shadow: rgba(0, 0, 0, 0.298039) -5px 5px 5px; 
+	letter-spacing: 0px; 
+}
+
+.contentScreen {
+	overflow: visible;
+}
+
+#taskTitle {
+
+	font-size: 34px;
+
+}
+
+#noTasks {
+	position: relative;
+	top:40px;
+	width:80%;
+	margin-left: auto; margin-right: auto;
+}
+</style>
+
