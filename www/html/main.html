@@ -11,6 +11,9 @@
 		<!--jQuery and jQuery Mobile-->
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script src="../scripts/Contact.js"></script>
+		<script src="../scripts/ContactList.js"></script>
+		<script src="../scripts/main.js"></script>
 
 		<!--Fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
@@ -22,23 +25,24 @@
 			<div id="phoneContent">
 		    	<div data-role="navbar">
 					<ul>
-						<li><a href="#"><img class="custom-icon" src="../assets/list-icon.png" /></a></li>
-						<li><a href="#"><img class="custom-icon" src="../assets/add-icon.png" /></a></li>
+						<li><a class="ui-btn-active ui-state-persist" href="#"><img class="custom-icon" src="../assets/list-icon.png" /></a></li>
+						<li><a href="#"><img class="custom-icon" src="../assets/add-icon.png" onclick="changeIframeSource('addTask.html')"/></a></li>
 						<li><a href="#"><img class="custom-icon" src="../assets/map-icon.png" /></a></li>
 						<li><a href="#"><img class="custom-icon" src="../assets/add-friends-icon.png" /></a></li>
 					</ul>
 				</div><!-- /navbar -->
 				<div id="below-menu">
 					<div class="ui-header ui-bar-c" id="share-list-container" > 
-						<ul>
+						<ul id="shareFriendsList">
 							<li data-theme="c">
 									<img class="user-image" src="http://sphotos-b.xx.fbcdn.net/hphotos-ash4/422186_10151147600205676_1487493643_n.jpg">
 									<div id="name-background"></div>
-									<div id="name-span">Me</div>
+									<span id="name-span">Me</span>
 							</li>
 						</ul>
 					</div>
 					<iframe id="pageContent" src="tasksList.html" frameborder="0"></iframe>
+					<iframe src="addTask.html" frameborder="0" style="visibility: hidden;"></iframe>
 				</div>
 			</div>
 		</div>

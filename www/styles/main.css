@@ -101,6 +101,7 @@ body {
 		float:right; 
 		border: 0;
 		padding-bottom: -4px;
+		overflow: scroll;
 /*		border-top-color: #8cc63f; 
 		border-top-width:3px;
 		-webkit-box-shadow: -2px 0px 4px 1px #000;
