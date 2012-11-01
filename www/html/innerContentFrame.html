@@ -4,7 +4,8 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--jQuery and custom style sheets-->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+	<link rel="stylesheet" href="../styles/themes/customTheme.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -27,11 +28,217 @@
 		<h2> Shared Tasks </h2>
 		<p id="noTasks">
 			You have no tasks yet. Hit the add task button above to add and share a task.
+			<a data-role="button" href="#addTask">add a task</a>
+			<a data-role="button" href="#taskDetailsPage">view this task</a>
 		</p>
 	</div>
 </div>
 
-<div data-role="page" id="mapPage">
-	<div id="map_canvas" style="min-height: 425px; top:53px; width: 100%; height: 100%"></div> 
-</div>	
+<!-- Add Task -->
+<div data-role="page" data-theme="c" id="addTask">
+	
+	<div data-role="header" data-position="fixed" data-theme="a"v>
+		<h2 id="taskList">
+			Add Task
+        </h2>
+	</div>
+	
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="textinput1">
+                    Title:
+                </label>
+                <input name="" id="textinput1" placeholder="Enter Task Title" value="" type="text" />
+            </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="textinput3">
+					Share This Task With:
+				</label>
+				<input name="" id="textinput3" placeholder="Tap Friends to Share With" value="" type="text" />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput2">
+					Location:
+				</label>
+				<input name="" id="textinput2" placeholder="Enter Task Location" value="" type="search" />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput4">
+					Brand:
+				</label>
+				<input name="" id="textinput4" placeholder="Enter Brand" value="" type="text" />
+			</fieldset>
+		</div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput5">
+                            Price Range: 
+                            <br>Low
+                        </label>
+                        <input name="" id="textinput5" placeholder="Enter Low Price" value="" type="text" />
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput6">
+                            <br>High
+                        </label>
+                        <input name="" id="textinput6" placeholder="Enter High Price" value="" type="text" />
+                    </fieldset>
+                </div>
+			</div>
+        </div>
+		<div id="checkboxes1" data-role="fieldcontain">
+			<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+				<legend>
+					Priority
+				</legend>
+				<input id="checkbox1" name="High Priority" type="checkbox"/>
+				<label for="checkbox1" data-theme="g">
+					High Priority: Need NOW!
+				</label>
+				<input id="checkbox3" name="Medium Priority" type="checkbox"/>
+				<label for="checkbox3" data-theme="e">
+					Medium Priority: Need Soon
+				</label>
+				<input id="checkbox4" name="Low Priority" type="checkbox"/>
+				<label for="checkbox4" data-theme="f">
+					Low Priority: Need Eventually
+				</label>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput10">
+					Notes:
+				</label>
+				<input name="" id="textinput10" placeholder="Enter Additional Notes" value="" type="text" />
+			</fieldset>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" data-theme="a">
+        <a data-role="button" href="#taskList" data-icon="back" data-iconpos="left" class="ui-btn-left" data-theme="g">
+            Go Back
+        </a>
+        <a data-role="button" href="#taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
+            Add Task
+		</a>
+		<h3>
+        </h3>
+	</div>
+</div>
+
+<!-- Task Details Page -->
+<div data-role="page" data-theme="c" id="taskDetailsPage">
+    <div data-theme="a" data-role="header" data-position="fixed">
+        <h3>
+            Task Details
+        </h3>
+    </div>
+    <div data-role="content">
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput1">
+					Title:
+				</label>
+				<input name="" id="textinput1" placeholder="" value="" type="text" readonly />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput2">
+					Tasks Shared With:
+				</label>
+				<input name="" id="textinput2" placeholder="" value="" type="text" readonly />
+			</fieldset>
+		</div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput3">
+							Location:
+						</label>
+						<input name="" id="textinput3" placeholder="" value="" type="text" readonly />
+					</fieldset>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" href="#page1">
+				</a>
+			</div>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput4">
+					Brand:
+				</label>
+				<input name="" id="textinput4" placeholder="" value="" type="text" readonly />
+			</fieldset>
+		</div>
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput5">
+							Price Range: Low
+						</label>
+						<input name="" id="textinput5" placeholder="" value="" type="text" readonly />
+					</fieldset>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput6">
+							High
+						</label>
+						<input name="" id="textinput6" placeholder="" value="" type="text" readonly />
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput7">
+					Priority:
+				</label>
+				<input name="" id="textinput7" placeholder="" value="" type="text" readonly />
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="textinput8">
+					Notes:
+				</label>
+				<input name="" id="textinput8" placeholder="" value="" type="text" readonly />
+			</fieldset>
+		</div>
+	</div>
+	<div data-theme="a" data-role="footer" data-position="fixed">
+		<a data-role="button" href="#taskList" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+			Go Back
+		</a>
+		<h3>
+		</h3>
+		<a data-role="button" href="#taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
+			Completed Task
+		</a>
+	</div>
+</div>
+
+<!-- Sample Map -->
+<div data-role="page" data-theme="c" id="mapPage" style="background:url('../assets/surrogateMap.png');">
+</div>
 </html>
