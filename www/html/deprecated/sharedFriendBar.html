@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Task Master</title>
+	<!--jQuery and custom style sheets-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+	<link rel="stylesheet" href="../styles/themes/customTheme.css" />
+	<link rel="stylesheet" href="../styles/welcomeScreen.css"/>
+	<link rel="stylesheet" href="../styles/addFriends.css" />
+	<!--jQuery and jQuery Mobile-->
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<!--populate contacts-->
+	<script src="../scripts/Contact.js"></script>
+	<script src="../scripts/ContactList.js"></script>
+	<script src="../scripts/addFriendsPage.js"></script>
+	<script src="../scripts/main.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+	<div data-role="content">
+			<ul id="shareFriendsList" data-role="listview">
+				<li data-theme="c">
+					<img class="user-image" src="../assets/Friends/JonMcKay.jpg">
+					<div id="name-background"></div>
+					<span id="name-span">Me</span>
+				</li>
+			</ul>
+	</div>
+</div>

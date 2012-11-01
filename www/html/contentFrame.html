@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../styles/themes/customTheme.css" />
 	<link rel="stylesheet" href="../styles/welcomeScreen.css"/>
 	<link rel="stylesheet" href="../styles/addFriends.css" />
+	<link rel="stylesheet" href="../styles/home.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -55,7 +56,7 @@
 		<div data-role="navbar">
 			<ul>
 				<li><a href="#addGroupPage" data-role="button" data-icon="plus">Add Group</a></li>
-				<li><a href="#samplePage" data-icon="arrow-r" data-theme="f" id="continueButton">Continue</a></li>
+				<li><a href="#home" data-icon="arrow-r" data-theme="f" id="continueButton">Continue</a></li>
 			</ul>
 		</div>
 	</div>
@@ -80,22 +81,25 @@
 	</div>
 </div>
 
-<!-- Map Page -->
-<div data-role="page" id="mapPage">
-	<iframe src="map.html" style="height: 100%;" seamless></iframe>
-</div>
-<!-- Sample Page -->
-<div data-role="page" id="samplePage">
-    <div data-role="header" data-position="fixed">
-        <h3>Sample Page</h3>
-    </div>
-    <div data-role="content">
-		<a href="#mapPage" data-role="button">Check out the map</a>
-    </div>
-    <div data-role="footer" data-position="fixed">
-		<h3>Footer</h3>
-	</div>
-</div>
+<!-- Home Page -->
+<div id="home" data-role="page" style="padding:0!important; position:absolute; top:0;">
+		
+    <div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="c">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li><a href="#" id="listIcon" data-icon="custom"></a></li>
+				<li><a href="#" id="addTaskIcon" data-icon="custom"></a></li>
+				<li><a href="#" id="mapIcon" data-icon="custom"></a></li>
+				<li><a href="#" id="addFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div><!-- /navbar -->
+	
+	<div data-role="content" style="position:relative; padding:0; height:100%;">
+			<iframe id="thisIsContent" src="./innerContentFrame.html" style="width:75%; float:left; bottom:0; height:100%;" seamless></iframe>
+			<iframe id="friendsList" src="./sharedFriendsBar.html" style="width:25%; padding:0; float:right; height:100%; margin-bottom:-53px;" seamless></iframe>
+	</div><!-- /content -->
+</div><!-- /home -->
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 function updateAddFriendsHTML(cList){
 
 	var ulFriendsNode = $("#shareFriendsList");
-	var liExample = $("#shareFriendsList > li:first").clone()
+	var liExample = $("#shareFriendsList > li:first").clone();
 	
 	for (var i=0; i<cList.contacts.length; i++){
 		var friendLI = liExample.clone();
@@ -28,7 +28,7 @@ function updateAddFriendsHTML(cList){
 		ulFriendsNode.append(friendLI);
 	}
 }
-
+/*
 function changeIframeSource(newIframeSource) {
 
 	alert($('#pageContent iframe[visibility|="visible"]'));
@@ -43,4 +43,5 @@ function findVisibleIframe() {
 		}
 	});
 }
+*/
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts)});

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Task Master</title>
+	<!--jQuery and custom style sheets-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+	<link rel="stylesheet" href="../styles/themes/customTheme.css" />
+	<link rel="stylesheet" href="../styles/welcomeScreen.css"/>
+	<link rel="stylesheet" href="../styles/addFriends.css" />
+	<!--jQuery and jQuery Mobile-->
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<!--populate contacts-->
+	<script src="../scripts/Contact.js"></script>
+	<script src="../scripts/ContactList.js"></script>
+	<script src="../scripts/main.js"></script>
+</head>
+
+<body>
+<div data-role="page">
+	<style>	
+		.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+		
+		.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+		
+		#listIcon .ui-icon { background:  url(../assets/list-icon.png) 50% 50% no-repeat; background-size: 30px 30px; }
+	</style>
+	</style>
+	<div data-role="header">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+		<ul>
+			<li><a href="#" id="listIcon" data-icon="custom"></a></li>
+		</ul>
+		</div>
+	</div>
+	<div data-role="content">
+			<ul id="shareFriendsList" data-role="listview" data-inset="false">
+				<li data-theme="c">
+					<a>
+						<img class="user-image" src="../assets/Friends/JonMcKay.jpg">
+						<div id="name-background"></div>
+						<span id="name-span">Me</span>
+					</a>
+				</li>
+			</ul>
+	</div>
+</div>
