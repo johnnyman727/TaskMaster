@@ -27,6 +27,7 @@ function toggleContactState(event){
 
 /* Populate the HTML list */
 function updateAddFriendsHTML(cList){
+	console.log('updating the add friends page html')
 	var ulFriendsNode = $("#addFriendsList");
 	var liExample = $("#addFriendsList > li:first").clone()
 	ulFriendsNode.empty();

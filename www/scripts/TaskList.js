@@ -1,7 +1,7 @@
 function TaskList(){
 	this.tasks = [];
 	
-	function addTask(task){
+	this.addTask = function (task){
 		this.tasks.push(task)
 		
 	}

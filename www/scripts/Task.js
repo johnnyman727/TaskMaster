@@ -36,11 +36,11 @@ function Task(title,owner) {
 	}
 	
 	
-	this.setPriority(priority){
-		if ((priority != 'low') || (priority != 'medium') || (priority != 'high')){
-			alert('bad priority');
+	this.setPriority = function(priority){
+		if ((priority.toLowerCase() != 'low') && (priority.toLowerCase() != 'medium') && (priority.toLowerCase() != 'high')){
+			alert('bad priority: '+priority.toLowerCase());
 		}
-		this.priority=priority;
+		this.priority=priority.toLowerCase();
 	}
 }
 
