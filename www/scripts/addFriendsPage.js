@@ -18,7 +18,7 @@ function toggleContactState(event){
 		//change the style
 		friendElement.removeClass('ui-btn-hover-c');
 		friendElement.removeClass('ui-btn-up-c');
-		friendElement.addClass('ui-btn-hover-c');
+		friendElement.addClass('ui-btn-hover-f');
 		friendElement.addClass('ui-btn-up-f');
 		
 		friendElement.attr('data-theme','f');
@@ -54,14 +54,19 @@ function updateAddFriendsHTML(cList){
 	}
 }
 
-/*Continue Button Handler*/
-function continueEvent(event){
-	//FIXME: add people to the master list
-}
-
+/*Deal with clicking continue*/
 function updateContinueButton(){
 	continueButton = $('#continueButton')
+	function continueEvent(event){
+		//FIXME: remove people from the master list
+		for (var i=0;i<addedContacts.contacts.length;i++){
+			phoneContacts.removeContact(addedContacts.contacts[i].id)
+			console.log('removing '+addedContacts.contacts[i].id)
+			updateAddFriendsHTML(phoneContacts)
+		}
+	}
 	continueButton.click(continueEvent)
 }
 
-$(document).ready(function () {updateAddFriendsHTML(phoneContacts); updateContinueButton();});
+$(document).ready(function () {updateAddFriendsHTML(phoneContacts);});
+$(document).ready(updateContinueButton);

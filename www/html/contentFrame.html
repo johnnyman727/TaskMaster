@@ -16,8 +16,10 @@
 	<!--populate contacts-->
 	<script src="../scripts/Contact.js"></script>
 	<script src="../scripts/ContactList.js"></script>
-	<script src="../scripts/addFriendsPage.js"></script>
+	<script src="../scripts/initializeContactLists.js"></script>
 	<script src="../scripts/initializeNavbar.js"></script>
+	<script src="../scripts/addFriendsPage.js"></script>
+	<script src="../scripts/sharedFriendsBar.js"></script>
 </head>
 	
 <body>
@@ -30,7 +32,7 @@
                 <h4>
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
-                <a data-role="button" href="#addFriends" id="welcomecontinuebutton">
+                <a data-role="button" href="#addFriends" id="welcomeContinueButton">
                     Continue
                 </a>
 	</div>
@@ -59,7 +61,7 @@
 		</a>
 		<h3>
 		</h3>
-		<a data-role="button" href="#home" data-theme="f"data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">
+		<a id="continueButton" data-role="button" href="#home" data-theme="f"data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">
 			Continue
 		</a>
 	</div>
