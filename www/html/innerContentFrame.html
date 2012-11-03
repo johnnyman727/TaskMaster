@@ -12,7 +12,8 @@
 </head>
 	
 <body>
-<div data-role="page" id="taskList">
+<!-- Task List -->
+<div data-role="page" data-theme="c" id="taskList">
 	<style>	
 		.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
 	</style>
@@ -24,13 +25,87 @@
 			</ul>
 		</div>
 	</div>
+	
 	<div class="contentScreen" data-role="content">
 		<h2> Shared Tasks </h2>
 		<p id="noTasks">
-			You have no tasks yet. Hit the add task button above to add and share a task.
-			<a data-role="button" href="#addTask">add a task</a>
-			<a data-role="button" href="#taskDetailsPage">view this task</a>
+			<!-- You have no tasks yet. Hit the add task button above to add and share a task. -->
 		</p>
+		<ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        My Tasks:
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Shampoo at CVS
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Milk at Shaws
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Sign Field Trip Form at Home
+                        </a>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Danny Marz's Tasks:
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Toothbrush at CVS
+                        </a>
+                    </li>
+                    <li data-theme="c">
+                        <a href="#page1" data-transition="slide">
+                            Pick Up Pizza at Tony's
+                        </a>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Jasper Maniates-Selvin's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Kristine Kammers's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Matt Strenke's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Michael Gallert's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Michelle Kammers's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Nicholas Pjevach's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Peter Lokken's Tasks:
+                    </li>
+                </ul>
+                <ul data-role="listview" data-divider-theme="a" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Sean O'Toole's Tasks:
+                    </li>
+                </ul>
 	</div>
 </div>
 
@@ -76,28 +151,13 @@
 				<input name="" id="textinput4" placeholder="Enter Brand" value="" type="text" />
 			</fieldset>
 		</div>
-        <div class="ui-grid-a">
-            <div class="ui-block-a">
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="textinput5">
-                            Price Range: 
-                            <br>Low
-                        </label>
-                        <input name="" id="textinput5" placeholder="Enter Low Price" value="" type="text" />
-                    </fieldset>
-                </div>
-            </div>
-            <div class="ui-block-b">
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="textinput6">
-                            <br>High
-                        </label>
-                        <input name="" id="textinput6" placeholder="Enter High Price" value="" type="text" />
-                    </fieldset>
-                </div>
-			</div>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="textinput5">
+                    Maximum Price:
+                </label>
+                <input name="" id="textinput5" placeholder="Enter Maximum Price" value="" type="text" />
+            </fieldset>
         </div>
 		<div id="checkboxes1" data-role="fieldcontain">
 			<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
