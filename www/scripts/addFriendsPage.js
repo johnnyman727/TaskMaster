@@ -72,28 +72,27 @@ selectedContacts.addContact(me)
 
 function toggleSelected(event){
 	var id = event.data.id;
-	friendElement = $('#'+id);
-	friendElement.toggleClass('selected');
+	var fullImgPath = addedContacts.getContact(id).imgPath.split('/');
+	var imgFilename = fullImgPath.pop().split('.');
+	
 	if (selectedContacts.hasContact(id)){
 		//remove the contact
 		selectedContacts.removeContact(id);
 		//change the style
-		friendElement.removeClass('ui-btn-hover-f');
-		friendElement.removeClass('ui-btn-up-f');
-		friendElement.addClass('ui-btn-up-c');
-		friendElement.removeClass('ui-btn-hover-c');
-		friendElement.attr('data-theme','c');
+		imgFilename[0] += '_Unselected';
 	}else{
 		//add the contact
 		selectedContacts.addContact(addedContacts.getContact(id));
 		//change the style
-		friendElement.removeClass('ui-btn-hover-c');
-		friendElement.removeClass('ui-btn-up-c');
-		friendElement.addClass('ui-btn-hover-f');
-		friendElement.addClass('ui-btn-up-f');
-		
-		friendElement.attr('data-theme','f');
-	}
+		imgFilename[0] += '_Selected';
+	} 
+	console.log(imgFilename)
+	imgFilename = imgFilename.join('.');
+	fullImgPath.push(imgFilename);
+	fullImgPath = fullImgPath.join('/');
+	
+	console.log(fullImgPath)
+	$('.bar-'+id+' > img').attr('src',fullImgPath);
 }
 
 /* Populate the HTML list */
@@ -109,7 +108,7 @@ function updateSharedFriendsHTML(cList){
 	for (var i=0; i<cList.contacts.length; i++){
 		//create and setup the li element
 		var friendLI = $('<li>');
-		friendLI.attr('id','bar-'+cList.contacts[i].id)
+		friendLI.attr('class','bar-'+cList.contacts[i].id)
 		
 		//create the anchor element
 		
@@ -118,20 +117,20 @@ function updateSharedFriendsHTML(cList){
 		var imgFilenameItems = imgPathItems[imgPathItems.length-1].split('.');
 		var imgFilename = imgFilenameItems[0];
 		var imgExtension = imgFilenameItems[1];
-		if (selectedContacts.hasContact(cList.contacts.id)){
+		if (selectedContacts.hasContact(cList.contacts[i].id)){
 			imgFilename += '_Selected.' + imgExtension;
 		}else{
 			imgFilename += '_Unselected.' + imgExtension;
 		}
 		imgPathItems[imgPathItems.length-1] = imgFilename;
 		var finalImgPath = imgPathItems.join('/')
-		var friendImg = $('<img></img>');
+		var friendImg = $('<img>');
 		friendImg.attr('src',finalImgPath);
 		
 		friendLI.append(friendImg);
 		
 		//handler
-		friendLI.click({id:cList.contacts[i].id},function (e){console.log(e.data.id)});
+		friendLI.click({id:cList.contacts[i].id},toggleSelected);
 		
 		//add the li element to the DOM
 		ulFriendsNode.append(friendLI);
