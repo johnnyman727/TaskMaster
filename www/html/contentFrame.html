@@ -59,8 +59,8 @@
         </ul>
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
-		<a data-role="button" href="#addGroupPage" data-theme="g" data-icon="plus" data-iconpos="left" class="ui-btn-left">
-			Add Group
+		<a data-role="button" href="#home-taskList" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
+			Cancel
 		</a>
 		<h3>
 		</h3>
@@ -292,20 +292,13 @@
 				<div id="checkboxes1" data-role="fieldcontain">
 					<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
 						<legend>
-							Priority
+							Priority:
 						</legend>
-						<input id="checkbox1" name="High Priority" type="checkbox"/>
-						<label for="checkbox1" data-theme="g">
-							High Priority: Need NOW!
-						</label>
-						<input id="checkbox3" name="Medium Priority" type="checkbox"/>
-						<label for="checkbox3" data-theme="e">
-							Medium Priority: Need Soon
-						</label>
-						<input id="checkbox4" name="Low Priority" type="checkbox"/>
-						<label for="checkbox4" data-theme="f">
-							Low Priority: Need Eventually
-						</label>
+						<form>
+						<input type="radio" name="priority" value="High">High Priority: Need NOW!<br> <br>
+						<input type="radio" name="priority" value="Medium">Medium Priority: Need Soon<br> <br>
+						<input type="radio" name="priority" value="Low">Low Priority: Need Eventually
+						</form>
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
@@ -381,8 +374,8 @@
 	</div>
 	
 	<div data-role="footer" data-position="fixed" data-theme="a">
-        <a data-role="button" href="#taskList" data-icon="back" data-iconpos="left" class="ui-btn-left" data-theme="g">
-            Go Back
+        <a data-role="button" href="#taskList" data-icon="delete" data-iconpos="left" class="ui-btn-left" data-theme="g">
+            Cancel
         </a>
         <a data-role="button" href="#taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
             Add Task
