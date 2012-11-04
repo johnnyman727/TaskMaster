@@ -21,7 +21,7 @@
 	<script src="../scripts/initializeContactLists.js"></script>
 	<script src="../scripts/initializeNavbar.js"></script>
 	<script src="../scripts/addFriendsPage.js"></script>
-	<script src="../scripts/sharedFriendsBar.js"></script>
+	<!--<script src="../scripts/sharedFriendsBar.js"></script>-->
 </head>
 	
 <body>
@@ -63,7 +63,7 @@
 		</a>
 		<h3>
 		</h3>
-		<a id="continueButton" data-role="button" href="#home" data-theme="f"data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">
+		<a id="continueButton" data-role="button" href="#home-taskList" data-theme="f"data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">
 			Continue
 		</a>
 	</div>
@@ -105,24 +105,234 @@
 	</div>
 </div>
 
-<!-- Home Page -->
-<div id="home" data-role="page" style="padding:0!important; position:absolute; top:0;">
-		
-    <div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="c">
+<!-- Home Page - TaskList -->
+<div data-role="page" id="home-taskList">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
-				<li id="taskListButton"><a href="#" id="listIcon" data-icon="custom"></a></li>
-				<li id="addTaskButton"><a href="#" id="addTaskIcon" data-icon="custom"></a></li>
-				<li id="viewMapButton"><a href="#" id="mapIcon" data-icon="custom"></a></li>
+				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
+				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
+				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div><!-- /navbar -->
+
+	<div data-role="content" class="home-contentWrapper" style="padding:0;">
+		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+			<div id="noTasks" style="padding:10px;">
+				<h2 style="margin-top:0"> Shared Tasks </h2>
+				<p>
+				You have no tasks yet. Hit the add task button above to add and share a task.
+				</p>
+			</div>
+			<div id="hasTasks" style="padding:10px;"><h2 style="margin-top:0"> Shared Tasks </h2>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						My Tasks:
+					</li>
+					<li data-theme="c">
+						<a href="#page1" data-transition="slide">
+							Shampoo at CVS
+						</a>
+					</li>
+					<li data-theme="c">
+						<a href="#page1" data-transition="slide">
+							Milk at Shaws
+						</a>
+					</li>
+					<li data-theme="c">
+						<a href="#page1" data-transition="slide">
+							Sign Field Trip Form at Home
+						</a>
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Danny Marz's Tasks:
+					</li>
+					<li data-theme="c">
+						<a href="#page1" data-transition="slide">
+							Toothbrush at CVS
+						</a>
+					</li>
+					<li data-theme="c">
+						<a href="#page1" data-transition="slide">
+							Pick Up Pizza at Tony's
+						</a>
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Jasper Maniates-Selvin's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Kristine Kammers's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Matt Strenke's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Michael Gallert's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Michelle Kammers's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Nicholas Pjevach's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Peter Lokken's Tasks:
+					</li>
+				</ul>
+				<ul data-role="listview" data-divider-theme="a" data-inset="true">
+					<li data-role="list-divider" role="heading">
+						Sean O'Toole's Tasks:
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll">
+			<p>friends</p>
+		</div>
+	</div>
+</div>	
+
+<!-- Home Page - AddList -->
+<div data-role="page" id="home-addTask">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
+				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
+				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
 				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->
 	
-	<div data-role="content" style="position:relative; padding:0; height:100%;">
-			<iframe id="innerContent" src="./innerContentFrame.html" style="width:75%; float:left; bottom:0; height:100%;" seamless></iframe>
-			<iframe id="friendsList" src="./sharedFriendsBar.html" style="width:25%; padding:0; float:right; height:100%; margin-bottom:-53px;" seamless></iframe>
-	</div><!-- /content -->
-</div><!-- /home -->
+	<div data-role="content" class="home-contentWrapper" style="padding:0;">
+		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+			<div style="padding:10px;">
+				<h2 style="margin-top:0;">Add Task</h2>
+		        <div data-role="fieldcontain">
+		            <fieldset data-role="controlgroup">
+		                <label for="textinput1">
+		                    Title:
+		                </label>
+		                <input name="" id="textinput1" placeholder="Enter Task Title" value="" type="text" />
+		            </fieldset>
+		        </div>
+		        <div data-role="fieldcontain">
+		            <fieldset data-role="controlgroup">
+		                <label for="textinput3">
+							Share This Task With:
+						</label>
+						<input name="" id="textinput3" placeholder="Tap Friends to Share With" value="" type="text" />
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput2">
+							Location:
+						</label>
+						<input name="" id="textinput2" placeholder="Enter Task Location" value="" type="search" />
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput4">
+							Brand:
+						</label>
+						<input name="" id="textinput4" placeholder="Enter Brand" value="" type="text" />
+					</fieldset>
+				</div>
+		        <div data-role="fieldcontain">
+		            <fieldset data-role="controlgroup">
+		                <label for="textinput5">
+		                    Maximum Price:
+		                </label>
+		                <input name="" id="textinput5" placeholder="Enter Maximum Price" value="" type="text" />
+		            </fieldset>
+		        </div>
+				<div id="checkboxes1" data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+						<legend>
+							Priority
+						</legend>
+						<input id="checkbox1" name="High Priority" type="checkbox"/>
+						<label for="checkbox1" data-theme="g">
+							High Priority: Need NOW!
+						</label>
+						<input id="checkbox3" name="Medium Priority" type="checkbox"/>
+						<label for="checkbox3" data-theme="e">
+							Medium Priority: Need Soon
+						</label>
+						<input id="checkbox4" name="Low Priority" type="checkbox"/>
+						<label for="checkbox4" data-theme="f">
+							Low Priority: Need Eventually
+						</label>
+					</fieldset>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<label for="textinput10">
+							Notes:
+						</label>
+						<input name="" id="textinput10" placeholder="Enter Additional Notes" value="" type="text" />
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll">
+			<p>friends</p>
+		</div>
+	</div>
+	
+	<div data-role="footer" data-position="fixed" data-theme="a">
+        <a data-role="button" href="#taskList" data-icon="back" data-iconpos="left" class="ui-btn-left" data-theme="g">
+            Go Back
+        </a>
+        <a data-role="button" href="#taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
+            Add Task
+		</a>
+		<h3></h3>
+	</div>
+</div>
+
+<!-- Home Page - Map -->
+<div data-role="page" id="home-map">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
+				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
+				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div><!-- /navbar -->
+	
+	<div data-role="content" class="home-contentWrapper" style="padding:0;">
+		<div style="padding:0; width:75%; float:left; height:100%; background:url('../assets/surrogateMap.png');">
+		</div>
+		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll">
+			<p>friends</p>
+		</div>
+	</div>
+</div>
+
 </body>
 </html>

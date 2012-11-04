@@ -5,7 +5,6 @@ selectedContacts.addContact(me)
 
 function toggleSelected(event){
 	var id = event.data.id;
-	console.log('clicked ' + id);
 	friendElement = $('#'+id);
 	friendElement.toggleClass('selected');
 	if (selectedContacts.hasContact(id)){
@@ -32,32 +31,45 @@ function toggleSelected(event){
 
 /* Populate the HTML list */
 function updateSharedFriendsHTML(cList){
-	return
 	
 	//FIXME: make this work
 	//NOTE: the iframe does not work via jQuery, use normal javascript
-	var ulFriendsNode = window.frames['innerContent'].document.getElementById("shareFriendsList");
-	var liExample = $("#shareFriendsList > li:first").clone();
+	function iframeRef( frameRef ) {
+		return frameRef.contentWindow ? frameRef.contentWindow.document : frameRef.contentDocument
+	}
+	iframeInside = iframeRef(document.getElementById('friendsList'))
+	console.log(iframeInside)
+	var ulFriendsNode = document.getElementById('friendsList').contentWindow.document.getElementById("shareFriendsList");
+	//getElementById("shareFriendsList");
+	console.log(ulFriendsNode)
+	console.log(document.getElementById('friendsList'))
+	return
+	//empty the ul
+	while (ulFriendsNode.hasChildNodes()){
+		ulFriendsNode.removeChild(ulFriendsNode.lastChild)
+	}
 	
 	for (var i=0; i<cList.contacts.length; i++){
-		var friendLI = liExample.clone();
+		//create and setup the li element
+		var friendLI = document.createElement('li');
+		friendLI.setAttribute('id',cList.contacts.id)
+		//image
+		var friendImg = document.createElement('img');
+		friendImg.setAttribute('src',cList.contacts[i].imgPath);
+		friendLI.appendChild(friendImg);
+		//name
+		firstName = cList.contacts[i].name.split(' ')[0];
+		var friendName = document.createTextNode(firstName);
+		friendLI.appendChild(friendName);
+		//handler
+		friendLI.onclick = toggleSelected;
 		
-		//Add button functionality
-		var friendButton = friendLI.find('a:first');
+		//add the li element to the DOM
+		ulFriendsNode.appendChild(friendLI);
 		
 		//Set the handler
 		friendButton.click({id:cList.contacts[i].id},toggleSelected);
-		
-		//Change the image and the name
-		friendLI.find('img:first').attr('src',cList.contacts[i].imgPath);
-		friendLI.find('span:first').html(cList.contacts[i].name.split(" ")[0]);
-		
-		//Assign the li an id
-		friendLI.attr('id',cList.contacts[i].id);
-		
-		//Add friend node to the ul
-		ulFriendsNode.append(friendLI);
 	}
 }
 
-$('#home').ready(function () {updateSharedFriendsHTML(addedContacts)});
+$('#continueButton').click(function () {updateSharedFriendsHTML(addedContacts);});
