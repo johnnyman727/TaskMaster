@@ -1,9 +1,13 @@
-#shareFriendsList li {
+.shareFriendsList li {
     list-style-type: none;
     line-height: .5em;
 }
 
-#shareFriendsList{
+.shareFriendsList li img{
+	width:100%;
+}
+
+.shareFriendsList{
 	margin-top: 0; 
 	margin-bottom: 0;
 	padding-left: 0;
