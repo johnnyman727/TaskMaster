@@ -98,47 +98,41 @@ function toggleSelected(event){
 
 /* Populate the HTML list */
 function updateSharedFriendsHTML(cList){
-	return
-	//FIXME: make this work
-	//NOTE: the iframe does not work via jQuery, use normal javascript
 	
-	//For cross-platform compatibility
-	$('#friendsList').contents()
-	function iframeRef( frameRef ) {
-		return frameRef.contentWindow ? frameRef.contentWindow.document : frameRef.contentDocument
-	}
-	iframeInside = iframeRef(document.getElementById('friendsList'))
-	console.log(iframeInside)
-	var ulFriendsNode = document.getElementById('friendsList').contentWindow.document.getElementById("shareFriendsList");
-	//getElementById("shareFriendsList");
-	console.log(ulFriendsNode)
-	console.log(document.getElementById('friendsList'))
-	return
-	//empty the ul
-	while (ulFriendsNode.hasChildNodes()){
-		ulFriendsNode.removeChild(ulFriendsNode.lastChild)
-	}
+	//Empty the list
+	ulFriendsNode = $('.shareFriendsList')
+	ulFriendsNode.empty()
 	
+	
+	//Re-Add each element
 	for (var i=0; i<cList.contacts.length; i++){
 		//create and setup the li element
-		var friendLI = document.createElement('li');
-		friendLI.setAttribute('id',cList.contacts.id)
+		var friendLI = $('<li><\li>');
+		friendLI.attr('id','bar-'+cList.contacts[i].id)
+		
+		//create the anchor element
+		
 		//image
-		var friendImg = document.createElement('img');
-		friendImg.setAttribute('src',cList.contacts[i].imgPath);
-		friendLI.appendChild(friendImg);
-		//name
-		firstName = cList.contacts[i].name.split(' ')[0];
-		var friendName = document.createTextNode(firstName);
-		friendLI.appendChild(friendName);
+		var imgPathItems = cList.contacts[i].imgPath.split('/');
+		var imgFilenameItems = imgPathItems[imgPathItems.length-1].split('.');
+		var imgFilename = imgFilenameItems[0];
+		var imgExtension = imgFilenameItems[1];
+		if (selectedContacts.hasContact(cList.contacts.id)){
+			imgFilename += '_Selected.' + imgExtension;
+		}else{
+			imgFilename += '_Unselected.' + imgExtension;
+		}
+		imgPathItems[imgPathItems.length-1] = imgFilename;
+		var finalImgPath = imgPathItems.join('/')
+		var friendImg = $('<img></img>');
+		friendImg.attr('src',finalImgPath);
+		friendLI.append(friendImg);
+		
 		//handler
-		friendLI.onclick = toggleSelected;
+		friendLI.click({id:cList.contacts[i].id},function (e){console.log(e.data.id)});
 		
 		//add the li element to the DOM
-		ulFriendsNode.appendChild(friendLI);
-		
-		//Set the handler
-		friendButton.click({id:cList.contacts[i].id},toggleSelected);
+		ulFriendsNode.append(friendLI);
 	}
 }
 
@@ -158,7 +152,6 @@ function updateSharedFriendsHTML(cList){
 function updateContinueButton(){
 	continueButton = $('#continueButton')
 	function continueEvent(event){
-		//FIXME: remove people from the master list
 		for (var i=0;i<addedContacts.contacts.length;i++){
 			phoneContacts.removeContact(addedContacts.contacts[i].id)
 			updateAddFriendsHTML(phoneContacts)
@@ -180,11 +173,12 @@ $(document).ready(function(){
 	$('#hasTasks').hide()
 	
 	//height of the empty div - height of the header padding
-	contentHeight = $('#home-taskList').height()-53;
+	contentHeight = $('#home-taskList').height();
 	console.log(contentHeight);
 	console.log($('#home-contentWrapper').height());
 	$('.home-contentWrapper').height(contentHeight);
-	console.log($('#home-contentWrapper').height());
+	$('.home-contentWrapper_header').height(contentHeight-53);
+	$('.home-contentWrapper_headerfooter').height(contentHeight-53-42);
 	
 	//show the content again
 	$('#hasTasks').show()
