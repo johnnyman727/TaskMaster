@@ -2,7 +2,7 @@
 phoneContacts = new ContactList();
 addedContacts = new ContactList();
 selectedContacts = new ContactList();
-me = new Contact("Me","../assets/Friends/JonMcKay.jpg");
+me = new Contact("Me","../assets/Friends/JonMcKay.png");
 addedContacts.addContact(me)
 selectedContacts.addContact(me)
 

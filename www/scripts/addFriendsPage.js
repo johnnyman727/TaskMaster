@@ -103,11 +103,12 @@ function updateSharedFriendsHTML(cList){
 	ulFriendsNode = $('.shareFriendsList')
 	ulFriendsNode.empty()
 	
+	console.log('updating shared friends html')
 	
 	//Re-Add each element
 	for (var i=0; i<cList.contacts.length; i++){
 		//create and setup the li element
-		var friendLI = $('<li><\li>');
+		var friendLI = $('<li>');
 		friendLI.attr('id','bar-'+cList.contacts[i].id)
 		
 		//create the anchor element
@@ -126,6 +127,7 @@ function updateSharedFriendsHTML(cList){
 		var finalImgPath = imgPathItems.join('/')
 		var friendImg = $('<img></img>');
 		friendImg.attr('src',finalImgPath);
+		
 		friendLI.append(friendImg);
 		
 		//handler
@@ -133,6 +135,7 @@ function updateSharedFriendsHTML(cList){
 		
 		//add the li element to the DOM
 		ulFriendsNode.append(friendLI);
+		console.log(friendLI)
 	}
 }
 
@@ -171,6 +174,7 @@ $(document).ready(function(){
 	//hide all of the content so that we can grab the height of the empty div
 	$('#noTasks').hide()
 	$('#hasTasks').hide()
+	$('.shareFriendsList').hide()
 	
 	//height of the empty div - height of the header padding
 	contentHeight = $('#home-taskList').height();
@@ -182,6 +186,7 @@ $(document).ready(function(){
 	
 	//show the content again
 	$('#hasTasks').show()
+	$('.shareFriendsList').show()
 	
 	/* Add Task Page */
 })
