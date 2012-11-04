@@ -1,8 +1,10 @@
 /*Initialize the contact lists*/
 phoneContacts = new ContactList();
 addedContacts = new ContactList();
+selectedContacts = new ContactList();
 me = new Contact("Me","../assets/Friends/JonMcKay.jpg");
 addedContacts.addContact(me)
+selectedContacts.addContact(me)
 
 var contactNames = [];
 contactNames[0] = "Danny Marz";
@@ -15,15 +17,15 @@ contactNames[6] = "Nicholas Pjevach";
 contactNames[7] = "Peter Lokken";
 contactNames[8] = "Sean O\'Toole";
 var contactImgPaths = [];
-contactImgPaths[0] = "../assets/Friends/DannyMarz.jpg";
-contactImgPaths[1] = "../assets/Friends/JasperManiatesSelvin.jpg";
-contactImgPaths[2] = "../assets/Friends/KristineKammers.jpg";
-contactImgPaths[3] = "../assets/Friends/MattSternke.jpg";
-contactImgPaths[4] = "../assets/Friends/MichaelGallert.jpg";
-contactImgPaths[5] = "../assets/Friends/MichelleKammers.jpg";
-contactImgPaths[6] = "../assets/Friends/NicholasPjevach.jpg";
-contactImgPaths[7] = "../assets/Friends/PeterLokken.jpg";
-contactImgPaths[8] = "../assets/Friends/SeanOToole.jpg";
+contactImgPaths[0] = "../assets/Friends/DannyMarz.png";
+contactImgPaths[1] = "../assets/Friends/JasperManiatesSelvin.png";
+contactImgPaths[2] = "../assets/Friends/KristineKammers.png";
+contactImgPaths[3] = "../assets/Friends/MattSternke.png";
+contactImgPaths[4] = "../assets/Friends/MichaelGallert.png";
+contactImgPaths[5] = "../assets/Friends/MichelleKammers.png";
+contactImgPaths[6] = "../assets/Friends/NicholasPjevach.png";
+contactImgPaths[7] = "../assets/Friends/PeterLokken.png";
+contactImgPaths[8] = "../assets/Friends/SeanOToole.png";
 
 /*Initialize task lists*/
 var taskLists = [];
