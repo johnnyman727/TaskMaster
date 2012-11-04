@@ -97,6 +97,7 @@ function toggleSelected(event){
 
 /* Populate the HTML list */
 function updateSharedFriendsHTML(cList){
+	cList.sort()
 	
 	//Empty the list
 	ulFriendsNode = $('.shareFriendsList')
