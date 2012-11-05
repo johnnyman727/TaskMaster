@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="../styles/addFriends.css" />
 	<link rel="stylesheet" href="../styles/home.css" />
 	<link rel="stylesheet" href="../styles/sharedFriendsBar.css"/>
+	<link rel="stylesheet" href="../styles/taskDetails.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -278,7 +279,8 @@
 				</div>
 			</div>
 			<div class="ui-block-b">
-				<a data-role="button" href="#page1">
+				<a data-role="button" id="mapButton" href="#home-map" data-theme="f"data-icon="arrow-r" data-iconpos="right" >
+					Map
 				</a>
 			</div>
 		</div>
@@ -290,27 +292,13 @@
 				<input name="" id="taskDetails-brand" placeholder="" value="" type="text" readonly />
 			</fieldset>
 		</div>
-		<div class="ui-grid-a">
-			<div class="ui-block-a">
-				<div data-role="fieldcontain">
-					<fieldset data-role="controlgroup">
-						<label for="textinput5">
-							Price Range: Low
-						</label>
-						<input name="" id="textinput5" placeholder="" value="" type="text" readonly />
-					</fieldset>
-				</div>
-			</div>
-			<div class="ui-block-b">
-				<div data-role="fieldcontain">
-					<fieldset data-role="controlgroup">
-						<label for="taskDetails-price">
-							High
-						</label>
-						<input name="" id="taskDetails-price" placeholder="" value="" type="text" readonly />
-					</fieldset>
-				</div>
-			</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="taskDetails-price">
+					Maximum Price:
+				</label>
+				<input name="" id="taskDetails-price"  value="" type="text" readonly />
+			</fieldset>
 		</div>
 		<div data-role="fieldcontain">
 			<fieldset data-role="controlgroup">
@@ -330,12 +318,12 @@
 		</div>
 	</div>
 	<div data-theme="a" data-role="footer" data-position="fixed">
-		<a data-role="button" href="#taskList" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+		<a data-role="button" href="#home-taskList" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
 			Go Back
 		</a>
 		<h3>
 		</h3>
-		<a data-role="button" href="#taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
+		<a data-role="button" href="#home-taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
 			Completed Task
 		</a>
 	</div>
