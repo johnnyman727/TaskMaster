@@ -47,8 +47,10 @@ function createTaskFromForm(){
 
 function removeCurrentTask(){
 	if (currentTask.owner=="You"){
-		me.taskList.removeTask(currentTask.id)
-	};
+		me.taskList.removeTask(currentTask.id);
+	}else{
+		alert(currentTask.owner+' has been notified that you have finished his task.');
+	}
 	updateContentHTML();
 }
 
