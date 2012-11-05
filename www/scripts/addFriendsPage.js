@@ -2,6 +2,10 @@
 /* On click friend item handler */
 function toggleContactState(event){
 	var id = event.data.id
+	toggleContactStateByID(id);
+}
+
+function toggleContactStateByID(id){
 	friendElement = $('#'+id)
 	if (addedContacts.hasContact(id)){
 		//remove the contact
@@ -264,10 +268,23 @@ function updateContinueButton(){
 }
 
 function updateAddFriendsCancelButton(){
-	cancelButton = $('#AddFriends-cancel');
+	cancelButton = $('#addFriends-cancel');
 	function cancelEvent(event){
-		//remove stuff from the appropriate lists and navigate away
+		console.log(addedContacts.contacts)
+		removeIDs = []
+		for (var k=0; k<addedContacts.contacts.length; k++){
+			console.log(addedContacts.contacts[k].id);
+			if (phoneContacts.hasContact(addedContacts.contacts[k].id)){
+				removeIDs.push(addedContacts.contacts[k].id)
+			}
+		}
+		for (var k=0; k<removeIDs.length; k++){
+			toggleContactStateByID(removeIDs[k]);
+		}
+		console.log(removeIDs)
+		updateSharedFriendsHTML(addedContacts);
 	}
+	cancelButton.click(cancelEvent);
 }
 
 
