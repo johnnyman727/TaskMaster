@@ -138,6 +138,11 @@ function updateSharedFriendsHTML(cList){
 	}
 }
 
+function updateTaskDetailsHTML(task){
+	alert('changing the task details page');
+}
+
+
 listTemplate = null;
 headerTemplate = null;
 listItemTemplate = null;
@@ -182,6 +187,8 @@ function updateContentHTML(){
 			var task = contact.taskList.tasks[j];
 			listItemElement = listItemTemplate.clone();
 			listItemElement.find('a').html(task.title);
+			listItemElement.find('a').attr('href','#taskDetailsPage');
+			listItemElement.find('a').click({theTask:task},function(e){updateTaskDetailsHTML(e.data.theTask)});
 			contactTaskList.append(listItemElement)
 			console.log(task.title)
 		}
