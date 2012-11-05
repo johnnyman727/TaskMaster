@@ -139,6 +139,20 @@ function updateSharedFriendsHTML(cList){
 }
 
 function updateTaskDetailsHTML(task){
+	console.log(task)
+	console.log(task.title)
+	if (task.title == null){
+		$('#taskDetails-title').hide();
+	}else{
+		$('#taskDetails-title').val(task.title);
+	}
+	if (task.)
+	$('#taskDetails-sharedWith')
+	$('#taskDetails-location')
+	$('#taskDetails-brand')
+	$('#taskDetails-price')
+	$('#taskDetails-priority')
+	$('#taskDetails-notes')
 	alert('pretend that I\'m changing the task details page');
 }
 
@@ -154,8 +168,8 @@ function updateContentHTML(){
 	
 	//FIXME: empty the task list page here then build it again
 	if (!loadedUpdateContentHTML){
-		loadedUpdateContentHTML = true;
 		
+		loadedUpdateContentHTML = true;
 		listTemplate = $('#hasTasks > ul')[0];
 		listTemplate = $(listTemplate).clone();
 
