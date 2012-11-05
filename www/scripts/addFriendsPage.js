@@ -176,7 +176,6 @@ function updateTaskDetailsHTML(task){
 	}else{	
 		$('#taskDetails-notes').val(task.notes);
 	}
-	alert('This one\'s for Rachel');
 }
 
 
