@@ -85,13 +85,11 @@ function toggleSelected(event){
 		selectedContacts.addContact(addedContacts.getContact(id));
 		//change the style
 		imgFilename[0] += '_Selected';
-	} 
-	console.log(imgFilename)
+	}
 	imgFilename = imgFilename.join('.');
 	fullImgPath.push(imgFilename);
 	fullImgPath = fullImgPath.join('/');
 	
-	console.log(fullImgPath)
 	$('.bar-'+id+' > img').attr('src',fullImgPath);
 }
 
@@ -103,7 +101,6 @@ function updateSharedFriendsHTML(cList){
 	ulFriendsNode = $('.shareFriendsList')
 	ulFriendsNode.empty()
 	
-	console.log('updating shared friends html')
 	
 	//Re-Add each element
 	for (var i=0; i<cList.contacts.length; i++){
@@ -131,11 +128,64 @@ function updateSharedFriendsHTML(cList){
 		friendLI.append(friendImg);
 		
 		//handler
-		friendLI.click({id:cList.contacts[i].id},toggleSelected);
+		friendLI.click({id:cList.contacts[i].id},function(e){
+			toggleSelected(e)
+			updateContentHTML()
+		});
 		
 		//add the li element to the DOM
 		ulFriendsNode.append(friendLI);
-		console.log(friendLI)
+	}
+}
+
+listTemplate = null;
+headerTemplate = null;
+listItemTemplate = null;
+function updateContentHTML(){
+	selectedContacts.sort();
+	//task list page
+	console.log('changing the inner content frames');
+	
+	//FIXME: empty the task list page here then build it again
+	if (listTemplate==null){
+		listTemplate = $('#hasTasks > ul')[0];
+		listTemplate = $(listTemplate).clone();
+
+		headerTemplate = listTemplate.children('li')[0];
+		headerTemplate = $(headerTemplate).clone();
+
+		listItemTemplate = listTemplate.children('li')[1];
+		listItemTemplate = $(listItemTemplate).clone();
+		
+		listTemplate.empty()
+	}
+	
+	$('#hasTasks > ul').remove();
+	var taskListContainer = $('#hasTasks');
+	
+	for (var i=0;i<selectedContacts.contacts.length;i++){
+		var contact = selectedContacts.contacts[i];
+		
+		console.log(contact.name);
+		
+		var contactTaskList = listTemplate.clone();
+		
+		var contactTaskListHeader = headerTemplate.clone();
+		if (contact.name == 'Me'){
+			contactTaskListHeader.html('My Tasks:');
+		}else{
+			contactTaskListHeader.html(contact.name + '\'s Tasks:');
+		}
+		contactTaskList.append(contactTaskListHeader);
+		
+		for (var j=0;j<contact.taskList.tasks.length;j++){
+			var task = contact.taskList.tasks[j];
+			listItemElement = listItemTemplate.clone();
+			listItemElement.find('a').html(task.title);
+			contactTaskList.append(listItemElement)
+			console.log(task.title)
+		}
+		taskListContainer.append(contactTaskList);
 	}
 }
 
@@ -164,9 +214,9 @@ function updateContinueButton(){
 	continueButton.click(continueEvent)
 }
 
-
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts);});
 $(document).ready(updateContinueButton);
+
 
 //formatting home pages
 $(document).ready(function(){
@@ -178,8 +228,6 @@ $(document).ready(function(){
 	
 	//height of the empty div - height of the header padding
 	contentHeight = $('#home-taskList').height();
-	console.log(contentHeight);
-	console.log($('#home-contentWrapper').height());
 	$('.home-contentWrapper').height(contentHeight);
 	$('.home-contentWrapper_header').height(contentHeight-53);
 	$('.home-contentWrapper_headerfooter').height(contentHeight-53-42);

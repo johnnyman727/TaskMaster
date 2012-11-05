@@ -2,9 +2,17 @@
 phoneContacts = new ContactList();
 addedContacts = new ContactList();
 selectedContacts = new ContactList();
-me = new Contact("Me","../assets/Friends/JonMcKay.png");
-addedContacts.addContact(me)
-selectedContacts.addContact(me)
+me = new Contact("Me","../assets/Friends/JonMcKay.png",new TaskList());
+mySampleTask = new Task('Shampoo','Me');
+mySampleTask.setBrand('Dove');
+mySampleTask.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
+mySampleTask.setMaxPrice ('$7.00');
+mySampleTask.setSharedWith ('You, Matt Sternke');
+mySampleTask.setPriority ('Medium');
+me.taskList.addTask(mySampleTask);
+
+addedContacts.addContact(me);
+selectedContacts.addContact(me);
 
 var contactNames = [];
 contactNames[0] = "Danny Marz";
