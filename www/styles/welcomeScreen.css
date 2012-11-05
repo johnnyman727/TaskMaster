@@ -6,24 +6,28 @@
 
 #welcomeContinueButton {
 	position:relative;
-	bottom:-40%;
+	bottom:-5%;
 	margin-top: -1.2em;
 	margin-left: 1.5em;
 	margin-right: 1.5em;
 }
 
-h3{
-	padding: 10px;
-	margin-top: 3em;
+#taskMaster {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+}	
+
+h1{
+	padding: 5 px;
+	margin-top: 0.5em;
 	margin-left: 1em;
 	margin-right: 1em;	
 }
 
 h4{
-	padding: 10px;
-	margin-top: 2.5em;
-	margin-left: 1em;
-	margin-right: 1em;
-	background-color:#97cc53;
-	border-radius: 10px;
+	padding: 5 px;
+	margin-top: .75em;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
 }
