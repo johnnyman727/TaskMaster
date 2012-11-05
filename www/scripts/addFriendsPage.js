@@ -199,7 +199,11 @@ listItemTemplate = null;
 loadedUpdateContentHTML = false;
 function updateContentHTML(){
 	selectedContacts.sort();
-	//task list page
+	/*
+	 * 
+	 * Task List Page
+	 * 
+	 */
 	console.log('changing the inner content frames');
 	
 	//FIXME: empty the task list page here then build it again
@@ -247,6 +251,24 @@ function updateContentHTML(){
 		}
 		taskListContainer.append(contactTaskList);
 	}
+	
+	/*
+	 * 
+	 * Add Task Page
+	 * 
+	 */
+	selectedNames = null;
+	for (var i=0; i<selectedContacts.contacts.length; i++){
+		if (selectedContacts.contacts[i].name == 'Me'){
+			continue;
+		}
+		if (selectedNames==null){
+			selectedNames = selectedContacts.contacts[i].name;
+		}else{
+			selectedNames += ', ' + selectedContacts.contacts[i].name;
+		}
+	}
+	$('#addTask-sharedWith').val(selectedNames);
 }
 
 /*
