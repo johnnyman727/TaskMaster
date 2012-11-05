@@ -146,13 +146,16 @@ function updateTaskDetailsHTML(task){
 listTemplate = null;
 headerTemplate = null;
 listItemTemplate = null;
+loadedUpdateContentHTML = false;
 function updateContentHTML(){
 	selectedContacts.sort();
 	//task list page
 	console.log('changing the inner content frames');
 	
 	//FIXME: empty the task list page here then build it again
-	if (listTemplate==null){
+	if (!loadedUpdateContentHTML){
+		loadedUpdateContentHTML = true;
+		
 		listTemplate = $('#hasTasks > ul')[0];
 		listTemplate = $(listTemplate).clone();
 
@@ -223,7 +226,7 @@ function updateContinueButton(){
 
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts);});
 $(document).ready(updateContinueButton);
-$(document).ready(updateContentHTML);
+//$(document).ready(updateContentHTML);
 
 
 //formatting home pages
@@ -246,3 +249,4 @@ $(document).ready(function(){
 	
 	/* Add Task Page */
 })
+
