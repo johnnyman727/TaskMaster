@@ -44,7 +44,7 @@
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
                 <a data-role="button" data-theme="f" href="#addFriends" id="welcomeContinueButton">
-                    Get Started
+                    Get Crackin!
                 </a>
 	</div>
 </div>
@@ -67,8 +67,13 @@
         </ul>
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
+<<<<<<< HEAD
 		<a id="AddFriends-cancel" data-role="button" href="#home-taskList" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
 			Cancel
+=======
+		<a data-role="button" href="#home-taskList" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
+				Cancel
+>>>>>>> 1e9e46cd2b62ba1626babc4057fbae221920a335
 		</a>
 		<h3>
 		</h3>
@@ -211,10 +216,14 @@
 	</div>
 	
 	<div data-role="footer" data-position="fixed" data-theme="a">
-        <a data-role="button" href="#home-taskList" data-icon="delete" data-iconpos="left" class="ui-btn-left" data-theme="g">
-            Cancel
-        </a>
-        <a data-role="button" id="addTask-add" href="#home-taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
+        <script>
+		function goBack()
+		{
+		window.history.back()
+		}
+		</script>
+        <input type="button" value="Cancel" onclick="goBack()" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
+        <a data-role="button" href="#home-taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
             Add Task
 		</a>
 		<h3></h3>
@@ -242,6 +251,16 @@
 			</ul>
 		</div>
 	</div>
+	<div data-role="footer" data-position="fixed" data-theme="a">
+        <script>
+		function goBack()
+		{
+		window.history.back()
+		}
+		</script>
+        <input type="button" value="Go Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+        <h3></h3>
+     </div>
 </div>
 
 <!-- Task Details Page -->
@@ -319,9 +338,13 @@
 		</div>
 	</div>
 	<div data-theme="a" data-role="footer" data-position="fixed">
-		<a data-role="button" href="#home-taskList" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
-			Go Back
-		</a>
+		<script>
+		function goBack()
+		{
+		window.history.back()
+		}
+		</script>
+        <input type="button" value="Go Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
 		<h3>
 		</h3>
 		<a data-role="button" href="#home-taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
