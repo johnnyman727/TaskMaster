@@ -3,7 +3,6 @@ function TaskList(){
 	
 	this.addTask = function (task){
 		this.tasks.push(task)
-		
 	}
 	
 	this.removeTask = function (id){

@@ -3,7 +3,7 @@ phoneContacts = new ContactList();
 addedContacts = new ContactList();
 selectedContacts = new ContactList();
 me = new Contact("Me","../assets/Friends/JonMcKay.png",new TaskList());
-mySampleTask = new Task('Shampoo','Me');
+mySampleTask = new Task('Shampoo','You');
 mySampleTask.setBrand('Dove');
 mySampleTask.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
 mySampleTask.setMaxPrice ('$7.00');

@@ -138,7 +138,10 @@ function updateSharedFriendsHTML(cList){
 	}
 }
 
+
+currentTask = null;
 function updateTaskDetailsHTML(task){
+	currentTask = task;
 	console.log(task)
 	console.log(task.title)
 	if (task.title == null){

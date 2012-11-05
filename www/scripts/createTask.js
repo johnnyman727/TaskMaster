@@ -1,3 +1,5 @@
+currentTask = null
+
 function createTaskFromForm(){
 	//title
 	var newTask = new Task($('#addTask-title').val(),'You');
@@ -40,7 +42,16 @@ function createTaskFromForm(){
 	}
 	
 	me.taskList.addTask(newTask);
-	console.log(me.taskList);
 	updateContentHTML();
 }
+
+function removeCurrentTask(){
+	if (currentTask.owner=="You"){
+		me.taskList.removeTask(currentTask.id)
+	};
+	updateContentHTML();
+}
+
 $(document).ready(function(){$('#addTask-add').click(createTaskFromForm);})
+
+$(document).ready(function(){$('#taskDetails-completeTask').click(removeCurrentTask)})
