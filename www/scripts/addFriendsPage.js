@@ -249,7 +249,7 @@ function updateContentHTML(){
 
 /*Deal with clicking continue*/
 function updateContinueButton(){
-	continueButton = $('#continueButton')
+	continueButton = $('#continueButton');
 	function continueEvent(event){
 		for (var i=0;i<addedContacts.contacts.length;i++){
 			phoneContacts.removeContact(addedContacts.contacts[i].id)
@@ -260,10 +260,17 @@ function updateContinueButton(){
 	continueButton.click(continueEvent)
 }
 
+function updateAddFriendsCancelButton(){
+	cancelButton = $('#AddFriends-cancel');
+	function cancelEvent(event){
+		//remove stuff from the appropriate lists and navigate away
+	}
+}
+
+
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts);});
 $(document).ready(updateContinueButton);
-//$(document).ready(updateContentHTML);
-
+$(document).ready(updateAddFriendsCancelButton);
 
 //formatting home pages
 $(document).ready(function(){
@@ -282,7 +289,5 @@ $(document).ready(function(){
 	//show the content again
 	$('#hasTasks').show()
 	$('.shareFriendsList').show()
-	
-	/* Add Task Page */
 })
 

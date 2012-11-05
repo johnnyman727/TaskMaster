@@ -13,6 +13,16 @@ $('#home-map').live("pageinit", function() {
 		$('#map_canvas').gmap('addMarker', {'id': 'm1', 'position': '42.2935, -71.2639', 'bounds':false});
 });
 
+/*
+markerList = [];
+
+function clearMarkers
+
+function addMapMarker(lat,lng){
+	$('#map_canvas').gmap('addMarker', {'id': 'm1', 'position': ''+lat+', '+lng, 'bounds':false});
+}
+*/
+
 	
 $(document).bind('pageinit',initialize);
 $('#map_canvas').bind('click',initialize);

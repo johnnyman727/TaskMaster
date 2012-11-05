@@ -26,6 +26,7 @@
 	<script src="../scripts/initializeNavbar.js"></script>
 	<script src="../scripts/addFriendsPage.js"></script>
 	<script src="../scripts/map.js"></script>
+	<script src="../scripts/createTask.js"></script>
 	<!--<script src="../scripts/sharedFriendsBar.js"></script>-->
 </head>
 	
@@ -66,7 +67,7 @@
         </ul>
     </div>
     <div data-theme="a" data-role="footer" data-position="fixed">
-		<a data-role="button" href="#home-taskList" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
+		<a id="AddFriends-cancel" data-role="button" href="#home-taskList" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
 			Cancel
 		</a>
 		<h3>
@@ -119,7 +120,7 @@
 	</div>
 </div>	
 
-<!-- Home Page - AddList -->
+<!-- Home Page - AddPage -->
 <div data-role="page" id="home-addTask">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
@@ -138,40 +139,40 @@
 				<h2 style="margin-top:0;">Add Task</h2>
 		        <div data-role="fieldcontain">
 		            <fieldset data-role="controlgroup">
-		                <label for="textinput1">
+		                <label for="addTask-title">
 		                    Title:
 		                </label>
-		                <input name="" id="textinput1" placeholder="Enter Task Title" value="" type="text" />
+		                <input name="" id="addTask-title" placeholder="Enter Task Title" value="" type="text" />
 		            </fieldset>
 		        </div>
 		        <div data-role="fieldcontain">
 		            <fieldset data-role="controlgroup">
-		                <label for="textinput3">
+		                <label for="addTask-sharedWith">
 							Share This Task With:
 						</label>
-						<input name="" id="textinput3" placeholder="Tap Friends to Share With" value="" type="text" />
+						<input name="" id="addTask-sharedWith" placeholder="Tap Friends to Share With" value="" type="text" />
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
 						<label for="search-mini">Location:</label>
-						<input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
+						<input type="search" id="addTask-location" name="search-mini" id="search-mini" value="" data-mini="true" />
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
-						<label for="textinput4">
+						<label for="addTask-brand">
 							Brand:
 						</label>
-						<input name="" id="textinput4" placeholder="Enter Brand" value="" type="text" />
+						<input name="" id="addTask-brand" placeholder="Enter Brand" value="" type="text" />
 					</fieldset>
 				</div>
 		        <div data-role="fieldcontain">
 		            <fieldset data-role="controlgroup">
-		                <label for="textinput5">
+		                <label for="addTask-price">
 		                    Maximum Price:
 		                </label>
-		                <input name="" id="textinput5" placeholder="Enter Maximum Price" value="" type="text" />
+		                <input name="" id="addTask-price" placeholder="Enter Maximum Price" value="" type="text" />
 		            </fieldset>
 		        </div>
 				<div data-role="fieldcontain">
@@ -179,15 +180,15 @@
                         <legend>
                             Priority:
                         </legend>
-                        <input id="radio1" name="Priority:" value="radio1" type="radio" />
+                        <input id="addTask-priority-high" name="Priority:" value="radio1" type="radio" />
                         <label for="radio1">
                             High Priority: Need NOW!
                         </label>
-                        <input id="radio2" name="Priority:" value="radio2" type="radio" />
+                        <input id="addTask-priority-high" name="Priority:" value="radio2" type="radio" />
                         <label for="radio2">
                             Medium Priority: Need Soon
                         </label>
-                        <input id="radio3" name="Priority:" value="radio3" type="radio" />
+                        <input id="addTask-priority-high" name="Priority:" value="radio3" type="radio" />
                         <label for="radio3">
                             Low Priority: Need Eventually
                         </label>
@@ -195,10 +196,10 @@
                 </div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
-						<label for="textinput10">
+						<label for="addTask-notes">
 							Notes:
 						</label>
-						<input name="" id="textinput10" placeholder="Enter Additional Notes" value="" type="text" />
+						<input name="" id="addTask-notes" placeholder="Enter Additional Notes" value="" type="text" />
 					</fieldset>
 				</div>
 			</div>
@@ -213,7 +214,7 @@
         <a data-role="button" href="#home-taskList" data-icon="delete" data-iconpos="left" class="ui-btn-left" data-theme="g">
             Cancel
         </a>
-        <a data-role="button" href="#home-taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
+        <a data-role="button" id="addTask-add" href="#home-taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
             Add Task
 		</a>
 		<h3></h3>
