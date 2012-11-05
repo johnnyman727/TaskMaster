@@ -138,16 +138,24 @@ function updateSharedFriendsHTML(cList){
 	}
 }
 
+function updateTaskDetailsHTML(task){
+	alert('pretend that I\'m changing the task details page');
+}
+
+
 listTemplate = null;
 headerTemplate = null;
 listItemTemplate = null;
+loadedUpdateContentHTML = false;
 function updateContentHTML(){
 	selectedContacts.sort();
 	//task list page
 	console.log('changing the inner content frames');
 	
 	//FIXME: empty the task list page here then build it again
-	if (listTemplate==null){
+	if (!loadedUpdateContentHTML){
+		loadedUpdateContentHTML = true;
+		
 		listTemplate = $('#hasTasks > ul')[0];
 		listTemplate = $(listTemplate).clone();
 
@@ -182,6 +190,8 @@ function updateContentHTML(){
 			var task = contact.taskList.tasks[j];
 			listItemElement = listItemTemplate.clone();
 			listItemElement.find('a').html(task.title);
+			listItemElement.find('a').attr('href','#taskDetailsPage');
+			listItemElement.find('a').click({theTask:task},function(e){updateTaskDetailsHTML(e.data.theTask)});
 			contactTaskList.append(listItemElement)
 			console.log(task.title)
 		}
@@ -216,6 +226,7 @@ function updateContinueButton(){
 
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts);});
 $(document).ready(updateContinueButton);
+//$(document).ready(updateContentHTML);
 
 
 //formatting home pages
@@ -238,3 +249,4 @@ $(document).ready(function(){
 	
 	/* Add Task Page */
 })
+
