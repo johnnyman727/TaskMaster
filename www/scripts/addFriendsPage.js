@@ -146,14 +146,37 @@ function updateTaskDetailsHTML(task){
 	}else{
 		$('#taskDetails-title').val(task.title);
 	}
-	if (task.)
-	$('#taskDetails-sharedWith')
-	$('#taskDetails-location')
-	$('#taskDetails-brand')
-	$('#taskDetails-price')
-	$('#taskDetails-priority')
-	$('#taskDetails-notes')
-	alert('pretend that I\'m changing the task details page');
+	if (task.sharedWith == null){
+		$('#taskDetails-sharedWith').hide();
+	}else{
+		$('#taskDetails-sharedWith').val(task.sharedWith);
+	}
+	if (task.location == null){
+		$('#taskDetails-location').hide();
+	}else{
+		$('#taskDetails-location').val(task.location);
+	}
+	if (task.location == null){
+		$('#taskDetails-brand').hide();
+	}else{
+		$('#taskDetails-brand').val(task.brand);
+	}
+	if (task.maxPrice == null){
+		$('#taskDetails-price').hide();
+	}else{
+		$('#taskDetails-price').val(task.maxPrice);
+	}
+	if (task.priority == null){
+		$('#taskDetails-priority').hide();
+	}else{
+		$('#taskDetails-priority').val(task.priority);
+	}
+	if (task.notes == null){
+		$('#taskDetails-notes');
+	}else{	
+		$('#taskDetails-notes').val(task.notes);
+	}
+	alert('This one\'s for Rachel');
 }
 
 
