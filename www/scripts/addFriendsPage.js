@@ -139,7 +139,7 @@ function updateSharedFriendsHTML(cList){
 }
 
 function updateTaskDetailsHTML(task){
-	alert('changing the task details page');
+	alert('pretend that I\'m changing the task details page');
 }
 
 
