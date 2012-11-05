@@ -14,6 +14,8 @@
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+	<script src="../scripts/jquery.ui.map.full.min.js"></script>
 	<!--populate contacts-->
 	<script src="../scripts/Contact.js"></script>
 	<script src="../scripts/ContactList.js"></script>
@@ -22,7 +24,7 @@
 	<script src="../scripts/initializeContactLists.js"></script>
 	<script src="../scripts/initializeNavbar.js"></script>
 	<script src="../scripts/addFriendsPage.js"></script>
-	<script src="../scripts/searchGoogleMaps.js"></script>
+	<script src="../scripts/map.js"></script>
 	<!--<script src="../scripts/sharedFriendsBar.js"></script>-->
 </head>
 	
@@ -231,7 +233,7 @@
 	</div><!-- /navbar -->
 	
 	<div data-role="content" class="home-contentWrapper_header" style="padding:0;">
-		<div style="padding:0; width:75%; float:left; height:100%; background:url('../assets/surrogateMap.png');">
+		<div id="map_canvas" style="padding:0; width:75%; float:left; height:100%">
 		</div>
 		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:hidden;">
 			<ul class="shareFriendsList">
