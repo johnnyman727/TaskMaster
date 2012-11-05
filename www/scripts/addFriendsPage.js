@@ -223,6 +223,7 @@ function updateContinueButton(){
 
 $(document).ready(function () {updateAddFriendsHTML(phoneContacts);});
 $(document).ready(updateContinueButton);
+$(document).ready(updateContentHTML);
 
 
 //formatting home pages
