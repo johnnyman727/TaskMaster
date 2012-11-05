@@ -149,39 +149,46 @@ function updateTaskDetailsHTML(task){
 	console.log(task)
 	console.log(task.title)
 	if (task.title == null){
-		$('#taskDetails-title').hide();
+		$('#taskDetails-container-title').hide();
 	}else{
 		$('#taskDetails-title').val(task.title);
+		$('#taskDetails-container-title').show();
 	}
 	if (task.sharedWith == null){
-		$('#taskDetails-sharedWith').hide();
+		$('#taskDetails-container-sharedWith').hide();
 	}else{
 		$('#taskDetails-sharedWith').val(task.sharedWith);
+		$('#taskDetails-container-sharedWith').show();
 	}
 	if (task.location == null){
-		$('#taskDetails-location').hide();
+		$('#taskDetails-container-location').hide();
 	}else{
 		$('#taskDetails-location').val(task.location);
+		$('#taskDetails-container-location').show();
 	}
-	if (task.location == null){
-		$('#taskDetails-brand').hide();
+	if (task.brand == null){
+		$('#taskDetails-container-brand').hide();
 	}else{
 		$('#taskDetails-brand').val(task.brand);
+		$('#taskDetails-container-brand').show();
 	}
 	if (task.maxPrice == null){
-		$('#taskDetails-price').hide();
+		$('#taskDetails-container-price').hide();
 	}else{
 		$('#taskDetails-price').val(task.maxPrice);
+		$('#taskDetails-container-price').show();
 	}
 	if (task.priority == null){
-		$('#taskDetails-priority').hide();
+		$('#taskDetails-container-priority').hide();
 	}else{
 		$('#taskDetails-priority').val(task.priority);
+		$('#taskDetails-container-priority').show();
 	}
 	if (task.notes == null){
-		$('#taskDetails-notes');
+		$('#taskDetails-container-notes').hide();
 	}else{	
 		$('#taskDetails-notes').val(task.notes);
+		$('#taskDetails-container-notes').show();
 	}
 }
 
