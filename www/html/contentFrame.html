@@ -22,6 +22,7 @@
 	<script src="../scripts/initializeContactLists.js"></script>
 	<script src="../scripts/initializeNavbar.js"></script>
 	<script src="../scripts/addFriendsPage.js"></script>
+	<script src="../scripts/searchGoogleMaps.js"></script>
 	<!--<script src="../scripts/sharedFriendsBar.js"></script>-->
 </head>
 	
@@ -29,9 +30,12 @@
 <!--Welcome Page-->
 <div data-role="page" data-theme="c" id="welcomePage">
     <div data-role="content" id="contentDiv">
-                <h3 style="text-align: center;">
+                <h1 style="text-align: center;">
                     Welcome to TaskMaster!
-                </h3>
+                </h1>
+                <center>
+                <IMG SRC="../assets/taskMaster.png" id="taskMaster" WIDTH=200 HEIGHT=200>
+                </center>
                 <h4 style="text-align: center;">
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
@@ -212,10 +216,8 @@
 				</div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
-						<label for="textinput2">
-							Location:
-						</label>
-						<input name="" id="textinput2" placeholder="Enter Task Location" value="" type="search" />
+						<label for="search-mini">Location:</label>
+						<input type="search" name="search-mini" id="search-mini" value="" data-mini="true" />
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
