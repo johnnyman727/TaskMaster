@@ -33,6 +33,7 @@
 <body>
 <!--Welcome Page-->
 <div data-role="page" data-theme="c" id="welcomePage">
+
     <div data-role="content" id="contentDiv">
                 <h1 style="text-align: center;">
                     Welcome to TaskMaster!
@@ -94,6 +95,24 @@
 
 	<div data-role="content" class="home-contentWrapper_header" style="padding:0;">
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+
+		<!-- Hidden Push Notification Button -->
+	<a href="#cvsNotification" data-rel="popup" data-position-to="window" data-transition="pop" ><div id="pushNotification" >
+		<style>
+			#pushNotification { background-color: transparent; height:50px; width:50px; position: absolute; bottom: 0; cursor: pointer;}
+		</style>
+
+	</div></a>
+	<div data-role="popup" id="cvsNotification" >
+			<script>
+			$( "#close_button" ).bind( "click", function(event, ui) {
+				$( "#cvsNotification" ).popup( "close" );
+			});
+		</script>
+		<p style="text-align:center;">Karen has completed your task of "Getting Shampoo" at CVS.<p>
+		<button id="close_button">Great!</button>
+
+	</div>
 			<div id="noTasks" style="padding:10px;">
 				<h2 style="margin-top:0"> Shared Tasks </h2>
 				<p>
