@@ -1,15 +1,21 @@
-/*Initialize the contact lists*/
+/*
+ * initializeContactLists.js
+ * 
+ * Initializes the major contact lists:
+ * 	-phoneContacts: any contacts in the phone that haven't been added to the app
+ * 	-addedContacts: any contacts that have been added to the phone
+ * 	-selectedContacts: any contacts that are currently selected
+ * 
+ * Populates phoneContacts and populates each contact with a task list
+ * 
+ */
+
+
 phoneContacts = new ContactList();
 addedContacts = new ContactList();
 selectedContacts = new ContactList();
+//add myself to the list
 me = new Contact("Me","../assets/Friends/JonMcKay.png",new TaskList());
-mySampleTask = new Task('Shampoo','You');
-mySampleTask.setBrand('Dove');
-mySampleTask.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
-mySampleTask.setMaxPrice ('$7.00');
-mySampleTask.setSharedWith ('You, Matt Sternke');
-mySampleTask.setPriority ('Medium');
-me.taskList.addTask(mySampleTask);
 
 addedContacts.addContact(me);
 selectedContacts.addContact(me);
@@ -44,7 +50,6 @@ task_0_0 = new Task('Shampoo',contactNames[0]);
 task_0_0.setBrand('Dove');
 task_0_0.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
 task_0_0.setMaxPrice ('$7.00');
-task_0_0.setSharedWith ('You, Matt Sternke');
 task_0_0.setPriority ('Medium');
 taskLists[0].addTask(task_0_0);
 
@@ -114,8 +119,19 @@ task_8_0.setNotes ('Already paid for. It is 3 shirts and 1 pair of pants');
 taskLists[8].addTask(task_8_0);
 
 
-for (var i=0; i < contactNames.length; i++){//FIXME: add the appropriate task list to each contact
+for (var i=0; i < contactNames.length; i++){
 	phoneContacts.addContact(new Contact(contactNames[i], contactImgPaths[i], taskLists[i]));
 }
+
+
+//FIXME: Delete this sample task
+mySampleTask = new Task('Shampoo',me);
+mySampleTask.setBrand('Dove');
+mySampleTask.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
+mySampleTask.setMaxPrice ('$7.00');
+mySampleTask.shareWith(phoneContacts.getContact(Contact.nameToId('Matt Sternke')));
+mySampleTask.setPriority ('Medium');
+me.taskList.addTask(mySampleTask);
+//
 
 phoneContacts.sort();

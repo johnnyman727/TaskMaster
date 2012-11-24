@@ -7,7 +7,10 @@ function createTaskFromForm(){
 	
 	//shared with
 	if ($('#addTask-sharedWith').val()!=''){
-		newTask.setSharedWith($('#addTask-sharedWith').val());//FIXME make these references to contacts
+		contactNames = $('#addTask-sharedWith').val().split(', ');
+		for (var i=0; i<contactNames.length; i++){
+			newTask.shareWith(addedContacts.getContact(Contact.nameToId(contactNames[i])));
+		}
 		$('#addTask-sharedWith').val('');
 	}
 	

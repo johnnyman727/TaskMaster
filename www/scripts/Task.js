@@ -1,3 +1,30 @@
+/*
+ * Task.js
+ * 
+ * Creates Task objects
+ * 	object variables:
+ * 		-title (string): the title to be displayed to the user
+ * 		-owner (Contact object): a reference to the Contact object that created the task
+ * 		-brand (string): *optional brand if applicable
+ * 		-id (string): a unique id for the task
+ * 		-lat (double): *optional latitude of the task location
+ * 		-lng (double): *optional longitude of the task location
+ * 		-location (string): *optional name of the task location
+ * 		-notes (string): *optional notes for the task
+ * 		-maxPrice (double): *optional maximum price of the task
+ * 		-priority (string): 'low'(default), 'medium', or 'high'
+ * 		-sharedWith (ContactList object): a ContactList containing all of the contacts that the item is shared with
+ * 
+ * 
+ * 	object methods:
+ * 		-setLocation(string, double, double): sets the name, latitude and longitude of the task location
+ * 		-setMaxPrice(double): sets the maxPrice of the item
+ * 		-setBrand(string): sets the brand of the item
+ * 		-setNotes(string): sets the notes of the item
+ * 		-shareWith(Contact object): shares the item with the specified contact
+ * 		-getSharedContactNames(): returns the list of names of contacts that the task was shared with
+ * 		-setPriority(string): sets the priority of an item, triggers an alert if the priority was invalid
+ */
 function Task(title,owner) {
 	this.title = title;
 	this.owner = owner;
@@ -7,10 +34,9 @@ function Task(title,owner) {
 	this.lng = null;
 	this.location = null;
 	this.notes = null;
-	this.active = true;
 	this.maxPrice = null;
 	this.priority = 'low';
-	this.sharedwith = null; 
+	this.sharedWith = new ContactList(); 	
 	
 	
 	this.setLocation = function(location,lat,lng){
@@ -31,21 +57,19 @@ function Task(title,owner) {
 		this.notes = notes;
 	}
 	
-	this.setSharedWith = function(sharedWith){
-		this.sharedWith = sharedWith;
+	this.shareWith = function(contact){
+		this.sharedWith.addContact(contact);
 	}
 	
+	this.getSharedContactNames = function(){
+		return this.sharedWith.getContactNames();
+	}
 	
 	this.setPriority = function(priority){
-		if ((priority.toLowerCase() != 'low') && (priority.toLowerCase() != 'medium') && (priority.toLowerCase() != 'high')){
-			alert('bad priority: '+priority.toLowerCase());
+		priority = priority.toLowerCase();
+		if ((priority != 'low') && (priority != 'medium') && (priority != 'high')){
+			alert('invalid priority: '+priority);
 		}
-		this.priority=priority.toLowerCase();
+		this.priority=priority;
 	}
 }
-
-
-//sampleTask = new Task('sampleTask',new Contact('sampleContact','sampleImg'))
-//sampleTask.title
-//sampleTask.setBrand('Dove')
-//sampleTask.brand

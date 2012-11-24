@@ -1,3 +1,18 @@
+/*
+ * TaskList.js
+ * 
+ * Creates task list objects
+ * 	object variables:
+ * 		-tasks (Array of Task objects) [no two tasks may share an id]
+ * 
+ * 	object methods:
+ * 		-addTask(Task object): adds a task to the task list
+ * 		-removeTask(string): removes the task with the matching id
+ * 		-getTask(string): returns a reference to the task with the matching id
+ * 		-hasTask(string): returns a boolean corresponding to the existance of a task in a list
+ * 		*-sort(): FIXME: this still needs to be implemented
+ * 
+ */
 function TaskList(){
 	this.tasks = [];
 	
