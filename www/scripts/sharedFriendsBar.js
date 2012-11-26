@@ -1,27 +1,17 @@
 /* Toggle the state of the element */
 function toggleSelectedContact(id){
-	var fullImgPath = addedContacts.getContact(id).imgPath.split('/');
-	var imgFilename = fullImgPath.pop().split('.');
-	
+	console.log(id);
+	$('#user_wrapper' + id).toggleClass("down");
+    $('#img_shade' + id).toggleClass('down');
+    $('#name_background' + id).toggleClass('down');
+
 	if (selectedContacts.hasContact(id)){
-		console.log('deselecting contact')
-		console.log(selectedContacts.getContactNames())
 		//remove the contact
 		selectedContacts.removeContact(id);
 		//change the style
-		imgFilename[0] += '_Unselected';
 	}else{
-		console.log('selecting contact')
-		//add the contact
 		selectedContacts.addContact(addedContacts.getContact(id));
-		//change the style
-		imgFilename[0] += '_Selected';
 	}
-	imgFilename = imgFilename.join('.');
-	fullImgPath.push(imgFilename);
-	fullImgPath = fullImgPath.join('/');
-	
-	$('.bar-'+id+' > img').attr('src',fullImgPath);
 }
 
 /* Populate the HTML list */
@@ -31,40 +21,34 @@ function updateSharedFriendsHTML(cList){
 	//Empty the list
 	ulFriendsNode = $('.shareFriendsList')
 	ulFriendsNode.empty()
-	
-	
+
 	//Re-Add each element
 	for (var i=0; i<cList.contacts.length; i++){
-		//create and setup the li element
-		var friendLI = $('<li>');
-		friendLI.attr('class','bar-'+cList.contacts[i].id)
-		
-		//create the anchor element
-		
-		//image
-		var imgPathItems = cList.contacts[i].imgPath.split('/');
-		var imgFilenameItems = imgPathItems[imgPathItems.length-1].split('.');
-		var imgFilename = imgFilenameItems[0];
-		var imgExtension = imgFilenameItems[1];
-		if (selectedContacts.hasContact(cList.contacts[i].id)){
-			imgFilename += '_Selected.' + imgExtension;
-		}else{
-			imgFilename += '_Unselected.' + imgExtension;
-		}
-		imgPathItems[imgPathItems.length-1] = imgFilename;
-		var finalImgPath = imgPathItems.join('/')
-		var friendImg = $('<img>');
-		friendImg.attr('src',finalImgPath);
-		
-		friendLI.append(friendImg);
+
+		var new_user = $('<div></div>').attr({'id' : 'user_wrapper' + cList.contacts[i].id, 
+												'class' : 'user' });
+
+		var prof_pic = $('<img class="prof_pic"></img>').attr('src', cList.contacts[i].imgPath);
+
+		var img_shade = $('<div class="img_shade"></div>').attr('id', 'img_shade' + cList.contacts[i].id);;
+
+		var user_name = $('<div class="user_name"></div>');
+
+		var name_background = $('<div class="name_background"></div>').attr('id', 'name_background' + cList.contacts[i].id);
+
+		var name_text = $('<div class="name_text"></div>').text(cList.contacts[i].name);
+
+		user_name.append(name_background, name_text);
+
+		new_user.append(prof_pic, img_shade, user_name);
 		
 		//handler
-		friendLI.click({id:cList.contacts[i].id},function(e){
+		new_user.click({id:cList.contacts[i].id},function(e){
 			toggleSelectedContact(e.data.id)
 			updateContentHTML()
 		});
 		
 		//add the li element to the DOM
-		ulFriendsNode.append(friendLI);
+		ulFriendsNode.append(new_user);
 	}
 }
