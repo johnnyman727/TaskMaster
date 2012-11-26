@@ -3,3 +3,12 @@
 	margin-left: 15px;
 	height:38px;
 }
+
+.readOnlyInput{
+	-webkit-box-shadow: none!important;
+	box-shadow: none!important;
+	border:0;
+	background:none;
+	font-weight:bold;
+	
+}

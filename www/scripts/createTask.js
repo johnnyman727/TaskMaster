@@ -57,6 +57,9 @@ function removeCurrentTask(){
 	updateContentHTML();
 }
 
-$(document).ready(function(){$('#addTask-add').click(createTaskFromForm);})
+$(document).ready(function(){
+	$('#addTask-add').click(createTaskFromForm);
+	$('#addTask-add').click(function(){$('#firstTimeAddTask').hide()});
+})
 
 $(document).ready(function(){$('#taskDetails-completeTask').click(removeCurrentTask)})

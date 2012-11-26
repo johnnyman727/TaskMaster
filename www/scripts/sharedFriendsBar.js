@@ -10,6 +10,7 @@ function toggleSelectedContact(id){
 		selectedContacts.removeContact(id);
 		//change the style
 	}else{
+		//add the contact
 		selectedContacts.addContact(addedContacts.getContact(id));
 	}
 }

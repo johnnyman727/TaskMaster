@@ -2,8 +2,6 @@
 currentTask = null;
 function updateTaskDetailsHTML(task){
 	currentTask = task;
-	console.log(task)
-	console.log(task.title)
 	if (task.title == null){
 		$('#taskDetails-container-title').hide();
 	}else{
@@ -13,7 +11,6 @@ function updateTaskDetailsHTML(task){
 	if (task.sharedWith.isEmpty()){
 		$('#taskDetails-container-sharedWith').hide();
 	}else{
-		console.log(task.getSharedContactNames());
 		sharedWith = task.getSharedContactNames();
 		sharedWith = sharedWith.join(', ');
 
