@@ -14,7 +14,7 @@ function updateContentHTML(){
 	if (!loadedUpdateContentHTML){
 		
 		loadedUpdateContentHTML = true;
-		listTemplate = $('#hasTasks > ul')[0];
+		listTemplate = $('#taskLists > ul')[0];
 		listTemplate = $(listTemplate).clone();
 
 		headerTemplate = listTemplate.children('li')[0];
@@ -26,8 +26,8 @@ function updateContentHTML(){
 		listTemplate.empty()
 	}
 	
-	$('#hasTasks > ul').remove();
-	var taskListContainer = $('#hasTasks');
+	$('#taskLists > ul').remove();
+	var taskListContainer = $('#taskLists');
 	
 	for (var i=0;i<selectedContacts.contacts.length;i++){
 		var contact = selectedContacts.contacts[i];
@@ -78,9 +78,8 @@ function updateContentHTML(){
 $(document).ready(function(){
 	/* Task List Page */
 	//hide all of the content so that we can grab the height of the empty div
-	$('#noTasks').hide()
-	$('#hasTasks').hide()
-	$('.shareFriendsList').hide()
+	$('#taskLists').hide();
+	$('.shareFriendsList').hide();
 	
 	//height of the empty div - height of the header padding
 	contentHeight = $('#home-taskList').height();
@@ -89,6 +88,6 @@ $(document).ready(function(){
 	$('.home-contentWrapper_headerfooter').height(contentHeight-53-42);
 	
 	//show the content again
-	$('#hasTasks').show()
-	$('.shareFriendsList').show()
+	$('#taskLists').show();
+	$('.shareFriendsList').show();
 });

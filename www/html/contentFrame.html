@@ -99,40 +99,39 @@
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 
 		<!-- Hidden Push Notification Button -->
-	<a href="#cvsNotification" data-rel="popup" data-position-to="window" data-transition="pop" ><div id="pushNotification" >
-		<style>
-			#pushNotification { background-color: transparent; height:50px; width:50px; position: absolute; bottom: 0; cursor: pointer;}
-		</style>
+		<a href="#cvsNotification" data-rel="popup" data-position-to="window" data-transition="pop" ><div id="pushNotification" >
+			<style>
+				#pushNotification { background-color: transparent; height:50px; width:50px; position: absolute; bottom: 0; cursor: pointer;}
+			</style>
 
-	</div></a>
-	<div data-role="popup" id="cvsNotification" >
+		</div></a>
+		<div data-role="popup" id="cvsNotification" >
 			<script>
 			$( "#close_button" ).bind( "click", function(event, ui) {
 				$( "#cvsNotification" ).popup( "close" );
 			});
-		</script>
-		<p style="text-align:center;">Karen has completed your task of "Getting Shampoo" at CVS.<p>
-		<button id="close_button">Great!</button>
+			</script>
+			<p style="text-align:center;">Karen has completed your task of "Getting Shampoo" at CVS.<p>
+			<button id="close_button">Great!</button>
 
-	</div>
-			<div id="noTasks" style="padding:10px;">
-				<h2 style="margin-top:0"> Shared Tasks </h2>
-				<p>
-				You have no tasks yet. Hit the add task button above to add and share a task.
-				</p>
+		</div>
+		<div id="taskLists" style="padding:10px;">
+			<div id="firstTimeAddTask">
+				<img src="../assets/upArrow.png" style="position:relative; left:45%;"/>
+				<p style="text-align:center; margin-top:5px;">Click here to add a task.</p>
 			</div>
-			<div id="hasTasks" style="padding:10px;"><h2 style="margin-top:0"> Shared Tasks </h2>
-				<ul data-role="listview" data-divider-theme="a" data-inset="true">
-					<li data-role="list-divider" role="heading">
-						My Tasks:
-					</li>
-					<li data-theme="c">
-						<a href="#page1" data-transition="slide">
-							Shampoo
-						</a>
-					</li>
-				</ul>
-			</div>
+			<h2 style="margin-top:0"> Task List </h2>
+			<ul data-role="listview" data-divider-theme="a" data-inset="true">
+				<li data-role="list-divider" role="heading">
+					My Tasks:
+				</li>
+				<li data-theme="c">
+					<a href="#page1" data-transition="slide">
+						Shampoo
+					</a>
+				</li>
+			</ul>
+		</div>
 		</div>
 		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:hidden;">
 			<ul class="shareFriendsList">
@@ -292,7 +291,7 @@
 				<label for="taskDetails-title">
 					Title:
 				</label>
-				<input name="" id="taskDetails-title" placeholder="" value="" type="text" readonly />
+				<input name="" id="taskDetails-title" placeholder="" value="" type="text" class="readOnlyInput" readonly />
 			</fieldset>
 		</div>
 		<div data-role="fieldcontain" id="taskDetails-container-sharedWith">
@@ -300,7 +299,7 @@
 				<label for="taskDetails-sharedWith">
 					Tasks Shared With:
 				</label>
-				<textarea name="" id="taskDetails-sharedWith" placeholder="" value="" type="text" readonly></textarea>
+				<textarea name="" id="taskDetails-sharedWith" placeholder="" value="" type="text" class="readOnlyInput" readonly></textarea>
 			</fieldset>
 		</div>
 		<div class="ui-grid-a" id="taskDetails-container-location">
@@ -310,7 +309,7 @@
 						<label for="taskDetails-location">
 							Location:
 						</label>
-						<input name="" id="taskDetails-location" placeholder="" value="" type="text" readonly />
+						<input name="" id="taskDetails-location" placeholder="" value="" type="text" class="readOnlyInput" readonly />
 					</fieldset>
 				</div>
 			</div>
@@ -325,7 +324,7 @@
 				<label for="taskDetails-brand">
 					Brand:
 				</label>
-				<input name="" id="taskDetails-brand" placeholder="" value="" type="text" readonly />
+				<input name="" id="taskDetails-brand" placeholder="" value="" type="text" class="readOnlyInput" readonly />
 			</fieldset>
 		</div>
 		<div data-role="fieldcontain" id="taskDetails-container-price">
@@ -333,7 +332,7 @@
 				<label for="taskDetails-price">
 					Maximum Price:
 				</label>
-				<input name="" id="taskDetails-price"  value="" type="text" readonly />
+				<input name="" id="taskDetails-price"  value="" type="text" class="readOnlyInput" readonly />
 			</fieldset>
 		</div>
 		<div data-role="fieldcontain" id="taskDetails-container-priority">
@@ -341,7 +340,7 @@
 				<label for="taskDetails-priority">
 					Priority:
 				</label>
-				<input name="" id="taskDetails-priority" placeholder="" value="" type="text" readonly />
+				<input name="" id="taskDetails-priority" placeholder="" value="" type="text" class="readOnlyInput" readonly />
 			</fieldset>
 		</div>
 		<div data-role="fieldcontain" id="taskDetails-container-notes">
@@ -349,7 +348,7 @@
 				<label for="taskDetails-notes">
 					Notes:
 				</label>
-				<textarea name="" id="taskDetails-notes" placeholder="" value="" type="text" readonly></textarea>
+				<textarea name="" id="taskDetails-notes" placeholder="" value="" type="text" class="readOnlyInput" readonly></textarea>
 			</fieldset>
 		</div>
 	</div>

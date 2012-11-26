@@ -4,14 +4,11 @@ function toggleSelectedContact(id){
 	var imgFilename = fullImgPath.pop().split('.');
 	
 	if (selectedContacts.hasContact(id)){
-		console.log('deselecting contact')
-		console.log(selectedContacts.getContactNames())
 		//remove the contact
 		selectedContacts.removeContact(id);
 		//change the style
 		imgFilename[0] += '_Unselected';
 	}else{
-		console.log('selecting contact')
 		//add the contact
 		selectedContacts.addContact(addedContacts.getContact(id));
 		//change the style
