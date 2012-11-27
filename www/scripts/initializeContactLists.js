@@ -15,7 +15,7 @@ phoneContacts = new ContactList();
 addedContacts = new ContactList();
 selectedContacts = new ContactList();
 //add myself to the list
-me = new Contact("Me","../assets/Friends/JonMcKay.png");
+me = new Contact("Me","http://sphotos-b.xx.fbcdn.net/hphotos-ash4/422186_10151147600205676_1487493643_n.jpg");
 
 addedContacts.addContact(me);
 selectedContacts.addContact(me);
@@ -31,15 +31,15 @@ contactNames[6] = "Nicholas Pjevach";
 contactNames[7] = "Peter Lokken";
 contactNames[8] = "Sean O\'Toole";
 var contactImgPaths = [];
-contactImgPaths[0] = "../assets/Friends/DannyMarz.png";
-contactImgPaths[1] = "../assets/Friends/JasperManiatesSelvin.png";
-contactImgPaths[2] = "../assets/Friends/KristineKammers.png";
-contactImgPaths[3] = "../assets/Friends/MattSternke.png";
-contactImgPaths[4] = "../assets/Friends/MichaelGallert.png";
-contactImgPaths[5] = "../assets/Friends/MichelleKammers.png";
-contactImgPaths[6] = "../assets/Friends/NicholasPjevach.png";
-contactImgPaths[7] = "../assets/Friends/PeterLokken.png";
-contactImgPaths[8] = "../assets/Friends/SeanOToole.png";
+contactImgPaths[0] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/417209_3743771907195_821635797_n.jpg";
+contactImgPaths[1] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/402325_102279099927802_256062279_n.jpg";
+contactImgPaths[2] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash3/559289_10151360489702784_1004500304_n.jpg";
+contactImgPaths[3] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/422314_10151066270671588_824227318_n.jpg";
+contactImgPaths[4] = "http://sphotos-b.xx.fbcdn.net/hphotos-prn1/61411_4971155997384_393351046_n.jpg";
+contactImgPaths[5] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/p206x206/381682_10151241254989492_1637677474_n.jpg";
+contactImgPaths[6] = "http://sphotos-a.xx.fbcdn.net/hphotos-prn1/558459_10152082072565006_773901193_n.jpg";
+contactImgPaths[7] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/217887_3671299698325_900707314_n.jpg";
+contactImgPaths[8] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/402372_2853430369225_1990434808_n.jpg";
 
 for (var i=0; i < contactNames.length; i++){
 	phoneContacts.addContact(new Contact(contactNames[i], contactImgPaths[i]));

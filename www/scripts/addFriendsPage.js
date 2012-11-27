@@ -47,7 +47,6 @@ function updateAddFriendsHTML(cList){
 	//so we should probably fix it at somepoint
 	var liExample = $("#addFriendsList > li:first").clone()
 	ulFriendsNode.empty();
-	
 	for (var i=0; i<cList.contacts.length; i++){
 		var friendLI = liExample.clone();
 		//Make the theme consistant
