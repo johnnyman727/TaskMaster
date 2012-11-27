@@ -1,7 +1,11 @@
-listTemplate = null;
-headerTemplate = null;
-listItemTemplate = null;
-loadedUpdateContentHTML = false;
+/*
+ * homePages.js
+ * 
+ * this script will manage updates to the home pages (task list, add 
+ * task, map) that occur when friends are selected and deselected.
+ * 
+ * 
+ */
 function updateContentHTML(){
 	selectedContacts.sort();
 	/*
@@ -9,51 +13,60 @@ function updateContentHTML(){
 	 * Task List Page
 	 * 
 	 */
-	
-	//FIXME: empty the task list page here then build it again
-	if (!loadedUpdateContentHTML){
-		
-		loadedUpdateContentHTML = true;
-		listTemplate = $('#taskLists > ul')[0];
-		listTemplate = $(listTemplate).clone();
-
-		headerTemplate = listTemplate.children('li')[0];
-		headerTemplate = $(headerTemplate).clone();
-
-		listItemTemplate = listTemplate.children('li')[1];
-		listItemTemplate = $(listItemTemplate).clone();
-		
-		listTemplate.empty()
-	}
-	
 	$('#taskLists > ul').remove();
-	var taskListContainer = $('#taskLists');
-	
-	for (var i=0;i<selectedContacts.contacts.length;i++){
-		var contact = selectedContacts.contacts[i];
+	//build each list
+	for (var i=0; i<selectedContacts.contacts.length; i++){
+		var aTaskList = $('<ul>');
+		aTaskList.attr('data-divider-theme','a');
+		aTaskList.attr('data-inset','true');
+		var listOwner = selectedContacts.contacts[i];
 		
-		var contactTaskList = listTemplate.clone();
-		
-		var contactTaskListHeader = headerTemplate.clone();
-		if (contact.name == 'Me'){
-			contactTaskListHeader.html('My Tasks:');
+		//add list title
+		if (listOwner==me){
+			var listTitle = $('<li>').append($('<a>').text('My Tasks'));
 		}else{
-			contactTaskListHeader.html(contact.name + '\'s Tasks:');
+			var listOwnerName = listOwner.name.split(' ')[0];
+			var listTitle = $('<li>').append($('<a>').text(listOwnerName+'\'s Tasks'));
 		}
-		contactTaskList.append(contactTaskListHeader);
+		listTitle.attr('data-role','list-divider');
+		listTitle.attr('role','heading');
+		aTaskList.append(listTitle);
 		
-		for (var j=0;j<contact.taskList.tasks.length;j++){
-			var task = contact.taskList.tasks[j];
-			listItemElement = listItemTemplate.clone();
-			listItemElement.find('a').html(task.title);
-			listItemElement.find('a').attr('href','#taskDetailsPage');
-			listItemElement.find('a').click({theTask:task},function(e){updateTaskDetailsHTML(e.data.theTask)});
-			contactTaskList.append(listItemElement);
+		//add list items
+		var tasks = listOwner.taskList.tasks;
+		if (tasks.length){
+			for (var j=0; j<tasks.length; j++){
+				var taskLink = $('<a>').text(tasks[j].title);
+				taskLink.click({theTask:tasks[j]},function(e){updateTaskDetailsHTML(e.data.theTask)});
+				taskLink.attr('href','#taskDetailsPage');
+				var aTask = $('<li>').append(taskLink);
+				aTaskList.append(aTask);
+			}
+		}else{
+			if (listOwner==me){
+				var taskLink = $('<a>').text('You have no tasks');
+			}else{
+				var taskLink = $('<a>').text(listOwnerName + ' has no tasks');
+			}	
+			var aTask = $('<li>').append(taskLink);
+			aTask.addClass('noIcon')
+			aTaskList.append(aTask);
 		}
-		taskListContainer.append(contactTaskList);
+		
+		$('#taskLists').append(aTaskList);
+		aTaskList.listview();
 	}
-	
+	//remove the icon on the list
+	$('#taskLists .noIcon').removeAttr('data-icon');
+	$('#taskLists .noIcon span').remove();
+	$('#taskLists .noIcon').removeClass('ui-btn-icon-right');
+	$('#taskLists .noIcon').removeClass('ui-li-has-arrow');
 	/*
+	 * 
+	 * End Task List Page
+	 * 
+	 */
+ 	/*
 	 * 
 	 * Add Task Page
 	 * 
@@ -70,9 +83,13 @@ function updateContentHTML(){
 		}
 	}
 	$('#addTask-sharedWith').val(selectedNames);
+	$('#addTask-sharedWith').trigger('keyup');
+	/*
+	 * 
+	 * End Add Task Page
+	 * 
+	 */
 }
-
-
 
 //formatting home pages
 $(document).ready(function(){
@@ -90,4 +107,16 @@ $(document).ready(function(){
 	//show the content again
 	$('#taskLists').show();
 	$('.shareFriendsList').show();
+	
+	//remove the icon on the list
+	$('#taskLists .noIcon').removeAttr('data-icon');
+	$('#taskLists .noIcon span').remove();
+	$('#taskLists .noIcon').removeClass('ui-btn-icon-right');
+	$('#taskLists .noIcon').removeClass('ui-li-has-arrow');
+});
+
+$(document).bind('pagechange',function(e,d){
+	if (d.toPage[0].id=='home-taskList'){
+		updateContentHTML();
+	}
 });

@@ -48,3 +48,15 @@ function updateTaskDetailsHTML(task){
 		$('#taskDetails-container-notes').show();
 	}
 }
+
+function removeCurrentTask(){
+	console.log('deleting task:')
+	console.log(currentTask)
+	currentTask.owner.taskList.removeTask(currentTask.id);
+	if (currentTask.owner.name!='Me'){
+		alert(currentTask.owner.name+' has been notified that you have finished his task.');
+	}
+	updateContentHTML();
+}
+
+$(document).ready(function(){$('#taskDetails-completeTask').click(removeCurrentTask)})

@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="../styles/home.css" />
 	<link rel="stylesheet" href="../styles/sharedFriendsBar.css"/>
 	<link rel="stylesheet" href="../styles/taskDetails.css" />
+	<link rel="stylesheet" href="../styles/addTask.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -123,11 +124,11 @@
 			<h2 style="margin-top:0"> Task List </h2>
 			<ul data-role="listview" data-divider-theme="a" data-inset="true">
 				<li data-role="list-divider" role="heading">
-					My Tasks:
+					My Tasks
 				</li>
-				<li data-theme="c">
-					<a href="#page1" data-transition="slide">
-						Shampoo
+				<li data-theme="c" data-icon="">
+					<a>
+						You have no tasks
 					</a>
 				</li>
 			</ul>
@@ -170,12 +171,12 @@
 		                <label for="addTask-sharedWith">
 							Share This Task With:
 						</label>
-						<textarea name="" id="addTask-sharedWith" placeholder="Tap Friends to Share With" value="" type="text" readonly></textarea>
+						<textarea name="" id="addTask-sharedWith" placeholder="Tap friends to share this task with" value="" type="text" readonly></textarea>
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
-						<label for="search-mini">Location:</label>
+						<label for="addTask-location">Location:</label>
 						<input type="search" id="addTask-location" name="search-mini" id="search-mini" value="" data-mini="true" />
 					</fieldset>
 				</div>

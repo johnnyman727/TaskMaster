@@ -17,12 +17,12 @@
  * the same id as the HTML element.
  */
 
-function Contact(name, imgPath, taskList){
+function Contact(name, imgPath){
 	this.name = name;
 	this.id = Contact.nameToId(name);
 	this.id = this.id.replace("\'", "");
 	this.imgPath = imgPath;
-	this.taskList = taskList;
+	this.taskList = new TaskList();
 }
 
 Contact.nameToId = function(name){
