@@ -20,11 +20,16 @@
 	<!--objects-->
 	<script src="../scripts/Contact.js"></script>
 	<script src="../scripts/ContactList.js"></script>
+	<script src="../scripts/Group.js"></script>
 	<script src="../scripts/Task.js"></script>
 	<script src="../scripts/TaskList.js"></script>
 	<!--scripts-->
-	<script src="../scripts/initializeContactLists.js"></script>
+	<script src="../scripts/initialize.js"></script>
+	<script src="../scripts/firstUseAddFriendsPage.js"></script>
+	<script src="../scripts/manageFriendsPage.js"></script>
 	<script src="../scripts/addFriendsPage.js"></script>
+	<script src="../scripts/addGroupPage.js"></script>
+	<script src="../scripts/inviteFriendsPage.js"></script>
 	<script src="../scripts/sharedFriendsBar.js"></script>
 	<script src="../scripts/taskDetailsPage.js"></script>
 	<script src="../scripts/homePages.js"></script>
@@ -46,21 +51,22 @@
                 <h4 style="text-align: center;">
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
-                <a data-role="button" data-theme="f" href="#addFriends" id="welcomeContinueButton">
+                <a data-role="button" data-theme="f" href="#firstUseAddFriends" id="welcomeContinueButton">
                     Get Crackin!
                 </a>
 	</div>
 </div>
 
+<!-- First Use Add Friends Screen-->
 <!--Add Friends-->
-<div data-role="page" id="addFriends">
+<div data-role="page" id="firstUseAddFriends">
     <div data-role="header" data-position="fixed">
         <h3>
             Add Friends
         </h3>
     </div>
     <div data-role="content">
-        <ul id="addFriendsList" data-role="listview" data-inset="false" data-filter="true" data-filter-placeholder="Find your friends...">
+        <ul id="firstUseAddFriendsList" data-role="listview" data-inset="false" data-filter="true" data-filter-placeholder="Find your friends...">
             <li data-theme="c" data-icon="plus">
                 <a href="#" data-transition="turn">
                     <img src="../assets/Friends/DannyMarz.jpg" class="ui-li-thumb">
@@ -81,6 +87,162 @@
 	</div>
 </div>
 
+<!-- Friend Management -->
+
+<!-- Manage Friends-->
+<div data-role="page" id="friends-manage">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example">
+			<ul>
+				<li id="manageButton"><a href="#friends-manage" id="manageFriendsIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
+				<li id="addFriendsButton"><a href="#friends-add" id="addFriendsIcon" data-icon="custom"></a></li>
+				<li id="addGroupButton"><a href="#friends-addGroup" id="addGroupIcon" data-icon="custom"></a></li>
+				<li id="inviteButton"><a href="#friends-invite" id="inviteFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<ul data-role="listview" data-inset="true" data-divider-theme="a">
+			<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>
+		</ul>
+		<div data-role="popup" id="deleteNotification" >
+			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?<p>
+			<button id="deleteFriend-cancelButton">Cancel</button>
+			<button id="deleteFriend-deleteButton">Delete</button>
+
+		</div>
+	</div>
+
+	<div data-role="footer">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
+            Back To Task List
+		</a>
+		<h3></h3>
+	</div>
+</div>
+
+<div data-role="page" id="friends-add">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example">
+			<ul>
+				<li id="manageButton"><a href="#friends-manage" id="manageFriendsIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#friends-add" id="addFriendsIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
+				<li id="addGroupButton"><a href="#friends-addGroup" id="addGroupIcon" data-icon="custom"></a></li>
+				<li id="inviteButton"><a href="#friends-invite" id="inviteFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<div style="padding:0; width:100%; float:left; height:100%; overflow-y:scroll">
+			<ul data-role="listview" id="AddFriendsListView" data-divider-theme="a" data-inset="true">
+				<li data-role="list-divider" id="requestsList">Pending Requests</li>
+				<li data-role="list-divider" id="addFriendsList">Add Friends With The App</li>
+
+			</ul>
+		</div>
+	</div>
+	<div data-role="footer">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
+            Back To Task List
+		</a>
+		<h3></h3>
+	</div>
+</div>
+
+<!-- Add Group-->
+<style>
+	label{
+		text-align: center;
+	}
+	.ui-field-contain{
+		padding:5px;
+	}
+</style>
+<div data-role="page" id="friends-addGroup">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example">
+			<ul>
+				<li id="manageButton"><a href="#friends-manage" id="manageFriendsIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#friends-add" id="addFriendsIcon" data-icon="custom"></a></li>
+				<li id="addGroupButton"><a href="#friends-addGroup" id="addGroupIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
+				<li id="inviteButton"><a href="#friends-invite" id="inviteFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="addGroup-title">
+                    Group Name
+                </label>
+                <input name="" id="addGroup-title" placeholder="Enter Group Name" value="" type="text" />
+            </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="addGroup-title">
+                    Friends in the Group
+                </label>
+                <input name="" id="addGroup-friendList" placeholder="Tap Friends to Add" value="" type="text" readonly/>
+            </fieldset>
+        </div>
+
+        <ul data-role="listview" data-divider-theme="a" data-inset="true">
+        		<li data-role="list-divider" id="availableFriendsForGrouping">Friends</li>
+			</ul>
+	</div>
+	<div data-role="footer">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
+            Back To Task List
+		</a>
+		<a data-role="button" id="save-group-button" data-icon="save" data-iconpos="right" class="ui-btn-left" data-theme="f">
+            Save Group
+		</a>
+		<h3></h3>
+	</div>
+</div>
+
+
+<!-- Invite Friends-->
+<style>
+.inviteFriendButton > span{
+	padding-right:11px; 
+}
+}
+</style>
+<div data-role="page" id="friends-invite">
+	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example">
+			<ul>
+				<li id="manageButton"><a href="#friends-manage" id="manageFriendsIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#friends-add" id="addFriendsIcon" data-icon="custom"></a></li>
+				<li id="addGroupButton"><a href="#friends-addGroup" id="addGroupIcon" data-icon="custom"></a></li>
+				<li id="inviteButton"><a href="#friends-invite" id="inviteFriendsIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<h2>
+			Invite your friends to use TaskMaster with you!
+		</h2>
+		<ul data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
+            <li id="inviteFriendsList" id="" data-role="list-divider" role="header">
+        </ul>
+        <div data-role="popup" id="inviteNotification" >
+			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?<p>
+			<button id="inviteFriend-cancelButton">Cancel</button>
+			<button id="inviteFriend-inviteButton">Invite</button>
+
+		</div>
+	</div>
+	
+	<div data-role="footer">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
+            Back To Task List
+		</a>
+		<h3></h3>
+	</div>
+</div>
 
 <!-- Home Page - TaskList -->
 <div data-role="page" id="home-taskList">
@@ -90,7 +252,7 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom" data-theme="f"></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->
@@ -148,10 +310,10 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom"  data-theme="f"></a></li>
 			</ul>
 		</div>
-	</div><!-- /navbar -->
+	</div>
 	
 	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
@@ -253,7 +415,7 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
-				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom"  data-theme="f"></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->

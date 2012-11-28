@@ -11,7 +11,7 @@ function toggleSelectedContact(id){
 		//change the style
 	}else{
 		//add the contact
-		selectedContacts.addContact(addedContacts.getContact(id));
+		selectedContacts.addContact(addedFriends.getContact(id));
 	}
 }
 
@@ -53,3 +53,11 @@ function updateSharedFriendsHTML(cList){
 		ulFriendsNode.append(new_user);
 	}
 }
+
+$(document).ready(function () {
+	updateSharedFriendsHTML(addedFriends);
+
+	$('#add-friends-back').click(function(event) {
+		updateSharedFriendsHTML(addedFriends);
+	});
+});

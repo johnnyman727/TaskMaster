@@ -10,3 +10,8 @@
 		
 #addFriendsIcon .ui-icon { background:  url(../assets/add-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
 
+#manageFriendsIcon .ui-icon { background:  url(../assets/manage-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+
+#inviteFriendsIcon .ui-icon { background:  url(../assets/invite-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+
+#addGroupIcon .ui-icon { background:  url(../assets/add-group-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
