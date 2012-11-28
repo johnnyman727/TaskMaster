@@ -1,6 +1,14 @@
 
 currentTask = null;
 function updateTaskDetailsHTML(task){
+	
+	//only allow editing if you are the owner
+	if (task.owner == me){
+		$('taskDetails-editTask').show();
+	}else{
+		$('taskDetails-editTask').show();
+	}
+	
 	currentTask = task;
 	if (task.title == null){
 		$('#taskDetails-container-title').hide();

@@ -1,7 +1,8 @@
 #mapButton {
 	margin-top: 2.35em;
-	margin-left: 15px;
+	margin-left: 10px;
 	height:38px;
+	width:100px;
 }
 
 .readOnlyInput{
@@ -11,4 +12,9 @@
 	background:none;
 	font-weight:bold;
 	resize:none;
+}
+
+.ui-field-contain{
+	padding-left:10px;
+	padding-right:10px;
 }
