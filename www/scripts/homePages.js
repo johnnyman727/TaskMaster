@@ -1,3 +1,4 @@
+
 /*
  * homePages.js
  * 
@@ -34,6 +35,7 @@ function updateContentHTML(){
 		
 		//add list items
 		var tasks = listOwner.taskList.tasks;
+		console.log(tasks)
 		if (tasks.length){
 			for (var j=0; j<tasks.length; j++){
 				var taskLink = $('<a>').text(tasks[j].title);
@@ -93,6 +95,7 @@ function updateContentHTML(){
 
 //formatting home pages
 $(document).ready(function(){
+	
 	/* Task List Page */
 	//hide all of the content so that we can grab the height of the empty div
 	$('#taskLists').hide();
@@ -103,7 +106,6 @@ $(document).ready(function(){
 	$('.home-contentWrapper').height(contentHeight);
 	$('.home-contentWrapper_header').height(contentHeight-53);
 	$('.home-contentWrapper_headerfooter').height(contentHeight-53-42);
-	
 	//show the content again
 	$('#taskLists').show();
 	$('.shareFriendsList').show();

@@ -59,7 +59,7 @@ function updateRequestsHTML(cList) {
 		var listItem = $('<li data-theme="c" class="pendingRequest"></li>').attr("id", "pendingRequestListItem-" + cList.contacts[i].id);
 	    var profPic = $('<img class="ui-li-thumb"></img>').attr('src', cList.contacts[i].imgPath);
 	   	var name = $('<h1></h1>').text(cList.contacts[i].name);
-	    var rejectButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" ><span class="ui-btn-corner-all"><span class="ui-btn-text">Delete</span></span></div>').attr('id', 'acceptButton-'+ cList.contacts[i].id);
+	    var rejectButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c"><span class="ui-btn-corner-all"><span class="ui-btn-text">Delete</span></span></div>').attr('id', 'acceptButton-'+ cList.contacts[i].id);
 	    var acceptButton = $('<div data-role="button" data-theme="b" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Accept</span></span></div>').attr('id', 'rejectButton-'+ cList.contacts[i].id);
 
 	    rejectButton.click(function(event) {
@@ -76,8 +76,8 @@ function updateRequestsHTML(cList) {
 	    	var id = parts[1];
 	    	var li = $('#pendingRequestListItem-' + id);
 	    	li.remove();
+	    	addedFriends.addContact(pendingContacts.getContact(id));
 	    	pendingContacts.removeContact(id);
-	    	addedContacts.addContact(pendingContacts.getContact(id));
 	    });
 
 	    listItem.append(profPic, name, acceptButton, rejectButton);
