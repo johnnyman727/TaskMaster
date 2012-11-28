@@ -1,6 +1,14 @@
 
 currentTask = null;
 function updateTaskDetailsHTML(task){
+	
+	//only allow editing if you are the owner
+	if (task.owner == me){
+		$('taskDetails-editTask').show();
+	}else{
+		$('taskDetails-editTask').show();
+	}
+	
 	currentTask = task;
 	if (task.title == null){
 		$('#taskDetails-container-title').hide();
@@ -48,3 +56,13 @@ function updateTaskDetailsHTML(task){
 		$('#taskDetails-container-notes').show();
 	}
 }
+
+function removeCurrentTask(){
+	currentTask.owner.taskList.removeTask(currentTask.id);
+	if (currentTask.owner.name!='Me'){
+		alert(currentTask.owner.name+' has been notified that you have finished his task.');
+	}
+	updateContentHTML();
+}
+
+$(document).ready(function(){$('#taskDetails-completeTask').click(removeCurrentTask)})

@@ -2,7 +2,7 @@ currentTask = null
 
 function createTaskFromForm(){
 	//title
-	var newTask = new Task($('#addTask-title').val(),'You');
+	var newTask = new Task($('#addTask-title').val(),me);
 	$('#addTask-title').val('');
 	
 	//shared with
@@ -48,18 +48,8 @@ function createTaskFromForm(){
 	updateContentHTML();
 }
 
-function removeCurrentTask(){
-	if (currentTask.owner=="You"){
-		me.taskList.removeTask(currentTask.id);
-	}else{
-		alert(currentTask.owner+' has been notified that you have finished his task.');
-	}
-	updateContentHTML();
-}
-
 $(document).ready(function(){
 	$('#addTask-add').click(createTaskFromForm);
 	$('#addTask-add').click(function(){$('#firstTimeAddTask').hide()});
 })
 
-$(document).ready(function(){$('#taskDetails-completeTask').click(removeCurrentTask)})

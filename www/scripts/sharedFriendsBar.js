@@ -1,9 +1,9 @@
 /* Toggle the state of the element */
 function toggleSelectedContact(id){
-	console.log(id);
-	$('#user_wrapper' + id).toggleClass("down");
-    $('#img_shade' + id).toggleClass('down');
-    $('#name_background' + id).toggleClass('down');
+	console.log($('.user_wrapper' + id));
+	$('.user_wrapper' + id).toggleClass('down');
+    $('.img_shade' + id).toggleClass('down');
+    $('.name_background' + id).toggleClass('down');
 
 	if (selectedContacts.hasContact(id)){
 		//remove the contact
@@ -15,6 +15,7 @@ function toggleSelectedContact(id){
 	}
 }
 
+
 /* Populate the HTML list */
 function updateSharedFriendsHTML(cList){
 	cList.sort()
@@ -25,19 +26,25 @@ function updateSharedFriendsHTML(cList){
 
 	//Re-Add each element
 	for (var i=0; i<cList.contacts.length; i++){
-
-		var new_user = $('<div></div>').attr({'id' : 'user_wrapper' + cList.contacts[i].id, 
-												'class' : 'user' });
+		id = cList.contacts[i].id;
+		
+		var new_user = $('<div></div>').attr('class', 'user_wrapper' + id + ' user');
 
 		var prof_pic = $('<img class="prof_pic"></img>').attr('src', cList.contacts[i].imgPath);
 
-		var img_shade = $('<div class="img_shade"></div>').attr('id', 'img_shade' + cList.contacts[i].id);;
+		var img_shade = $('<div></div>').attr('class', 'img_shade img_shade' + id);
 
 		var user_name = $('<div class="user_name"></div>');
 
-		var name_background = $('<div class="name_background"></div>').attr('id', 'name_background' + cList.contacts[i].id);
+		var name_background = $('<div></div>').attr('class', 'name_background name_background' + id);
 
 		var name_text = $('<div class="name_text"></div>').text(cList.contacts[i].name);
+
+		if (selectedContacts.hasContact(cList.contacts[i].id)){
+			new_user.toggleClass('down');
+			img_shade.toggleClass('down');
+			name_background.toggleClass('down');
+		}
 
 		user_name.append(name_background, name_text);
 

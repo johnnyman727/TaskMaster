@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="../styles/home.css" />
 	<link rel="stylesheet" href="../styles/sharedFriendsBar.css"/>
 	<link rel="stylesheet" href="../styles/taskDetails.css" />
+	<link rel="stylesheet" href="../styles/addTask.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -34,6 +35,7 @@
 	<script src="../scripts/taskDetailsPage.js"></script>
 	<script src="../scripts/homePages.js"></script>
 	<script src="../scripts/createTask.js"></script>
+	<script src="../scripts/editTask.js"></script>
 	<script src="../scripts/map.js"></script>
 </head>
 	
@@ -285,11 +287,11 @@
 			<h2 style="margin-top:0"> Task List </h2>
 			<ul data-role="listview" data-divider-theme="a" data-inset="true">
 				<li data-role="list-divider" role="heading">
-					My Tasks:
+					My Tasks
 				</li>
-				<li data-theme="c">
-					<a href="#page1" data-transition="slide">
-						Shampoo
+				<li data-theme="c" data-icon="">
+					<a>
+						You have no tasks
 					</a>
 				</li>
 			</ul>
@@ -332,12 +334,12 @@
 		                <label for="addTask-sharedWith">
 							Share This Task With:
 						</label>
-						<textarea name="" id="addTask-sharedWith" placeholder="Tap Friends to Share With" value="" type="text" readonly></textarea>
+						<textarea name="" id="addTask-sharedWith" placeholder="Tap friends to share this task with" value="" type="text" readonly></textarea>
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
-						<label for="search-mini">Location:</label>
+						<label for="addTask-location">Location:</label>
 						<input type="search" id="addTask-location" name="search-mini" id="search-mini" value="" data-mini="true" />
 					</fieldset>
 				</div>
@@ -442,12 +444,19 @@
 
 <!-- Task Details Page -->
 <div data-role="page" data-theme="c" id="taskDetailsPage">
-    <div data-theme="a" data-role="header" data-position="fixed">
-        <h3>
-            Task Details
-        </h3>
-    </div>
-    <div data-role="content">
+    <div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
+				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
+				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div><!-- /navbar -->
+	
+    <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 		<div data-role="fieldcontain" id="taskDetails-container-title">
 			<fieldset data-role="controlgroup">
 				<label for="taskDetails-title">
@@ -513,15 +522,16 @@
 				<textarea name="" id="taskDetails-notes" placeholder="" value="" type="text" class="readOnlyInput" readonly></textarea>
 			</fieldset>
 		</div>
+		</div>
+		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:hidden;">
+			<ul class="shareFriendsList">
+			</ul>	
+		</div>
 	</div>
 	<div data-theme="a" data-role="footer" data-position="fixed">
-		<script>
-		function goBack()
-		{
-		window.history.back()
-		}
-		</script>
-        <input type="button" value="Go Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+		<a id="taskDetails-editTask" data-role="button" href="#editTaskPage" data-theme="b"data-icon="gear" data-iconpos="left" class="ui-btn-left">
+			Edit Task
+		</a>
 		<h3>
 		</h3>
 		<a id="taskDetails-completeTask" data-role="button" href="#home-taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
@@ -530,5 +540,94 @@
 	</div>
 </div>
 
+<!-- Edit Task Page -->
+<!--FIXME: write the javascript for this page-->
+<div data-role="page" data-theme="c" id="editTaskPage">
+    <div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+			<ul>
+				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
+				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
+				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
+				<li id="addFriendsButton"><a href="#addFriends" id="addFriendsIcon" data-icon="custom"></a></li>
+			</ul>
+		</div>
+	</div><!-- /navbar -->
+	
+    <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+		<div data-role="fieldcontain" id="editTask-container-title">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-title">
+					Title:
+				</label>
+				<input name="" id="editTask-title" placeholder="" value="" type="text"/>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain" id="editTask-container-sharedWith">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-sharedWith">
+					Tasks Shared With:
+				</label>
+				<textarea name="" id="editTask-sharedWith" placeholder="" value="" type="text" readonly></textarea>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain" id="editTask-container-location">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-location">
+					Location:
+				</label>
+				<input name="" id="editTask-location" placeholder="" value="" type="text"/>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain" id="editTask-container-brand">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-brand">
+					Brand:
+				</label>
+				<input name="" id="editTask-brand" placeholder="" value="" type="text"/>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain" id="editTask-container-price">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-price">
+					Maximum Price:
+				</label>
+				<input name="" id="editTask-price"  value="" type="text"/>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain" id="editTask-container-priority">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-priority">
+					Priority:
+				</label>
+				<input name="" id="editTask-priority" placeholder="" value="" type="text"/>
+			</fieldset>
+		</div>
+		<div data-role="fieldcontain" id="editTask-container-notes">
+			<fieldset data-role="controlgroup">
+				<label for="editTask-notes">
+					Notes:
+				</label>
+				<textarea name="" id="editTask-notes" placeholder="" value="" type="text"></textarea>
+			</fieldset>
+		</div>
+		</div>
+		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:hidden;">
+			<ul class="shareFriendsList">
+			</ul>	
+		</div>
+	</div>
+	<div data-theme="a" data-role="footer" data-position="fixed">
+		<a id="editTask-cancel" data-role="button" href="#taskDetailsPage" data-theme="g"data-icon="back" data-iconpos="left" class="ui-btn-left">
+			Cancel
+		</a>
+		<h3>
+		</h3>
+		<a id="taskDetails-completeTask" data-role="button" href="#home-taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
+			Save
+		</a>
+	</div>
+</div>
 </body>
 </html>
