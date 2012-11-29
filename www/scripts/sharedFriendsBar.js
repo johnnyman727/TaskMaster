@@ -38,7 +38,7 @@ function updateSharedFriendsHTML(cList){
 
 		var name_background = $('<div></div>').attr('class', 'name_background name_background' + id);
 
-		var name_text = $('<div class="name_text"></div>').text(cList.contacts[i].name);
+		var name_text = $('<div class="name_text"></div>').text(cList.contacts[i].name.split(' ')[0]);
 
 		if (selectedContacts.hasContact(cList.contacts[i].id)){
 			new_user.toggleClass('down');
