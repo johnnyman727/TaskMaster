@@ -12,15 +12,13 @@ function updateInviteFriendsListHTML(cList) {
 			continue;
 		}
 
-		var listItem = $('<li data-theme="c" data-icon="plus" class="inviteFriends"></li>').attr("id", "inviteFriendListItem-" + cList.contacts[i].id);
-		var anchor = $('<a></a>');
+		var listItem = $('<li data-theme="c" class="inviteFriends"></li>').attr("id", "inviteFriendListItem-" + cList.contacts[i].id);
 	    var profPic = $('<img class="ui-li-thumb"></img>').attr('src', cList.contacts[i].imgPath);
 	   	var name = $('<h1></h1>').text(cList.contacts[i].name);
-	   	var inviteButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" ><span class="ui-btn-corner-all inviteFriendButton"><span class="ui-btn-text">Invite</span></span></div>');
+	   	var inviteButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-wrapperels="span" data-theme="f" ><span class="ui-btn-corner-all inviteFriendButton"><span class="ui-btn-text">Invite</span></span></div>');
 	   	inviteButton.attr('id','inviteButton-'+cList.contacts[i].id);
 
-	    anchor.append(profPic, name, inviteButton);
-	    listItem.append(anchor);
+	    listItem.append(profPic, name, inviteButton);
 
 	     inviteButton.click({contact:cList.contacts[i]}, function(event) {
 	     	contactToBeInvited = event.data.contact;	

@@ -63,8 +63,8 @@
 <!--Add Friends-->
 <div data-role="page" id="firstUseAddFriends">
     <div data-role="header" data-position="fixed">
-        <h3 style="margin-right:10%; margin-left:10%;">
-            Invite a Couple Close Friends
+        <h3 style='margin-right:10%; margin-left:10%;'>
+            Add Friends
         </h3>
     </div>
     <div data-role="content">
@@ -116,7 +116,7 @@
 	</div>
 
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right friends-back" data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -144,7 +144,7 @@
 		</div>
 	</div>
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right friends-back" data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -194,10 +194,10 @@
 		</ul>-->
 	</div>
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right friends-back" data-theme="f">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
             Back To Task List
 		</a>
-		<a data-role="button" id="save-group-button" data-icon="save" data-iconpos="right" class="ui-btn-left" data-theme="f">
+		<a data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Save Group
 		</a>
 		<h3></h3>
@@ -239,7 +239,7 @@
 	</div>
 	
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right friends-back" data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -366,17 +366,14 @@
                         </legend>
                         <input id="addTask-priority-high" name="Priority:" value="addTask-priority-high" type="radio" />
                         <label for="addTask-priority-high">
-                            <!--High Priority: Need NOW!-->
-                            NOW!
+                            Now
                         </label>
                         <input id="addTask-priority-medium" name="Priority:" value="addTask-priority-medium" type="radio" />
                         <label for="addTask-priority-medium">
-                            <!--Medium Priority: Need Soon-->
                             Soon
                         </label>
                         <input id="addTask-priority-low" name="Priority:" value="addTask-priority-low" type="radio" checked />
                         <label for="addTask-priority-low">
-                            <!--Low Priority: Need Eventually-->
                             Eventually
                         </label>
                     </fieldset>
