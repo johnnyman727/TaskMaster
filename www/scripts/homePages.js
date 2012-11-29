@@ -23,9 +23,12 @@ function updateContentHTML(){
 		var listOwner = selectedContacts.contacts[i];
 		
 		//add list title
-		if (listOwner==me){
+		if (listOwner==me){//I am the owner
 			var listTitle = $('<li>').append($('<a>').text('My Tasks'));
-		}else{
+		}else if(listOwner.hasOwnProperty('contactList')){//A group is the owner
+			var listOwnerName = listOwner.name;
+			var listTitle = $('<li data-theme="a" class="groupHeadings">').append($('<a>').text(listOwnerName));
+		}else{//A contact is the owner
 			var listOwnerName = listOwner.name.split(' ')[0];
 			var listTitle = $('<li>').append($('<a>').text(listOwnerName+'\'s Tasks'));
 		}
@@ -33,30 +36,52 @@ function updateContentHTML(){
 		listTitle.attr('role','heading');
 		aTaskList.append(listTitle);
 		
-		//add list items
-		var tasks = listOwner.taskList.tasks;
-		console.log(tasks)
-		if (tasks.length){
-			for (var j=0; j<tasks.length; j++){
-				var taskLink = $('<a>').text(tasks[j].title);
-				taskLink.click({theTask:tasks[j]},function(e){updateTaskDetailsHTML(e.data.theTask)});
-				taskLink.attr('href','#taskDetailsPage');
+		if(listOwner.hasOwnProperty('contactList')){//add tasks of a group
+			for (var j=0; j<listOwner.contactList.contacts.length; j++){
+				aTaskList.attr('data-divider-theme','f')
+				var groupMember = listOwner.contactList.contacts[j];
+				var tasks = groupMember.taskList.tasks;
+				var header = $('<li data-role="list-divider">'+groupMember.name.split(' ')[0]+'\'s Tasks</li>')
+				aTaskList.append(header);
+				if (tasks.length){
+					for (var k=0; k<tasks.length; k++){
+						var taskLink = $('<a>').text(tasks[k].title);
+						taskLink.click({theTask:tasks[k]},function(e){updateTaskDetailsHTML(e.data.theTask)});
+						taskLink.attr('href','#taskDetailsPage');
+						var aTask = $('<li>').append(taskLink);
+						aTaskList.append(aTask);
+					}
+				}else{
+					var taskLink = $('<a>').text(listOwnerName + ' has no tasks');
+					var aTask = $('<li>').append(taskLink);
+					aTask.addClass('noIcon');
+					aTaskList.append(aTask);
+				}
+			}
+		}else{//add tasks of a contact
+			var tasks = listOwner.taskList.tasks;
+			if (tasks.length){
+				for (var j=0; j<tasks.length; j++){
+					var taskLink = $('<a>').text(tasks[j].title);
+					taskLink.click({theTask:tasks[j]},function(e){updateTaskDetailsHTML(e.data.theTask)});
+					taskLink.attr('href','#taskDetailsPage');
+					var aTask = $('<li>').append(taskLink);
+					aTaskList.append(aTask);
+				}
+			}else{
+				if (listOwner==me){
+					var taskLink = $('<a>').text('You have no tasks');
+				}else{
+					var taskLink = $('<a>').text(listOwnerName + ' has no tasks');
+				}	
 				var aTask = $('<li>').append(taskLink);
+				aTask.addClass('noIcon');
 				aTaskList.append(aTask);
 			}
-		}else{
-			if (listOwner==me){
-				var taskLink = $('<a>').text('You have no tasks');
-			}else{
-				var taskLink = $('<a>').text(listOwnerName + ' has no tasks');
-			}	
-			var aTask = $('<li>').append(taskLink);
-			aTask.addClass('noIcon')
-			aTaskList.append(aTask);
 		}
-		
 		$('#taskLists').append(aTaskList);
 		aTaskList.listview();
+		$('.groupHeadings').toggleClass('ui-bar-a ui-bar-f')
 	}
 	//remove the icon on the list
 	$('#taskLists .noIcon').removeAttr('data-icon');

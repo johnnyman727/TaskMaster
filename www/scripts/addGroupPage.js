@@ -6,6 +6,7 @@ function saveGroup() {
 
 		//TODO: Make this an actual dialog 
 		alert("You need to add a title and at least two friends in order to save.");
+		return;
 	}
 
 	var newGroup = new Group(groupName, friendsAddedToGroup);
