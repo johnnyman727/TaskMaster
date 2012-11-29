@@ -9,11 +9,11 @@ var contactToBeInvited = null;
 
 function updateRequestsHTML(cList) {
 
-	var ulFriendsNode = $("#requestsList");
-
-	updateRequestHeader();
-
 	$('.pendingRequest').remove();
+
+	if (!cList.contacts.length) return;
+
+	var lDivider = $("#requestsListDivider");
 
 	for (var i=0; i<cList.contacts.length; i++){
 
@@ -33,57 +33,52 @@ function updateRequestsHTML(cList) {
 	    		addedFriends.addContact(event.data.contact);
 	    		pendingContacts.removeContact(event.data.contact.id);
 	    		$('#pendingRequestListItem-'+event.data.contact.id).remove();
-
 	    		updateRequestHeader();
 	    });
 
 	    listItem.append(profPic, name, acceptButton, rejectButton);
 
-	    ulFriendsNode.after(listItem);   
+	    lDivider.after(listItem);   
 	}
 }
 
  function updateRequestHeader() {
- 	var ulFriendsNode = $("#requestsList");
+ 	var lDivider = $("#requestsListDivider");
 
 	if (!pendingContacts.contacts.length) {
-		ulFriendsNode.hide();
+		lDivider.hide();
 		return;
 	} else {
-		ulFriendsNode.show();
+		lDivider.show();
 	}
  }
 
- function updateAddFriendsHeader() {
 
- 	$('#AddFriendsContent > ul').remove();
- 	list = $('<ul data-role="listview" id="addedFriendsUL" data-inset="true" data-divider-theme="a">');
-	var ulFriendsNode = $('<li id="addFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>');
-	list.append(ulFriendsNode);
-
-	if (!phoneContacts.contacts.length) {
-		var newlistItem = $('<li">');
-		var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with. Click the invite tab to ask them to share this app with them.</h3>');
-		newlistItem.append(text);	
-		ulFriendsNode.after(newlistItem);
-
-		$('#addFriendsContent').prepend(list);
-		list.listview();
-		return 1;
-	} 
-
- }
 function updateAddFriendsHTML(cList){
 	/* Empties and populates the addFriends page according to the
 	 * phoneContacts list
 	 */
-	 
-	var ulFriendsNode = $("#addFriendsList");
-
-	if (updateAddFriendsHeader()) return;
 
 	$('.friendWithApp').remove();
 
+ // 	var list = $('<ul data-role="listview" id="AddFriendsList" data-inset="true" data-divider-theme="a">');
+
+	// var lDivider = $('<li id="addFriendsListDivider" data-role="list-divider" role="header">Add Friends With The App</li>');
+
+	// list.append(lDivider);
+
+	// $('#addFriendsContent').append(list);
+
+	// if (!phoneContacts.contacts.length) {
+	// 	var newlistItem = $('<li">');
+	// 	var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with. Click the invite tab to ask them to share this app with them.</h3>');
+	// 	newlistItem.append(text);	
+	// 	lDivider.after(newlistItem);
+
+	// 	return;
+	// }
+
+	var lDivider = $('#addFriendsListDivider')
 	for (var i=0; i<cList.contacts.length; i++){
 
 		var listItem = $('<li data-theme="c" data-icon="plus" class="friendWithApp"></li>').attr("id", "addFriendsListItem-" + cList.contacts[i].id);
@@ -92,7 +87,7 @@ function updateAddFriendsHTML(cList){
 	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Invite</span></span></div>').attr('id', 'rejectButton-'+ cList.contacts[i].id);
 
 	    listItem.append(profPic, name, inviteButton);
-		ulFriendsNode.after(listItem);
+		lDivider.after(listItem);
 
 		inviteButton.click({contact:cList.contacts[i]}, function(event) {
 	    	contactToBeInvited = event.data.contact;
@@ -136,9 +131,15 @@ $(document).ready(function () {
 			$('#addFriendsListItem-'+contactToBeInvited.id).remove();
 			contactToBeInvited=null;
 		}
-		updateAddFriendsHeader();
+		updateAddFriendsHTML(phoneContacts);
 
 		$( "#sendInviteAssure" ).popup( "close" );
 	});
 });
 
+// $(document).bind('pagechange',function(e,d){
+// 	if (d.toPage[0].id=='friends-add'){
+// 		updateAddFriendsHTML(phoneContacts);
+// 		updateRequestsHTML(pendingContacts);
+// 	}
+// });

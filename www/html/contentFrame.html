@@ -106,6 +106,9 @@
 	<div id="manageFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<ul id = "manageFriendsList" data-role="listview" data-inset="true" data-divider-theme="a">
 			<li id="manageFriendsListDivider" data-role="list-divider" role="header">Manage Friends and Groups</li>
+			<li id="noFriendsToManage">
+				<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3>
+			</li>
 		</ul>
 		<div data-role="popup" id="deleteNotification" >
 			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?<p>
@@ -135,13 +138,14 @@
 		</div>
 	</div>
 	<div id="addFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
-		<div style="padding:0; width:100%; float:left; height:100%; overflow-y:scroll">
-			<ul data-role="listview" id="AddFriendsListView" data-divider-theme="a" data-inset="true">
-				<li data-role="list-divider" id="requestsList">Pending Requests</li>
-				<li data-role="list-divider" id="addFriendsList">Add Friends With The App</li>
+		<ul data-role="listview" id="RequestsList" data-divider-theme="a" data-inset="true">
+			<li data-role="list-divider" id="requestsListDivider">Pending Requests</li>
 
-			</ul>
-		</div>
+		</ul>
+		<ul data-role="listview" id="AddFriendsList" data-divider-theme="a" data-inset="true">
+			<li data-role="list-divider" id="addFriendsListDivider">Add Friends With The App</li>
+
+		</ul>
 	</div>
 	<div data-role="popup" id="deleteRequestAssure" >
 		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?<p>
@@ -162,14 +166,6 @@
 </div>
 
 <!-- Add Group-->
-<style>
-	label{
-		text-align: center;
-	}
-	.ui-field-contain{
-		padding:5px;
-	}
-</style>
 <div data-role="page" id="friends-addGroup">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example">
@@ -216,12 +212,7 @@
 
 
 <!-- Invite Friends-->
-<style>
-.inviteFriendButton > span{
-	padding-right:11px; 
-}
-}
-</style>
+
 <div data-role="page" id="friends-invite">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example">
@@ -238,7 +229,7 @@
 			Invite your friends to use TaskMaster with you!
 		</h2>
 		<ul data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
-            <li id="inviteFriendsList" id="" data-role="list-divider" role="header">
+            <li id="inviteFriendsList" id="" data-role="list-divider" role="header"> Available Friends
         </ul>
         <div data-role="popup" id="inviteNotification" >
 			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?<p>
@@ -629,15 +620,27 @@
 		</div>
 	</div>
 	<div data-theme="a" data-role="footer" data-position="fixed">
-		<a id="editTask-cancel" data-role="button" href="#taskDetailsPage" data-theme="g"data-icon="back" data-iconpos="left" class="ui-btn-left">
+		<a id="editTask-cancel" data-role="button" href="#taskDetailsPage" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
 			Cancel
 		</a>
 		<h3>
 		</h3>
-		<a id="editTask-save" data-role="button" href="#home-taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
+		<a id="editTask-save" data-role="button" href="#home-taskList" data-theme="f" data-icon="check" data-iconpos="left" class="ui-btn-right">
 			Save
 		</a>
 	</div>
 </div>
 </body>
 </html>
+
+<style>
+	label{
+		text-align: center;
+	}
+	.ui-field-contain{
+		padding:5px;
+	}
+	.inviteFriendButton > span{
+	padding-right:11px; 
+	}
+</style>
