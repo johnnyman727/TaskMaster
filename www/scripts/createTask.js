@@ -9,7 +9,7 @@ function createTaskFromForm(){
 	if ($('#addTask-sharedWith').val()!=''){
 		contactNames = $('#addTask-sharedWith').val().split(', ');
 		for (var i=0; i<contactNames.length; i++){
-			newTask.shareWith(addedContacts.getContact(Contact.nameToId(contactNames[i])));
+			newTask.shareWith(addedFriends.getContact(Contact.nameToId(contactNames[i])));
 		}
 		$('#addTask-sharedWith').val('');
 	}
@@ -50,6 +50,8 @@ function createTaskFromForm(){
 
 $(document).ready(function(){
 	$('#addTask-add').click(createTaskFromForm);
-	$('#addTask-add').click(function(){$('#firstTimeAddTask').hide()});
+	$('#addTask-add').click( function(event){
+		$('#firstTimeAddTask').hide();
+	});
 })
 
