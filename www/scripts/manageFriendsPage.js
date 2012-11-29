@@ -4,19 +4,7 @@ contactToBeDeleted = null;
 function updateManageFriendsListHTML(cList) {
 
 
-	$("#manageFriendsContent > ul").remove();
-	list = $('<ul data-role="listview" id="managedFriendsUL" data-inset="true" data-divider-theme="a">');
-	var ulFriendsNode = $('<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>');
-	list.append(ulFriendsNode);
-
-	if (addedFriends.contacts.length <= 1) {
-		var newlistItem = $('<li><h3>You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3></li>');
-		ulFriendsNode.append(newlistItem);
-
-		$('#manageFriendsContent').prepend(list);
-		list.listview();
-		return;
-	}
+	if (updateFriendsManagementHeader()) return;
 
 	$('.manageFriends').remove();
 	for (var i=0; i<cList.contacts.length; i++){
@@ -41,6 +29,9 @@ function updateManageFriendsListHTML(cList) {
 	    list.append(listItem);
 	}
 
+	$('#manageFriendsContent').prepend(list);
+	list.listview();
+
 }
 
 $(document).bind('pagechange',function(e,d){
@@ -50,13 +41,23 @@ $(document).bind('pagechange',function(e,d){
 });
 
 function updateFriendsManagementHeader() {
-	var ulFriendsNode = $('#manageFriendsList');
+	$("#manageFriendsContent > ul").remove();
+	list = $('<ul data-role="listview" id="managedFriendsUL" data-inset="true" data-divider-theme="a">');
+	var ulFriendsNode = $('<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>');
+	list.append(ulFriendsNode);
 
 	if (addedFriends.contacts.length <= 1) {
-		alert('howdy');
-		var newlistItem = $('<li data-theme="c" style="height:50px"><h3>You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3></li>');
+		var newlistItem = $('<li">');
+		var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3>');
+		newlistItem.append(text);	
 		ulFriendsNode.after(newlistItem);
+
+		$('#manageFriendsContent').prepend(list);
+		list.listview();
+		return 1;
 	}
+
+	return 0;
 }
 
 $(document).ready(function(){
