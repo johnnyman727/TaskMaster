@@ -1,11 +1,12 @@
-friendsAddedToGroup = new ContactList();;
+friendsAddedToGroup = new ContactList();
 function saveGroup() {
 	var groupName = $('#addGroup-title').val();	
 	
 	if (!groupName || friendsAddedToGroup.contacts.length < 2) {
 
-		//TODO: Make this an actual dialog 
-		alert("You need to add a title and at least two friends in order to save.");
+		$('#notifyGroupRequirements').popup( "open" );
+
+		return;
 	}
 
 	var newGroup = new Group(groupName, friendsAddedToGroup);
@@ -90,5 +91,9 @@ $(document).ready(function () {
 	//updateGroupFriendsListHTML(addedFriends);
 	$('#save-group-button').click(function (event){
 		saveGroup();
+	});
+
+	$('#notifyGroupRequirements-okayButton').click(function (event) {
+		$('#notifyGroupRequirements').popup( "close" );
 	});
 });
