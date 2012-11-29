@@ -4,9 +4,12 @@ contactToBeDeleted = null;
 function updateManageFriendsListHTML(cList) {
 
 
+	// If we have to update the header, it means there are no 
+	// items in the list. just return
 	if (updateFriendsManagementHeader()) return;
 
-	$('.manageFriends').remove();
+	var list = $('#manageFriendsList');
+
 	for (var i=0; i<cList.contacts.length; i++){
 
 		if (cList.contacts[i] == me){
@@ -41,22 +44,45 @@ $(document).bind('pagechange',function(e,d){
 });
 
 function updateFriendsManagementHeader() {
-	$("#manageFriendsContent > ul").remove();
-	list = $('<ul data-role="listview" id="managedFriendsUL" data-inset="true" data-divider-theme="a">');
-	var ulFriendsNode = $('<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>');
-	list.append(ulFriendsNode);
 
+	// Remove the unordered list
+	$("#manageFriendsList").remove();
+
+	// Re-create the list
+	list = $('<ul data-role="listview" id="manageFriendsList" data-inset="true" data-divider-theme="a">');
+
+	// Create the list divider
+	var listDivider = $('<li id="manageFriendsListDivider" data-role="list-divider" role="header">Manage Friends and Groups</li>');
+
+	// Add the list divider to the ul
+	list.append(listDivider);
+
+	// Add the ul to the page DOM
+	$('#manageFriendsContent').prepend(list);
+
+	// If there isn't anyone in the list besides me
 	if (addedFriends.contacts.length <= 1) {
-		var newlistItem = $('<li">');
-		var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3>');
-		newlistItem.append(text);	
-		ulFriendsNode.after(newlistItem);
 
-		$('#manageFriendsContent').prepend(list);
+		// Create a new li
+		var newlistItem = $('<li id="noFriendsToManage">');
+
+		// Add text to tell them to invite friends
+		var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3>');
+
+		// Add the text to the li
+		newlistItem.append(text);
+
+		// Add the li after the list divider
+		listDivider.after(newlistItem);
+
+		// Turn the ul into a list
 		list.listview();
+
+		// Return 1 because there are no items
 		return 1;
 	}
 
+	// Return 0 if there are items in the list
 	return 0;
 }
 

@@ -104,12 +104,12 @@
 		</div>
 	</div>
 	<div id="manageFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
-		<ul data-role="listview" data-inset="true" data-divider-theme="a">
-			<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>
+		<ul id = "manageFriendsList" data-role="listview" data-inset="true" data-divider-theme="a">
+			<li id="manageFriendsListDivider" data-role="list-divider" role="header">Manage Friends and Groups</li>
 		</ul>
 		<div data-role="popup" id="deleteNotification" >
 			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?<p>
-			<button id="deleteFriend-deleteButton" data-theme:'g'>Delete</button>
+			<button id="deleteFriend-deleteButton" data-theme="g">Delete</button>
 			<button id="deleteFriend-cancelButton">Cancel</button>
 		</div>
 	</div>
@@ -122,6 +122,7 @@
 	</div>
 </div>
 
+<!-- Add Friends Page -->
 <div data-role="page" id="friends-add">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example">
@@ -133,7 +134,7 @@
 			</ul>
 		</div>
 	</div>
-	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+	<div id="addFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<div style="padding:0; width:100%; float:left; height:100%; overflow-y:scroll">
 			<ul data-role="listview" id="AddFriendsListView" data-divider-theme="a" data-inset="true">
 				<li data-role="list-divider" id="requestsList">Pending Requests</li>
