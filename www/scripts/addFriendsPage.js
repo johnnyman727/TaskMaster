@@ -82,10 +82,8 @@ function updateRequestsHTML(cList) {
 
 	    listItem.append(profPic, name, acceptButton, rejectButton);
 
-	    ulFriendsNode.after(listItem);
-	    
+	    ulFriendsNode.after(listItem);   
 	}
-
 }
 
 $(document).ready(function () {

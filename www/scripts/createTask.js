@@ -50,6 +50,8 @@ function createTaskFromForm(){
 
 $(document).ready(function(){
 	$('#addTask-add').click(createTaskFromForm);
-	$('#addTask-add').click(function(){$('#firstTimeAddTask').hide()});
+	$('#addTask-add').click( function(event){
+		$('#firstTimeAddTask').hide();
+	});
 })
 
