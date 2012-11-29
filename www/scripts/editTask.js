@@ -98,6 +98,12 @@ function removeCurrentTask(){
 }*/
 
 $(document).ready(function(){
-	$('#taskDetails-editTask').click(updateEditTaskHTML);
+	$('#taskDetails-editTask').click(function(){
+		updateEditTaskHTML();
+		deselectAllContacts();
+		for (var i=0; i<currentTask.sharedWith.contacts.length; i++){
+			selectContact(currentTask.sharedWith.contacts[i]);
+		}
+	});
 	$('#editTask-save').click(editTaskFromForm);
 });

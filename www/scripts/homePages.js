@@ -116,6 +116,14 @@ function updateContentHTML(){
 	 * End Add Task Page
 	 * 
 	 */
+	 
+	 /*
+	  * 
+	  * Edit Task Page
+	  * 
+	  */
+	$('#editTask-sharedWith').val(selectedNames);
+	$('#editTask-sharedWith').trigger('keyup');
 }
 
 //formatting home pages

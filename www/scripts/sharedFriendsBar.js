@@ -15,6 +15,35 @@ function toggleSelectedContact(id){
 	}
 }
 
+function selectContact(contact){
+	id = contact.id;
+	if (!selectedContacts.hasContact(id)){
+		//add the contact
+		$('.user_wrapper' + id).toggleClass('down');
+	    $('.img_shade' + id).toggleClass('down');
+	    $('.name_background' + id).toggleClass('down');
+		selectedContacts.addContact(contact);
+	}
+}
+function deselectContact(id){
+	if (selectedContacts.hasContact(id)){
+		//add the contact
+		$('.user_wrapper' + id).toggleClass('down');
+	    $('.img_shade' + id).toggleClass('down');
+	    $('.name_background' + id).toggleClass('down');//remove the contact
+		selectedContacts.removeContact(id);
+	}
+}
+function deselectAllContacts(id){
+	for (var i=0; i<selectedContacts.contacts.length; i++){
+		var id = selectedContacts.contact[i].id;
+		$('.user_wrapper' + id).toggleClass('down');
+	    $('.img_shade' + id).toggleClass('down');
+	    $('.name_background' + id).toggleClass('down');//remove the contact
+		selectedContacts.removeContact(id);	
+	}
+}
+
 
 /* Populate the HTML list */
 function updateSharedFriendsHTML(cList){
