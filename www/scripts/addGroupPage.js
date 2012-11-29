@@ -21,10 +21,13 @@ function saveGroup() {
 function updateGroupFriendsListHTML(cList) {
 
 	friendsAddedToGroup = new ContactList();
+	
+	$('#addGroupContent > ul').remove()
+	var list = $('<ul data-role="listview" data-divider-theme="a" data-inset="true">');
+	var ulFriendsNode = $('<li data-role="list-divider" id="availableFriendsForGrouping">Friends</li>');
 
-	var ulFriendsNode = $("#availableFriendsForGrouping");
-
-	$('.availableFriends').remove();
+	list.append(ulFriendsNode);
+	//$('.availableFriends').remove();
 
 	for (var i=0; i<cList.contacts.length; i++){
 
@@ -58,8 +61,11 @@ function updateGroupFriendsListHTML(cList) {
 	    	textfield.val(friendsAddedToGroup.getContactNames().join(', '));
 	    });
 
-	    ulFriendsNode.after(listItem);    
+	    list.append(listItem);
 	}
+	
+	$('#addGroupContent').append(list);
+	list.listview();
 }
 
 function clearPage() {
@@ -72,9 +78,16 @@ function clearPage() {
 	$('#addGroup-title').val('');	
 
 }
+
+$(document).bind('pagechange',function(e,d){
+	if (d.toPage[0].id=='friends-addGroup'){
+		updateGroupFriendsListHTML(addedFriends);
+	}
+});
+
 $(document).ready(function () {
 	//set the handler for the continue button
-	updateGroupFriendsListHTML(addedFriends);
+	//updateGroupFriendsListHTML(addedFriends);
 	$('#save-group-button').click(function (event){
 		saveGroup();
 	});

@@ -10,15 +10,16 @@
  * 
  */
 
-
+//populated immediately
+noAppPhoneContacts = new ContactList();
 phoneContacts = new ContactList();
 pendingContacts = new ContactList();
+//populated with use of the app
 selectedContacts = new ContactList();
 addedFriends = new ContactList();
-noAppPhoneContacts = new ContactList();
 
 //add myself to the list
-me = new Contact("Me","http://sphotos-b.xx.fbcdn.net/hphotos-ash4/422186_10151147600205676_1487493643_n.jpg",new TaskList());
+me = new Contact("Me","http://sphotos-b.xx.fbcdn.net/hphotos-ash4/422186_10151147600205676_1487493643_n.jpg");
 
 addedFriends.addContact(me);
 selectedContacts.addContact(me);
@@ -45,119 +46,118 @@ noAppContactImagePaths[6] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash3/547062_4
 noAppContactImagePaths[7] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/217012_2016785623789_1364468_n.jpg";
 noAppContactImagePaths[8] = "http://sphotos-b.xx.fbcdn.net/hphotos-snc7/4447_90317480145_2691353_n.jpg";
 
+var phoneContactNames = [];
+phoneContactNames[0] = "Danny Marz";
+phoneContactNames[1] = "Jasper Maniates-Selvin";
+phoneContactNames[2] = "Kristine Kammers";
+phoneContactNames[3] = "Matt Sternke";
+phoneContactNames[4] = "Michael Gallert";
+phoneContactNames[5] = "Michelle Kammers";
+phoneContactNames[6] = "Nicholas Pjevach";
+var phoneContactImgPaths = [];
+phoneContactImgPaths[0] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/417209_3743771907195_821635797_n.jpg";
+phoneContactImgPaths[1] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/402325_102279099927802_256062279_n.jpg";
+phoneContactImgPaths[2] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash3/559289_10151360489702784_1004500304_n.jpg";
+phoneContactImgPaths[3] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/422314_10151066270671588_824227318_n.jpg";
+phoneContactImgPaths[4] = "http://sphotos-b.xx.fbcdn.net/hphotos-prn1/61411_4971155997384_393351046_n.jpg";
+phoneContactImgPaths[5] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/p206x206/381682_10151241254989492_1637677474_n.jpg";
+phoneContactImgPaths[6] = "http://sphotos-a.xx.fbcdn.net/hphotos-prn1/558459_10152082072565006_773901193_n.jpg";
+
+var pendingContactNames = [];
+pendingContactNames[0] = "Peter Lokken";
+pendingContactNames[1] = "Sean O\'Toole";
+var pendingContactImgPaths = [];
+pendingContactImgPaths[0] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/217887_3671299698325_900707314_n.jpg";
+pendingContactImgPaths[1] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/402372_2853430369225_1990434808_n.jpg";
+
+
 for (var i = 0; i < noAppContactNames.length; i++) {
-	noAppPhoneContacts.addContact(new Contact(noAppContactNames[i], noAppContactImagePaths[i],new TaskList()));
+	noAppPhoneContacts.addContact(new Contact(noAppContactNames[i], noAppContactImagePaths[i]));
 }
 
-var contactNames = [];
-contactNames[0] = "Danny Marz";
-contactNames[1] = "Jasper Maniates-Selvin";
-contactNames[2] = "Kristine Kammers";
-contactNames[3] = "Matt Sternke";
-contactNames[4] = "Michael Gallert";
-contactNames[5] = "Michelle Kammers";
-contactNames[6] = "Nicholas Pjevach";
-contactNames[7] = "Peter Lokken";
-contactNames[8] = "Sean O\'Toole";
-var contactImgPaths = [];
-contactImgPaths[0] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/417209_3743771907195_821635797_n.jpg";
-contactImgPaths[1] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/402325_102279099927802_256062279_n.jpg";
-contactImgPaths[2] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash3/559289_10151360489702784_1004500304_n.jpg";
-contactImgPaths[3] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/422314_10151066270671588_824227318_n.jpg";
-contactImgPaths[4] = "http://sphotos-b.xx.fbcdn.net/hphotos-prn1/61411_4971155997384_393351046_n.jpg";
-contactImgPaths[5] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/p206x206/381682_10151241254989492_1637677474_n.jpg";
-contactImgPaths[6] = "http://sphotos-a.xx.fbcdn.net/hphotos-prn1/558459_10152082072565006_773901193_n.jpg";
-contactImgPaths[7] = "http://sphotos-a.xx.fbcdn.net/hphotos-ash4/217887_3671299698325_900707314_n.jpg";
-contactImgPaths[8] = "http://sphotos-b.xx.fbcdn.net/hphotos-ash4/402372_2853430369225_1990434808_n.jpg";
+for (var i=0; i < phoneContactNames.length; i++){
+	phoneContacts.addContact(new Contact(phoneContactNames[i], phoneContactImgPaths[i]));
+}
+for (var i = 0; i < pendingContactNames.length; i++) {
+	pendingContacts.addContact(new Contact(pendingContactNames[i], pendingContactImgPaths[i]));
+}
 
 /*Initialize task lists*/
-var taskLists = [];
 
-taskLists[0] = new TaskList();
+newTaskList = new TaskList();
 
-task_0_0 = new Task('Shampoo',contactNames[0]);
+/*phone Contacts*/
+var task_0_0 = new Task('Shampoo',phoneContacts.contacts[0]);
 task_0_0.setBrand('Dove');
 task_0_0.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
 task_0_0.setMaxPrice ('$7.00');
 task_0_0.setPriority ('Medium');
-taskLists[0].addTask(task_0_0);
+phoneContacts.contacts[0].taskList.addTask(task_0_0);
 
-task_0_1 = new Task('Pick Up Pizza',contactNames[0]);
+var task_0_1 = new Task('Pick Up Pizza',phoneContacts.contacts[0]);
 task_0_1.setLocation ( 'Tonys');
 task_0_1.setMaxPrice ('$23.79');
 task_0_1.setPriority ('High');
 task_0_1.setNotes ('Under the name Marz. 3 Pizzas. Bring to my house for poker night.');
-taskLists[0].addTask(task_0_1);
+phoneContacts.contacts[0].taskList.addTask(task_0_1);
 
-taskLists[1] = new TaskList();
+newTaskList = new TaskList();
 
-task_1_0 = new Task('Gummy Vitamins',contactNames[1]);
+var task_1_0 = new Task('Gummy Vitamins',phoneContacts.contacts[1]);
 task_1_0.setBrand('Store Brand');
 task_1_0.setLocation ( 'Target', 42.27285127750455, 71.23019648439037);
 task_1_0.setMaxPrice ('$10.00');
 task_1_0.setPriority ('Low');
 task_1_0.setNotes ('Get which ever size is the cheapest per oz.');
-taskLists[1].addTask(task_1_0);
+phoneContacts.contacts[1].taskList.addTask(task_1_0);
 
-taskLists[2] = new TaskList();
+newTaskList = new TaskList();
 
-taskLists[3] = new TaskList();
-
-task_3_0 = new Task('Advil',contactNames[3]);
+var task_3_0 = new Task('Advil',phoneContacts.contacts[3]);
 task_3_0.setBrand('Advil');
 task_3_0.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
 task_3_0.setPriority ('High');
 task_3_0.setNotes ('Liqui-gels');
-taskLists[3].addTask(task_3_0);
+phoneContacts.contacts[3].taskList.addTask(task_3_0);
 
-task_3_1 = new Task('Dog Food',contactNames[3]);
+var task_3_1 = new Task('Dog Food',phoneContacts.contacts[3]);
 task_3_1.setBrand('Blue Buffalo');
 task_3_1.setLocation ( 'PetSmart', 42.285127750455, 71.24319648439037);
 task_3_1.setMaxPrice ('$25.00');
 task_3_1.setPriority ('Low');
-taskLists[3].addTask(task_3_1);
+phoneContacts.contacts[3].taskList.addTask(task_3_1);
 
-taskLists[4] = new TaskList();
+newTaskList = new TaskList();
 
-task_4_0 = new Task('Perennials',contactNames[4]);
+var task_4_0 = new Task('Perennials',phoneContacts.contacts[4]);
 task_4_0.setLocation ( 'Home Depot', 42.2935127750455, 71.254319648439037);
 task_4_0.setMaxPrice ('$10');
 task_4_0.setPriority ('Low');
 task_4_0.setNotes ('I am ok with most types. I prefer red ones :)');
-taskLists[4].addTask(task_4_0);
+phoneContacts.contacts[4].taskList.addTask(task_4_0);
 
-taskLists[5] = new TaskList();
+newTaskList = new TaskList();
 
-taskLists[6] = new TaskList();
-
-task_6_0 = new Task('Milk and Oil',contactNames[6]);
+var task_6_0 = new Task('Milk and Oil',phoneContacts.contacts[6]);
 task_6_0.setLocation ( 'Shaws', 42.2934, 71.2456);
 task_6_0.setMaxPrice ('$10');
 task_6_0.setPriority ('High');
 task_6_0.setNotes ('Skim milk, Olive Oil');
-taskLists[6].addTask(task_6_0);
+phoneContacts.contacts[6].taskList.addTask(task_6_0);
 
-taskLists[7] = new TaskList();
+/*pendingContacts*/
 
-taskLists[8] = new TaskList();
+newTaskList = new TaskList();
 
-task_8_0 = new Task('Dry Cleaning',contactNames[8]);
-task_8_0.setLocation ( 'Lucky Dry Cleaning', 42.28734, 71.242256);
-task_8_0.setPriority ('Medium');
-task_8_0.setNotes ('Already paid for. It is 3 shirts and 1 pair of pants');
-taskLists[8].addTask(task_8_0);
-
-
-for (var i=0; i < contactNames.length - 2; i++){
-	phoneContacts.addContact(new Contact(contactNames[i], contactImgPaths[i], taskLists[i]));
-}
-
-for (var i = contactNames.length - 2; i < contactNames.length; i++) {
-	pendingContacts.addContact(new Contact(contactNames[i], contactImgPaths[i], taskLists[i]));
-}
+var task_1_0 = new Task('Dry Cleaning',pendingContacts.contacts[1]);
+task_1_0.setLocation ( 'Lucky Dry Cleaning', 42.28734, 71.242256);
+task_1_0.setPriority ('Medium');
+task_1_0.setNotes ('Already paid for. It is 3 shirts and 1 pair of pants');
+pendingContacts.contacts[1].taskList.addTask(task_1_0);
 
 
-//FIXME: Delete this sample task
+
+/*/FIXME: Delete this sample task
 mySampleTask = new Task('Shampoo',me);
 mySampleTask.setBrand('Dove');
 mySampleTask.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
@@ -165,7 +165,8 @@ mySampleTask.setMaxPrice ('$7.00');
 mySampleTask.shareWith(phoneContacts.getContact(Contact.nameToId('Matt Sternke')));
 mySampleTask.setPriority ('Medium');
 me.taskList.addTask(mySampleTask);
-//
+/*/
 
 phoneContacts.sort();
 pendingContacts.sort();
+noAppPhoneContacts.sort();

@@ -103,7 +103,7 @@
 			</ul>
 		</div>
 	</div>
-	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+	<div id="manageFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<ul data-role="listview" data-inset="true" data-divider-theme="a">
 			<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>
 		</ul>
@@ -171,7 +171,7 @@
 			</ul>
 		</div>
 	</div>
-	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+	<div id="addGroupContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<div data-role="fieldcontain">
             <fieldset data-role="controlgroup">
                 <label for="addGroup-title">
@@ -185,13 +185,13 @@
                 <label for="addGroup-title">
                     Friends in the Group
                 </label>
-                <input name="" id="addGroup-friendList" placeholder="Tap Friends to Add" value="" type="text" readonly/>
+                <input name="" id="addGroup-friendList" placeholder="Tap Friends to Add" value="" type="text" readonly />
             </fieldset>
         </div>
 
-        <ul data-role="listview" data-divider-theme="a" data-inset="true">
-        		<li data-role="list-divider" id="availableFriendsForGrouping">Friends</li>
-			</ul>
+        <!--<ul data-role="listview" data-divider-theme="a" data-inset="true">
+        	<li data-role="list-divider" id="availableFriendsForGrouping">Friends</li>
+		</ul>-->
 	</div>
 	<div data-role="footer">
 		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
