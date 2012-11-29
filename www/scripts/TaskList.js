@@ -46,5 +46,13 @@ function TaskList(){
 		return false;
 	}
 	
+	this.replaceTask = function(id,newTask){
+		for (var i=0; i < this.tasks.length; i++){
+			if (this.tasks[i].id == id){
+				this.tasks[i] = newTask;
+			}
+		}
+	}
+	
 	//FIXME: include functionality for sorting tasks (alphabetically, by date, by urgency)
 }

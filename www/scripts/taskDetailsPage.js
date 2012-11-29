@@ -4,9 +4,9 @@ function updateTaskDetailsHTML(task){
 	
 	//only allow editing if you are the owner
 	if (task.owner == me){
-		$('taskDetails-editTask').show();
+		$('#taskDetails-editTask').show();
 	}else{
-		$('taskDetails-editTask').show();
+		$('#taskDetails-editTask').hide();
 	}
 	
 	currentTask = task;
