@@ -64,7 +64,7 @@ function updateSharedFriendsHTML(cList){
 $(document).ready(function () {
 	updateSharedFriendsHTML(addedFriends);
 
-	$('#add-friends-back').click(function(event) {
+	$('.friends-back').click(function(event) {
 		updateSharedFriendsHTML(addedFriends);
 	});
 });

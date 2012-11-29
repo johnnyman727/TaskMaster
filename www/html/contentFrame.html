@@ -63,7 +63,7 @@
 <!--Add Friends-->
 <div data-role="page" id="firstUseAddFriends">
     <div data-role="header" data-position="fixed">
-        <h3>
+        <h3 style='margin-right:10%; margin-left:10%;'>
             Add Friends
         </h3>
     </div>
@@ -109,19 +109,19 @@
 		</ul>
 		<div data-role="popup" id="deleteNotification" >
 			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?<p>
-			<button id="deleteFriend-deleteButton" data-theme='g'>Delete</button>
 			<button id="deleteFriend-cancelButton">Cancel</button>
+			<button id="deleteFriend-deleteButton">Delete</button>
+
 		</div>
 	</div>
 
 	<div data-role="footer">
-		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
 	</div>
 </div>
-<!-- Add Friends -->
 
 <div data-role="page" id="friends-add">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
@@ -143,18 +143,8 @@
 			</ul>
 		</div>
 	</div>
-	<div data-role="popup" id="deleteRequestAssure" >
-		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?<p>
-		<button id="deleteRequest-deleteButton" data-theme="g">Delete</button>
-		<button id="deleteRequest-cancelButton">Cancel</button>
-	</div>
-	<div data-role="popup" id="sendInviteAssure" >
-		<p style="text-align:center;">Are you sure you want to send an invite to <span id="sendInviteName">this person</span>?<p>
-		<button id="sendInvite-sendButton" data-theme="f" >Send</button>
-		<button id="sendInvite-cancelButton">Cancel</button>
-	</div>
 	<div data-role="footer">
-		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -198,20 +188,16 @@
                 <input name="" id="addGroup-friendList" placeholder="Tap Friends to Add" value="" type="text" readonly />
             </fieldset>
         </div>
-        <div data-role="popup" id="notifyGroupRequirements" >
-			<p style="text-align:center;">You must type a name and select at least two friends to save a group!<p>
-			<button id="notifyGroupRequirements-okayButton">Okay</button>
-		</div>
 
         <!--<ul data-role="listview" data-divider-theme="a" data-inset="true">
         	<li data-role="list-divider" id="availableFriendsForGrouping">Friends</li>
 		</ul>-->
 	</div>
 	<div data-role="footer">
-		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
             Back To Task List
 		</a>
-		<a data-role="button" id="save-group-button" data-icon="check" data-iconpos="right" class="ui-btn-right" data-theme="f">
+		<a data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Save Group
 		</a>
 		<h3></h3>
@@ -242,18 +228,18 @@
 			Invite your friends to use TaskMaster with you!
 		</h2>
 		<ul data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
-            <li id="inviteFriendsList" id="" data-role="list-divider" role="header"> Available Friends</li>
+            <li id="inviteFriendsList" id="" data-role="list-divider" role="header">
         </ul>
         <div data-role="popup" id="inviteNotification" >
 			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?<p>
-			<button id="inviteFriend-inviteButton" data-theme="f">Invite</button>
 			<button id="inviteFriend-cancelButton">Cancel</button>
+			<button id="inviteFriend-inviteButton">Invite</button>
 
 		</div>
 	</div>
 	
 	<div data-role="footer">
-		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -380,15 +366,15 @@
                         </legend>
                         <input id="addTask-priority-high" name="Priority:" value="addTask-priority-high" type="radio" />
                         <label for="addTask-priority-high">
-                            High Priority: Need NOW!
+                            Now
                         </label>
                         <input id="addTask-priority-medium" name="Priority:" value="addTask-priority-medium" type="radio" />
                         <label for="addTask-priority-medium">
-                            Medium Priority: Need Soon
+                            Soon
                         </label>
                         <input id="addTask-priority-low" name="Priority:" value="addTask-priority-low" type="radio" checked />
                         <label for="addTask-priority-low">
-                            Low Priority: Need Eventually
+                            Eventually
                         </label>
                     </fieldset>
                 </div>
