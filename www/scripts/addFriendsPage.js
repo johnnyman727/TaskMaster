@@ -55,11 +55,21 @@ function updateRequestsHTML(cList) {
  }
 
  function updateAddFriendsHeader() {
- 	var ulFriendsNode = $("#addFriendsList");
+
+ 	$('#AddFriendsContent > ul').remove();
+ 	list = $('<ul data-role="listview" id="addedFriendsUL" data-inset="true" data-divider-theme="a">');
+	var ulFriendsNode = $('<li id="addFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>');
+	list.append(ulFriendsNode);
 
 	if (!phoneContacts.contacts.length) {
-		var newlistItem = $('<li data-theme="c"><h3>You have no more friends to share with who have the app. Click the invite tab to ask them to share with you.</h3></li>');
+		var newlistItem = $('<li">');
+		var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with. Click the invite tab to ask them to share this app with them.</h3>');
+		newlistItem.append(text);	
 		ulFriendsNode.after(newlistItem);
+
+		$('#addFriendsContent').prepend(list);
+		list.listview();
+		return 1;
 	} 
 
  }
@@ -70,7 +80,7 @@ function updateAddFriendsHTML(cList){
 	 
 	var ulFriendsNode = $("#addFriendsList");
 
-	updateAddFriendsHeader();
+	if (updateAddFriendsHeader()) return;
 
 	$('.friendWithApp').remove();
 
@@ -103,7 +113,7 @@ $(document).ready(function () {
 	});
 	$( "#deleteRequest-deleteButton" ).bind( "click", function(event, ui) {
 		if (requestToBeDeleted){
-			addedFriends.removeContact(requestToBeDeleted.id);
+			pendingContacts.removeContact(requestToBeDeleted.id);
 			phoneContacts.addContact(requestToBeDeleted);		
 			$('#pendingRequestListItem-'+requestToBeDeleted.id).remove();
 			requestToBeDeleted=null;

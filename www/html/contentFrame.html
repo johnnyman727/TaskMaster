@@ -104,25 +104,25 @@
 		</div>
 	</div>
 	<div id="manageFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
-		<ul data-role="listview" data-inset="true" data-divider-theme="a">
-			<li id="manageFriendsList" data-role="list-divider" role="header">Manage Friends and Groups</li>
+		<ul id = "manageFriendsList" data-role="listview" data-inset="true" data-divider-theme="a">
+			<li id="manageFriendsListDivider" data-role="list-divider" role="header">Manage Friends and Groups</li>
 		</ul>
 		<div data-role="popup" id="deleteNotification" >
 			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?<p>
+			<button id="deleteFriend-deleteButton" data-theme="g">Delete</button>
 			<button id="deleteFriend-cancelButton">Cancel</button>
-			<button id="deleteFriend-deleteButton">Delete</button>
-
 		</div>
 	</div>
 
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="left" class='ui-btn-right friends-back' data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-left friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
 	</div>
 </div>
 
+<!-- Add Friends Page -->
 <div data-role="page" id="friends-add">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example">
@@ -134,7 +134,7 @@
 			</ul>
 		</div>
 	</div>
-	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+	<div id="addFriendsContent" data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<div style="padding:0; width:100%; float:left; height:100%; overflow-y:scroll">
 			<ul data-role="listview" id="AddFriendsListView" data-divider-theme="a" data-inset="true">
 				<li data-role="list-divider" id="requestsList">Pending Requests</li>
@@ -143,8 +143,18 @@
 			</ul>
 		</div>
 	</div>
+	<div data-role="popup" id="deleteRequestAssure" >
+		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?<p>
+		<button id="deleteRequest-deleteButton" data-theme="g">Delete</button>
+		<button id="deleteRequest-cancelButton">Cancel</button>
+	</div>
+	<div data-role="popup" id="sendInviteAssure" >
+		<p style="text-align:center;">Are you sure you want to send an invite to <span id="sendInviteName">this person</span>?<p>
+		<button id="sendInvite-sendButton" data-theme="f" >Send</button>
+		<button id="sendInvite-cancelButton">Cancel</button>
+	</div>
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="left" class='ui-btn-right friends-back' data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-left friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -194,7 +204,7 @@
 		</ul>-->
 	</div>
 	<div data-role="footer">
-		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="left" class="ui-btn-right" data-theme="f">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
             Back To Task List
 		</a>
 		<a data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
@@ -239,7 +249,7 @@
 	</div>
 	
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="left" class='ui-btn-right friends-back' data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-left friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
