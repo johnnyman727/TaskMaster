@@ -32,7 +32,7 @@ function updateManageFriendsListHTML(cList) {
 	    list.append(listItem);
 	}
 
-	$('#manageFriendsContent').prepend(list);
+	// $('#manageFriendsContent').prepend(list);
 	list.listview();
 
 }
