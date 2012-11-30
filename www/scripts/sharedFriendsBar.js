@@ -1,6 +1,5 @@
 /* Toggle the state of the element */
 function toggleSelectedContact(id){
-	console.log($('.user_wrapper' + id));
 	$('.user_wrapper' + id).toggleClass('down');
     $('.img_shade' + id).toggleClass('down');
     $('.name_background' + id).toggleClass('down');
@@ -35,8 +34,8 @@ function deselectContact(id){
 	}
 }
 function deselectAllContacts(id){
-	for (var i=0; i<selectedContacts.contacts.length; i++){
-		var id = selectedContacts.contact[i].id;
+	while (selectedContacts.contacts.length){
+		var id = selectedContacts.contacts[0].id;
 		$('.user_wrapper' + id).toggleClass('down');
 	    $('.img_shade' + id).toggleClass('down');
 	    $('.name_background' + id).toggleClass('down');//remove the contact

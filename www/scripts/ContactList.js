@@ -47,8 +47,6 @@ function ContactList(){
 	}
 	this.getContactNames = function(){
 		names = [];
-		console.log(this.contacts.length)
-		console.log('sharedWith contacts: '+this.contacts)
 		for (var i=0; i<this.contacts.length; i++){
 			names.push(this.contacts[i].name);
 		}

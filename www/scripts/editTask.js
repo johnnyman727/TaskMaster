@@ -102,6 +102,8 @@ $(document).ready(function(){
 		updateEditTaskHTML();
 		deselectAllContacts();
 		for (var i=0; i<currentTask.sharedWith.contacts.length; i++){
+			console.log('selecting contact');
+			console.log(currentTask.sharedWith.contacts[i].name);
 			selectContact(currentTask.sharedWith.contacts[i]);
 		}
 	});
