@@ -160,7 +160,7 @@ phoneContacts.contacts[6].taskList.addTask(task_6_0);
 newTaskList = new TaskList();
 
 var task_1_0 = new Task('Dry Cleaning',pendingContacts.contacts[1]);
-task_1_0.setLocation ( 'Lucky Dry Cleaning', random_lat(), random_long());
+task_1_0.setLocation ( 'Lucky Dry Cleaning', 42.3284310, -71.1197730);
 task_1_0.setPriority ('Medium');
 task_1_0.setNotes ('Already paid for. It is 3 shirts and 1 pair of pants');
 pendingContacts.contacts[1].taskList.addTask(task_1_0);

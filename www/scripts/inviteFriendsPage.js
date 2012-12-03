@@ -10,8 +10,6 @@ function updateInviteFriendsListHTML(cList) {
 	var noFriendsWithoutAppMessage = $('<li data-theme="c" class="pendingRequest" id="noFriendsWithoutAppMessage">All of your friends have the app!!</li>');
 
     $('#inviteFriendsList').append(noFriendsWithoutAppMessage);
-    
-	console.log('updating invite friends page')
 
 	for (var i=0; i<cList.contacts.length; i++){
 

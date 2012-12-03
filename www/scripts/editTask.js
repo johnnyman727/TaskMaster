@@ -106,14 +106,12 @@ function editTaskFromForm(){
 }
 
 deleteTask = function() {
-
 	$('#deleteTaskConfirmation').popup('open');
-	// currentTask.owner.taskList.removeTask(currentTask.id);
-	// updateContentHTML();
-	// $.mobile.changePage('#home-taskList');
-	// console.log("deleted task");
 }
 
+blockNoTitleTask = function() {
+
+}
 $(document).ready(function(){
 	$('#taskDetails-editTask').click(function(){
 		updateEditTaskHTML();
@@ -123,5 +121,23 @@ $(document).ready(function(){
 			selectContact(currentTask.sharedWith.contacts[i]);
 		}
 	});
-	$('#editTask-save').click(editTaskFromForm);
+	$('#editTask-save').click(function() {
+		if ($('#editTask-title').val() == "") {
+			$('#notifyEditTaskRequirements').popup('open');
+		}else{
+			editTaskFromForm();
+			$.mobile.changePage('#home-taskList');
+		}
+	});
+	$('#notifyEditTaskRequirements-okayButton').click(function(){
+		$('#notifyEditTaskRequirements').popup('close');
+	});
+	$('#deleteTask-deleteButton').click(function() {
+		currentTask.owner.taskList.removeTask(currentTask.id);
+		updateContentHTML();
+		$.mobile.changePage('#home-taskList');
+	});
+	$('#deleteTask-cancelButton').click(function() {
+		$('#deleteTaskConfirmation').popup('close');
+	});
 });

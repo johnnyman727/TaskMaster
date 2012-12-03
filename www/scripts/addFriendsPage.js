@@ -35,10 +35,19 @@ function updateRequestsHTML(cList) {
 	    });
 
 	    acceptButton.click({contact:cList.contacts[i]}, function(event) {
-	    		addedFriends.addContact(event.data.contact);
-	    		pendingContacts.removeContact(event.data.contact.id);
-	    		$('#pendingRequestListItem-'+event.data.contact.id).remove();
+	    		var contact = event.data.contact;
+	    		addedFriends.addContact(contact);
+	    		pendingContacts.removeContact(contact.id);
+	    		$('#pendingRequestListItem-'+contact.id).remove();
 	    		updateRequestHeader();
+	    		updateSharedFriendsHTML(addedFriends);
+
+			if (contact.name == "Sean O\'Toole") {
+				console.log("FOUND HIM");
+				setTimeout(function() {
+					friendTaskNearby(contact, contact.taskList.tasks[0]);
+				}, 3500);
+		}
 	    });
 
 	    listItem.append(profPic, name, acceptButton, rejectButton);
