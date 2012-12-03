@@ -49,7 +49,7 @@ function createTaskFromForm(){
 	if (newTask.sharedWith.contacts.length){
 		setTimeout(function(){
 			friendTaskComplete(newTask);
-		},3000);
+		},Math.random()*20000+10000);
 	}
 }
 

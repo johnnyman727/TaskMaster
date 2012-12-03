@@ -63,7 +63,6 @@ function updateTaskDetailsHTML(task){
 		$('#taskDetails-editTask').hide();
 	}else{
 		$('#taskDetails-completedMessage').hide();
-		$('#taskDetails-editTask').show();
 		$('#taskDetails-undoComplete').hide();
 	}
 }

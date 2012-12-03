@@ -13,7 +13,7 @@ var map;
 var center_lat = 42.3384308;
 var center_long = -71.1097732;
 var myLocation_lat = 42.3284308;
-var myLocation_long = -71.1197732;
+var myLocation_lng = -71.1197732;
 
 //populated immediately
 noAppPhoneContacts = new ContactList();

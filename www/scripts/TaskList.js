@@ -55,21 +55,21 @@ function TaskList(){
 	}
 	
 	this.sort = function(method){
-		if (method=='location'){	this.sort = function(){
+		if (method=='location'){
+			console.log('sorting by location');
 			this.tasks.sort(function(a,b){
-				if (a.name=='Me'){return -1;}
-				if (b.name=='Me'){return 1;}
-				if (a.name<b.name){return -1;}
-				if (a.name==b.name){return 0;}
-				if (a.name>b.name){return 1;}});
-			}
+				return distance(myLocation_lat,myLocation_lng,a.lat,a.lng)-distance(myLocation_lat,myLocation_lng,b.lat,b.lng);
+			});
 		}else if (method=='priority'){
+			console.log('sorting by priority');
 			this.tasks.sort(function(a,b){
-				if (a.priority==b.priority){return 0;}
-				if (a.priority=='high'){return 1;}
-				if (b.priority=='low'){return -1;}
-				if (a.priority<b.priority){return -1;}
-				if (a.priority>b.priority){return 1;}
+				console.log(a.priority);
+				console.log(b.priority);
+				if (a.priority==b.priority){console.log(0);return 0;}
+				if (a.priority=='high'){console.log(-1);return -1;}
+				if (b.priority=='high'){console.log(1);return 1;}
+				if (a.priority=='medium'){console.log(-1);return -1;}
+				if (b.priority=='medium'){console.log(1);return 1;}
 			});
 		}
 	}
