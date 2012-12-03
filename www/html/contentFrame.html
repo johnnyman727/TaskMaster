@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="../styles/sharedFriendsBar.css"/>
 	<link rel="stylesheet" href="../styles/taskDetails.css" />
 	<link rel="stylesheet" href="../styles/addTask.css" />
+	<link rel="stylesheet" href="../styles/miniSearchBar.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -89,6 +90,7 @@
 			<button id="deleteFriend-deleteButton" data-theme="g">Delete</button>
 			<button id="deleteFriend-cancelButton">Cancel</button>
 		</div>
+		
 	</div>
 
 	<div data-role="footer">
@@ -169,6 +171,12 @@
                 </label>
                 <input name="" id="addGroup-friendList" placeholder="Tap Friends to Add" value="" type="text" readonly />
             </fieldset>
+            
+		
+			<div data-role="popup" id="notifyGroupRequirements" >
+				<p style="text-align:center;">You need a name and at least two friends to create a group.<p>
+				<button id="notifyGroupRequirements-okayButton" data-theme='f'>Okay</button>
+			</div>
         </div>
 
         <!--<ul data-role="listview" data-divider-theme="a" data-inset="true">
@@ -305,6 +313,12 @@
 	</div>
 	
 	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		
+		<div data-role="popup" id="notifyTaskRequirements" >
+			<p style="text-align:center;">You need a Title to save a task.<p>
+			<button id="notifyTaskRequirements-okayButton" data-theme='f'>Okay</button>
+		</div>
+		
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 			<div style="padding:10px;">
 				<h2 style="margin-top:0;">Add Task</h2>
@@ -327,7 +341,7 @@
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
 						<label for="addTask-location">Location:</label>
-						<input name="addTask-location" type="search" id="addTask-location" value="" data-mini="true" />
+						<input type="search" name="addTask-location" id="addTask-location" value="" data-mini="true" />
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
@@ -391,7 +405,7 @@
 		}
 		</script>
         <input type="button" value="Cancel" onclick="goBack()" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
-        <a data-role="button" id="addTask-add" href="#home-taskList" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
+        <a data-role="button" id="addTask-add" data-icon="plus" data-iconpos="left" class="ui-btn-right" data-theme="f">
             Add Task
 		</a>
 		<h3></h3>

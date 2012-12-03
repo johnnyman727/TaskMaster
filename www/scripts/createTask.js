@@ -2,6 +2,9 @@ currentTask = null
 
 function createTaskFromForm(){
 	//title
+	if ($('#addTask-title').val()==''){
+		return false;
+	}
 	var newTask = new Task($('#addTask-title').val(),me);
 	$('#addTask-title').val('');
 	
@@ -51,6 +54,8 @@ function createTaskFromForm(){
 			friendTaskComplete(newTask);
 		},Math.random()*20000+10000);
 	}
+	
+	return true;
 }
 
 $(document).bind('pagechange',function(e,d){
@@ -65,9 +70,17 @@ $(document).bind('pagechange',function(e,d){
 });
 
 $(document).ready(function(){
-	$('#addTask-add').click(createTaskFromForm);
 	$('#addTask-add').click( function(event){
+		if (createTaskFromForm()){
+			$.mobile.changePage('#home-taskList');
+		}else{
+			$('#notifyTaskRequirements').popup('open');
+		}
 		$('#firstTimeAddTask').hide();
+	});
+	
+	$('#notifyTaskRequirements-okayButton').click(function (event) {
+		$('#notifyTaskRequirements').popup( "close" );
 	});
 })
 

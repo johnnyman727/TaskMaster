@@ -4,6 +4,7 @@ function saveGroup() {
 	
 	if (!groupName || friendsAddedToGroup.contacts.length < 2) {
 		$('#notifyGroupRequirements').popup( "open" );
+		console.log('opening popup');
 		return;
 	}
 
