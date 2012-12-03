@@ -123,33 +123,32 @@ function updateContentHTML(){
 	 * 
 	 */
 
-	 // $('#map_canvas').gmap('clear', 'markers');
+	 $('#map_canvas').gmap('clear', 'markers');
 
-	 // $('#map_canvas').gmap('closeInfoWindow');
+	 $('#map_canvas').gmap('closeInfoWindow');
 
-	 // var size = new google.maps.Size(64, 64, true, true);
-	 // var origin =  new google.maps.Size(64, 64, true, true);
+	 $('#map_canvas').gmap('refresh');
 
-	 // // For each selected contact
-	 // $.each(selectedContacts.contacts, function(index, contact) {
+	 // For each selected contact
+	 $.each(selectedContacts.contacts, function(index, contact) {
 
-	 // 	// For each of their tasks
-	 // 	$.each(contact.taskList.tasks, function(index1, task) {
-	 // 		console.log(contact.imgPath);
-	 // 		//	Create a new overlay
-		// 	var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'icon' :new google.maps.MarkerImage(contact.imgPath,
-  //     // This marker is 20 pixels wide by 32 pixels tall.
-  //     new google.maps.Size(32, 32),
-  //     // The origin for this image is 0,0.
-  //     new google.maps.Point(0,0),
-  //     // The anchor for this image is the base of the flagpole at 0,32.
-  //     new google.maps.Point(0, 32),
+	 	// For each of their tasks
+	 	$.each(contact.taskList.tasks, function(index1, task) {
+	 		//	Create a new overlay
+			var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'icon' :new google.maps.MarkerImage(contact.imgPath,
+			      // This marker is 20 pixels wide by 32 pixels tall.
+			      new google.maps.Size(32, 32),
+			      // The origin for this image is 0,0.
+			      new google.maps.Point(0,0),
+			      // The anchor for this image is the base of the flagpole at 0,32.
+			      new google.maps.Point(0, 32),
 
-  //     new google.maps.Size(32, 32)) }).click(function() {
-		// 		$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
-		// 	});
-	 // 	});
-	 // });
+			      new google.maps.Size(32, 32)) }).click(function() {
+				var innerHTML = '<p>' + task.title + '</p><button type="button" href="taskDetailsPage" onclick="alert("test");">View Task Details</button>';
+				$('#map_canvas').gmap('openInfoWindow', {'content': innerHTML }, this);
+			});
+	 	});
+	 });
 	 
 	 /*
 	  * 

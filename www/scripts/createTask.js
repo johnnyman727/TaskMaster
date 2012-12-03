@@ -10,6 +10,7 @@ function createTaskFromForm(){
 		contactNames = $('#addTask-sharedWith').val().split(', ');
 		for (var i=0; i<contactNames.length; i++){
 			newTask.shareWith(addedFriends.getContact(Contact.nameToId(contactNames[i])));
+			console.log(Contact.nameToId(contactNames[i]));
 		}
 		$('#addTask-sharedWith').val('');
 	}
@@ -40,11 +41,15 @@ function createTaskFromForm(){
 		newTask.setNotes($('#addTask-notes').val());//FIXME make these references to contacts
 		$('#addTask-notes').val('');
 	}
-
-	newTask.longitude = 
 	
 	me.taskList.addTask(newTask);
 	updateContentHTML();
+	
+	if (newTask.sharedWith.contacts.length){
+		setTimeout(function(){
+			friendTaskComplete(newTask);
+		},3000);
+	}
 }
 
 $(document).bind('pagechange',function(e,d){

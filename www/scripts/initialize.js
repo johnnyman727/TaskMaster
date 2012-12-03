@@ -97,14 +97,16 @@ task_0_0.setBrand('Dove');
 task_0_0.setLocation ( 'CVS', random_lat(), random_long());
 task_0_0.setMaxPrice ('$7.00');
 task_0_0.setPriority ('Medium');
-tempFriend.taskList.addTask(task_0_0);
+phoneContacts.contacts[0].taskList.addTask(task_0_0)
+//tempFriend.taskList.addTask(task_0_0);
 
 var task_0_1 = new Task('Pick Up Pizza',phoneContacts.contacts[0]);
 task_0_1.setLocation ( 'Tonys', random_lat(), random_long());
 task_0_1.setMaxPrice ('$23.79');
 task_0_1.setPriority ('High');
 task_0_1.setNotes ('Under the name Marz. 3 Pizzas. Bring to my house for poker night.');
-tempFriend.taskList.addTask(task_0_1);
+phoneContacts.contacts[0].taskList.addTask(task_0_1);
+//tempFriend.taskList.addTask(task_0_1);
 
 newTaskList = new TaskList();
 
@@ -143,6 +145,7 @@ phoneContacts.contacts[4].taskList.addTask(task_4_0);
 
 newTaskList = new TaskList();
 
+console.log(phoneContacts)
 var task_6_0 = new Task('Milk and Oil',phoneContacts.contacts[6]);
 task_6_0.setLocation ( 'Shaws', random_lat(), random_long());
 task_6_0.setMaxPrice ('$10');
