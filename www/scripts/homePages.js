@@ -1,3 +1,5 @@
+var completedTask_ = false;
+var showSpecificTask;
 /*
  * homePages.js
  * 
@@ -13,6 +15,12 @@ function updateContentHTML(){
 	 * Task List Page
 	 * 
 	 */
+
+	 if (completedTask_) {
+	 	console.log($('#completeTask'));
+	 	$('#completeTask').popup('open');
+	 	completedTask_ = false;
+	 }
 	$('#taskLists > ul').remove();
 	//build each list
 	if (sortMethod=='owner'){
@@ -200,28 +208,30 @@ function updateContentHTML(){
 
 	 $('#map_canvas').gmap('refresh');
 
+	 createUserLocationOverlay();
+
 	 // For each selected contact
 	 $.each(selectedContacts.contacts, function(index, contact) {
 
-	 	// For each of their tasks
+	 	if (contact.hasOwnProperty('contactList')) {
+	 		return true;
+	 	} else {
+	 		// For each of their tasks
 	 	$.each(contact.taskList.tasks, function(index1, task) {
-
-	 		console.log("Making marker for task: " + task.title);
 	 		//	Create a new overlay
-			var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage(contact.imgPath,
-			      // This marker is 20 pixels wide by 32 pixels tall.
-			      new google.maps.Size(32, 32),
-			      // The origin for this image is 0,0.
-			      new google.maps.Point(0,0),
-			      // The anchor for this image is the base of the flagpole at 0,32.
-			      new google.maps.Point(0, 32),
+			createTaskOverlay(contact, task);
+	 		});
+	 	}
 
-			      new google.maps.Size(32, 32)) }).click(function() {
-				var innerHTML = '<p>' + task.title + '</p><button type="button" href="#taskDetailsPage" onclick="goToTaskDetails(\'' + contact.id.toString() + '\',\'' + task.id.toString() + '\' )">View Task Details</button>';
-				$('#map_canvas').gmap('openInfoWindow', {'content': innerHTML}, this);
-			});
-	 	});
 	 });
+
+	 if (showSpecificTask) {
+	 	$('#map_canvas').gmap('find', 'markers', { }, function(marker) {
+    	if(marker.id == ('marker-' +showSpecificTask.id)){
+    		 google.maps.event.trigger(marker, 'click'); 
+    	}
+});
+	 }
 	 
 	 /*
 	  * 
@@ -232,9 +242,34 @@ function updateContentHTML(){
 	$('#editTask-sharedWith').trigger('keyup');
 }
 
+function createUserLocationOverlay() {
+	console.log("Placing user dot at : " + (center_lat + .01).toString() + "," + (center_long + .01).toString());
+	var marker = $('#map_canvas').gmap('addMarker', {'position': 42.3284308.toString() + "," + -71.1197732.toString(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage("../assets/location-icon.png",
+			      // This marker is 20 pixels wide by 32 pixels tall.
+			      new google.maps.Size(16, 16),
+			      // The origin for this image is 0,0.
+			      new google.maps.Point(0,0),
+			      // The anchor for this image is the base of the flagpole at 0,32.
+			      new google.maps.Point(0, 16),
+
+			      new google.maps.Size(16, 16)) 
+		});
+}
+function createTaskOverlay(contact, task) {
+	var marker = $('#map_canvas').gmap('addMarker', {id : 'marker-' + task.id, 'position': task.lat_long_string(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage(contact.imgPath,
+			      // This marker is 20 pixels wide by 32 pixels tall.
+			      new google.maps.Size(32, 32),
+			      // The origin for this image is 0,0.
+			      new google.maps.Point(0,0),
+			      // The anchor for this image is the base of the flagpole at 0,32.
+			      new google.maps.Point(0, 32),
+
+			      new google.maps.Size(32, 32)) }).click(function() {
+				var innerHTML = '<p> Title:' + task.title + '</p><p>Notes: '+ ( task.notes ? task.notes : "No Notes" )+ ' <button type="button" href="#taskDetailsPage" onclick="goToTaskDetails(\'' + contact.id + '\',\'' + task.id + '\' )">Task Details</button>';
+				$('#map_canvas').gmap('openInfoWindow', {'content': innerHTML}, this);
+			});
+}
 function goToTaskDetails(ownerID, taskID) {
-	console.log(ownerID);
-	console.log(taskID);
 	var task = selectedContacts.getContact(ownerID).taskList.getTask(taskID);
 	updateTaskDetailsHTML(task)
 	$.mobile.changePage('#taskDetailsPage');

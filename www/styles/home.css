@@ -15,3 +15,5 @@
 #inviteFriendsIcon .ui-icon { background:  url(../assets/invite-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
 
 #addGroupIcon .ui-icon { background:  url(../assets/add-group-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+
+#friendsListWrapper {background-image:url('/assets/empty-list-stripes.png'); box-shadow: 6px 0px 10px -7px #888, -6px 0px 10px -7px #888; padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:hidden; z-index:20;}
