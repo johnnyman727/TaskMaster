@@ -439,7 +439,6 @@
 		<div id="taskDetails-completedMessage" style="background:#FFEFAA" >
 			<p style="padding-right:10px; padding-left:10px"><span id="completedBy">Somebody</span> completed your task already. Confirm that it is complete.</p>
 		</div>
-
 		<div data-role="fieldcontain" id="taskDetails-container-title">
 			<fieldset data-role="controlgroup">
 				<label for="taskDetails-title">
@@ -542,6 +541,12 @@
 	
     <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+		<input id="deleteTaskButton" type="button" value="Delete" onclick="deleteTask()" data-theme="g" data-mini="true" data-icon="delete" data-inline="true" style="position:absolute; display:inline;">
+		<div data-role="popup" id="deleteTaskConfirmation">
+			<p> Are you sure you want to delete <span id='deleteTaskTitle'> this task</span>?</p>
+			<button id="deleteTask-deleteButton" data-theme="g">Delete</button>
+		<button id="deleteTask-cancelButton">Cancel</button>
+		</div>
 		<div data-role="fieldcontain" id="editTask-container-title">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-title">

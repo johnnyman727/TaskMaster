@@ -1,5 +1,10 @@
 function updateEditTaskHTML(){
 	task = currentTask;
+	if (task.owner != me) {
+		$('#deleteTaskButton').hide();
+	} else {
+		$('#deleteTaskButton').show();
+	}
 	if (task.title == null){
 		$('#editTask-title').attr('placeholder','Title');
 		$('#editTask-title').val('');
@@ -87,7 +92,6 @@ function editTaskFromForm(){
 		updatedTask.setMaxPrice($('#editTask-price').val());
 	}
 	
-	//FIXME deal with the priority
 	$('#addTask-priority-high')
 	$('#addTask-priority-medium')
 	$('#addTask-priority-low')
@@ -100,14 +104,15 @@ function editTaskFromForm(){
 	me.taskList.replaceTask(currentTask.id,updatedTask);
 	
 }
-/*
-function removeCurrentTask(){
-	currentTask.owner.taskList.removeTask(currentTask.id);
-	if (currentTask.owner.name!='Me'){
-		alert(currentTask.owner.name+' has been notified that you have finished his task.');
-	}
-	updateContentHTML();
-}*/
+
+deleteTask = function() {
+
+	$('#deleteTaskConfirmation').popup('open');
+	// currentTask.owner.taskList.removeTask(currentTask.id);
+	// updateContentHTML();
+	// $.mobile.changePage('#home-taskList');
+	// console.log("deleted task");
+}
 
 $(document).ready(function(){
 	$('#taskDetails-editTask').click(function(){
