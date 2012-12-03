@@ -53,7 +53,7 @@
                 <h4 style="text-align: center;">
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
-                <a data-role="button" data-theme="f" href="#firstUseAddFriends" id="welcomeContinueButton">
+                <a data-role="button" data-theme="f" href="#home-taskList" id="welcomeContinueButton"><!--"#firstUseAddFriends"-->
                     Get Crackin!
                 </a>
 	</div>
@@ -142,10 +142,12 @@
 			<li data-role="list-divider" id="requestsListDivider">Pending Requests</li>
 
 		</ul>
-		<ul data-role="listview" id="AddFriendsList" data-divider-theme="a" data-inset="true">
-			<li data-role="list-divider" id="addFriendsListDivider">Add Friends With The App</li>
+		<!---->
+		<ul data-role="listview" id="FriendsWithAppList" data-divider-theme="a" data-inset="true">
+			<li data-role="list-divider" id="friendsWithAppListDivider">Add Friends With The App</li>
 
 		</ul>
+		<!---->
 	</div>
 	<div data-role="popup" id="deleteRequestAssure" >
 		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?<p>
@@ -203,7 +205,7 @@
 		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
             Back To Task List
 		</a>
-		<a data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
+		<a id="save-group-button" data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Save Group
 		</a>
 		<h3></h3>

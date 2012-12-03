@@ -38,7 +38,8 @@ function updateRequestsHTML(cList) {
 
 	    listItem.append(profPic, name, acceptButton, rejectButton);
 
-	    lDivider.after(listItem);   
+	    $('#RequestsList').append(listItem);
+	     
 	}
 }
 
@@ -55,11 +56,59 @@ function updateRequestsHTML(cList) {
 
 
 function updateAddFriendsHTML(cList){
+	
+
+	$('.friendsWithApp').remove();
+
+	if (!cList.contacts.length) return;
+
+	var lDivider = $("#friendsWithAppListDivider");
+
+	for (var i=0; i<cList.contacts.length; i++){
+
+		var listItem = $('<li data-theme="c" class="friendsWithApp"></li>').attr("id", "friendsWithAppListItem-" + cList.contacts[i].id);
+	    var profPic = $('<img class="ui-li-thumb"></img>').attr('src', cList.contacts[i].imgPath);
+	   	var name = $('<h1></h1>').text(cList.contacts[i].name);
+	    //var rejectButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="g"><span class="ui-btn-corner-all"><span class="ui-btn-text">Delete</span></span></div>').attr('id', 'acceptButton-'+ cList.contacts[i].id);
+	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Invite</span></span></div>').attr('id', 'inviteButton-'+ cList.contacts[i].id);
+
+		inviteButton.click({contact:cList.contacts[i]}, function(event) {
+	    	contactToBeInvited = event.data.contact;
+	    	$('#sendInviteName').text(contactToBeInvited.name);
+			$( "#sendInviteAssure" ).popup( "open" );
+	    });
+	    
+	    inviteButton.click({contact:cList.contacts[i]}, function(event) {
+	    		addedFriends.addContact(event.data.contact);
+	    		pendingContacts.removeContact(event.data.contact.id);
+	    		$('#friendsWithAppListItem-'+event.data.contact.id).remove();
+	    		updateRequestHeader();
+	    });
+
+	    listItem.append(profPic, name, inviteButton);
+
+	    $('#FriendsWithAppList').append(listItem);
+	     
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/* Empties and populates the addFriends page according to the
 	 * phoneContacts list
 	 */
 
-	$('.friendWithApp').remove();
+//	$('.friendWithApp').remove();
 
  // 	var list = $('<ul data-role="listview" id="AddFriendsList" data-inset="true" data-divider-theme="a">');
 
@@ -78,7 +127,7 @@ function updateAddFriendsHTML(cList){
 	// 	return;
 	// }
 
-	var lDivider = $('#addFriendsListDivider')
+	/*var list = $('#AddFriendsList');
 	for (var i=0; i<cList.contacts.length; i++){
 
 		var listItem = $('<li data-theme="c" data-icon="plus" class="friendWithApp"></li>').attr("id", "addFriendsListItem-" + cList.contacts[i].id);
@@ -86,15 +135,15 @@ function updateAddFriendsHTML(cList){
 	    var name = $('<h1></h1>').text(cList.contacts[i].name);
 	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Invite</span></span></div>').attr('id', 'rejectButton-'+ cList.contacts[i].id);
 
-	    listItem.append(profPic, name, inviteButton);
-		lDivider.after(listItem);
+	    list.append(profPic, name, inviteButton);
+		$('#AddFriendsList').append(listItem);
 
 		inviteButton.click({contact:cList.contacts[i]}, function(event) {
 	    	contactToBeInvited = event.data.contact;
 	    	$('#sendInviteName').text(contactToBeInvited.name);
 			$( "#sendInviteAssure" ).popup( "open" );
 	    });
-	}
+	}*/
 }
 
 
@@ -127,11 +176,11 @@ $(document).ready(function () {
 		if (contactToBeInvited){
 			phoneContacts.removeContact(contactToBeInvited.id);
 			addedFriends.addContact(contactToBeInvited);	
-			console.log($('#addFriendsListItem-'+contactToBeInvited.id));	
-			$('#addFriendsListItem-'+contactToBeInvited.id).remove();
+			console.log($('#friendsWithAppListItem-'+contactToBeInvited.id));	
+			$('#afriendsWithAppListItem-'+contactToBeInvited.id).remove();
 			contactToBeInvited=null;
 		}
-		updateAddFriendsHTML(phoneContacts);
+		//updateAddFriendsHTML(phoneContacts);
 
 		$( "#sendInviteAssure" ).popup( "close" );
 	});
