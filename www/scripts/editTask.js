@@ -110,7 +110,7 @@ deleteTask = function() {
 }
 
 blockNoTitleTask = function() {
-	
+
 }
 $(document).ready(function(){
 	$('#taskDetails-editTask').click(function(){
@@ -126,7 +126,7 @@ $(document).ready(function(){
 			alert("Oh hot damn");
 		}
 		editTaskFromForm();
-	}
+	});
 	$('#deleteTask-deleteButton').click(function() {
 		currentTask.owner.taskList.removeTask(currentTask.id);
 		updateContentHTML();
