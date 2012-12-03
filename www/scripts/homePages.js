@@ -1,4 +1,3 @@
-var selectedTaskDetails;
 /*
  * homePages.js
  * 
@@ -229,8 +228,10 @@ function updateContentHTML(){
 
 	 	// For each of their tasks
 	 	$.each(contact.taskList.tasks, function(index1, task) {
+
+	 		console.log("Making marker for task: " + task.title);
 	 		//	Create a new overlay
-			var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'icon' :new google.maps.MarkerImage(contact.imgPath,
+			var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage(contact.imgPath,
 			      // This marker is 20 pixels wide by 32 pixels tall.
 			      new google.maps.Size(32, 32),
 			      // The origin for this image is 0,0.
