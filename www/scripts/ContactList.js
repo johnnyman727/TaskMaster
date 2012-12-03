@@ -63,4 +63,9 @@ function ContactList(){
 	this.isEmpty = function(){
 		return this.contacts.length == 0;
 	}
+	this.selectRandomContact = function(){
+		if (!this.contacts.length) return null;
+		var index = Math.floor(Math.random()*this.contacts.length);
+		return this.contacts[index];
+	}
 }

@@ -40,11 +40,16 @@ function createTaskFromForm(){
 		newTask.setNotes($('#addTask-notes').val());//FIXME make these references to contacts
 		$('#addTask-notes').val('');
 	}
-
-	newTask.longitude = 
 	
 	me.taskList.addTask(newTask);
 	updateContentHTML();
+	
+	if (addedFriends.contacts.length){
+		console.log('a friend will complete your task in 3000ms');
+		setTimeout(function(){
+			friendTaskComplete(addedFriends.selectRandomContact(),newTask);
+		},3000);
+	}
 }
 
 $(document).bind('pagechange',function(e,d){

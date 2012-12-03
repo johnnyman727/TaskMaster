@@ -99,11 +99,7 @@ function updateAddFriendsHTML(cList){
 }
 
 function updateNoFriendsWithAppMessage(){
-	console.log('updateing the no friends message');
-	console.log(phoneContacts.contacts.length);
 	if (!phoneContacts.contacts.length) {
-		console.log('no more friends');
-		console.log($('#noFriendsWithAppMessage'));
 		$('#noFriendsWithAppMessage').show();
 	} else {
 		$('#noFriendsWithAppMessage').hide();
