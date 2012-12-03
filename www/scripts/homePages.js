@@ -98,7 +98,7 @@ function updateContentHTML(){
 			$('.groupHeadings').toggleClass('ui-bar-a ui-bar-f');
 			
 		}
-	}else{//FIXME: make me compatible with groups
+	}else{
 		sortedTasks = new TaskList();
 		for (var i=0;i<selectedContacts.contacts.length; i++){
 			var contact = selectedContacts.contacts[i];
