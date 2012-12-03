@@ -106,12 +106,7 @@ function editTaskFromForm(){
 }
 
 deleteTask = function() {
-
 	$('#deleteTaskConfirmation').popup('open');
-	// currentTask.owner.taskList.removeTask(currentTask.id);
-	// updateContentHTML();
-	// $.mobile.changePage('#home-taskList');
-	// console.log("deleted task");
 }
 
 $(document).ready(function(){
@@ -124,4 +119,12 @@ $(document).ready(function(){
 		}
 	});
 	$('#editTask-save').click(editTaskFromForm);
+	$('#deleteTask-deleteButton').click(function() {
+		currentTask.owner.taskList.removeTask(currentTask.id);
+		updateContentHTML();
+		$.mobile.changePage('#home-taskList');
+	});
+	$('#deleteTask-cancelButton').click(function() {
+		$('#deleteTaskConfirmation').popup('close');
+	});
 });
