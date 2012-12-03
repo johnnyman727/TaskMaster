@@ -362,25 +362,27 @@
 		                <input name="" id="addTask-price" placeholder="Enter Maximum Price" value="" type="text" />
 		            </fieldset>
 		        </div>
+		        
 				<div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup" data-type="vertical">
-                        <legend>
-                            Priority:
-                        </legend>
-                        <input id="addTask-priority-high" name="Priority:" value="addTask-priority-high" type="radio" />
-                        <label for="addTask-priority-high">
-                            Now
-                        </label>
-                        <input id="addTask-priority-medium" name="Priority:" value="addTask-priority-medium" type="radio" />
-                        <label for="addTask-priority-medium">
-                            Soon
-                        </label>
-                        <input id="addTask-priority-low" name="Priority:" value="addTask-priority-low" type="radio" checked />
-                        <label for="addTask-priority-low">
-                            Eventually
-                        </label>
-                    </fieldset>
-                </div>
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Priority:
+						</legend>
+						<input id="addTask-priority-high" class="addTask-priority" name="Priority:" value="high" type="radio" />
+						<label for="addTask-priority-high">
+							NOW!!
+						</label>
+						<input id="addTask-priority-medium" class="addTask-priority" name="Priority:" value="medium" type="radio" />
+						<label for="addTask-priority-medium">
+							Soon
+						</label>
+						<input id="addTask-priority-low" class="addTask-priority" name="Priority:" value="low" type="radio"/>
+						<label for="addTask-priority-low">
+							Eventually
+						</label>
+					</fieldset>
+		        </div>
+		        
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
 						<label for="addTask-notes">
@@ -544,7 +546,6 @@
 </div>
 
 <!-- Edit Task Page -->
-<!--FIXME: write the javascript for this page-->
 <div data-role="page" data-theme="c" id="editTaskPage">
     <div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
@@ -599,14 +600,39 @@
 				<input name="" id="editTask-price"  value="" type="text"/>
 			</fieldset>
 		</div>
-		<div data-role="fieldcontain" id="editTask-container-priority">
+		
+		
+		
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup" data-type="vertical">
+				<legend>
+					Priority:
+				</legend>
+				<input id="editTask-priority-high" class="editTask-priority" name="Priority:" value="high" type="radio" />
+				<label for="editTask-priority-high">
+					Now
+				</label>
+				<input id="editTask-priority-medium" class="editTask-priority" name="Priority:" value="medium" type="radio" />
+				<label for="editTask-priority-medium">
+					Soon
+				</label>
+				<input id="editTask-priority-low" class="editTask-priority" name="Priority:" value="low" type="radio" checked />
+				<label for="editTask-priority-low">
+					Eventually
+				</label>
+			</fieldset>
+		</div>
+		
+		<!--div data-role="fieldcontain" id="editTask-container-priority">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-priority">
 					Priority:
 				</label>
 				<input name="" id="editTask-priority" placeholder="" value="" type="text"/>
 			</fieldset>
-		</div>
+		</div-->
+		
+		
 		<div data-role="fieldcontain" id="editTask-container-notes">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-notes">

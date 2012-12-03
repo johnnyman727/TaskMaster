@@ -78,12 +78,6 @@ function updateAddFriendsHTML(cList){
 			$( "#sendInviteAssure" ).popup( "open" );
 	    });
 	    
-	    inviteButton.click({contact:cList.contacts[i]}, function(event) {
-	    		addedFriends.addContact(event.data.contact);
-	    		pendingContacts.removeContact(event.data.contact.id);
-	    		$('#friendsWithAppListItem-'+event.data.contact.id).remove();
-	    		updateRequestHeader();
-	    });
 
 	    listItem.append(profPic, name, inviteButton);
 
@@ -190,5 +184,6 @@ $(document).ready(function () {
 // 	if (d.toPage[0].id=='friends-add'){
 // 		updateAddFriendsHTML(phoneContacts);
 // 		updateRequestsHTML(pendingContacts);
+// 	}
 // 	}
 // });

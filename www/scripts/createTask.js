@@ -32,10 +32,7 @@ function createTaskFromForm(){
 		$('#addTask-price').val('');
 	}
 	
-	//FIXME deal with the priority
-	$('#addTask-priority-high')
-	$('#addTask-priority-medium')
-	$('#addTask-priority-low')
+	newTask.setPriority($('.addTask-priority:checked').val());
 	
 	//notes
 	$('#addTask-notes')
@@ -47,6 +44,17 @@ function createTaskFromForm(){
 	me.taskList.addTask(newTask);
 	updateContentHTML();
 }
+
+$(document).bind('pagechange',function(e,d){
+ 	if (d.toPage[0].id=='home-addTask'){
+		$('#addTask-priority-high').removeAttr('checked');
+		$('#addTask-priority-high').checkboxradio('refresh');
+		$('#addTask-priority-medium').removeAttr('checked');
+		$('#addTask-priority-medium').checkboxradio('refresh');
+		$('#addTask-priority-low').attr('checked','checked');
+		$('#addTask-priority-low').checkboxradio('refresh');
+ 	}
+});
 
 $(document).ready(function(){
 	$('#addTask-add').click(createTaskFromForm);
