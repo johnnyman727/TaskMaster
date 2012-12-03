@@ -1,7 +1,7 @@
-sortCondition = 'owner';
+sortMethod = 'owner';
 $(document).ready(function(){
 	$('#sortBy').change(function(){
-		sortCondition = $(this).val();
+		sortMethod = $(this).val();
 		updateContentHTML();
 	});
 });

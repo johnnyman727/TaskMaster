@@ -16,7 +16,7 @@ function updateContentHTML(){
 	 */
 	$('#taskLists > ul').remove();
 	//build each list
-	if (sortCondition=='owner'){
+	if (sortMethod=='owner'){
 		for (var i=0; i<selectedContacts.contacts.length; i++){
 			var aTaskList = $('<ul>');
 			aTaskList.attr('id','taskList'+selectedContacts.contacts[i].id);
@@ -92,9 +92,16 @@ function updateContentHTML(){
 			$('#taskListMe [pending="true"]').toggleClass('ui-btn-up-c ui-btn-up-e').attr('data-theme','e');
 			
 		}
-	}else if (sortCondition=='location'){
+	}else{
+		for (var i=0;i<selectedContacts.contacts.length; i++){
+			contact = selectedContacts.contacts[i];
+			for (var j=0; j<contact.taskList.tasks.length;j++){
+			}
+		}
+	}
+	if (sortMethod=='location'){
 		
-	}else if (sortCondition=='priority'){
+	}else if (sortMethod=='priority'){
 		for (var i=0; i<selectedContacts.contacts.length; i++){
 			var aTaskList = $('<ul>');
 			aTaskList.attr('id','taskList'+selectedContacts.contacts[i].id);

@@ -55,21 +55,17 @@ function TaskList(){
 	}
 	
 	this.sort = function(method){
-		if (method=='location'){	this.sort = function(){
+		if (method=='location'){
 			this.tasks.sort(function(a,b){
-				if (a.name=='Me'){return -1;}
-				if (b.name=='Me'){return 1;}
-				if (a.name<b.name){return -1;}
-				if (a.name==b.name){return 0;}
-				if (a.name>b.name){return 1;}});
-			}
+				return Math.pow(a.lat-myLocation_lat,2)+Math.pow(a.lng-myLocation_lng,2)-Math.pow(b.latmyLocation_lat,2)-Math.pow(b.lng-myLocation_lng,2);
+			});
 		}else if (method=='priority'){
 			this.tasks.sort(function(a,b){
 				if (a.priority==b.priority){return 0;}
-				if (a.priority=='high'){return 1;}
-				if (b.priority=='low'){return -1;}
-				if (a.priority<b.priority){return -1;}
-				if (a.priority>b.priority){return 1;}
+				if (a.priority=='high'){return -1;}
+				if (b.priority=='high'){return 1;}
+				if (a.priority=='med'){return -1;}
+				if (b.priority=='med'){return 1;}
 			});
 		}
 	}
