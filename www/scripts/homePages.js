@@ -167,6 +167,7 @@ function updateContentHTML(){
 	$('#taskLists .noIcon').removeClass('ui-li-has-arrow');
 	
 	$('#taskLists [pending="true"]').toggleClass('ui-btn-up-c ui-btn-up-e').attr('data-theme','e');
+	$('#taskLists [proximity="true"]:not([pending="true"])').toggleClass.toggleClass('ui-btn-up-c ui-btn-up-f').attr('data-theme','e');
 	/*
 	 * 
 	 * End Task List Page
