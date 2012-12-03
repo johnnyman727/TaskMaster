@@ -25,7 +25,6 @@
 	<script src="../scripts/Group.js"></script>
 	<script src="../scripts/Task.js"></script>
 	<script src="../scripts/TaskList.js"></script>
-	<script src="../scripts/TaskOverlay.js"></script>
 	<!--scripts-->
 	<script src="../scripts/map.js"></script>
 	<script src="../scripts/initialize.js"></script>
@@ -64,9 +63,6 @@
 </div>
 
 <!-- Friend Management -->
-<style>
-
-</style>
 <!-- Manage Friends-->
 <div data-role="page" id="friends-manage">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
@@ -87,7 +83,7 @@
 			</li>
 		</ul>
 		<div data-role="popup" id="deleteNotification" >
-			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?<p>
+			<p style="text-align:center;">Are you sure you want to delete <span id="deleteName">this person</span> from your friends?</p>
 			<button id="deleteFriend-deleteButton" data-theme="g">Delete</button>
 			<button id="deleteFriend-cancelButton">Cancel</button>
 		</div>
@@ -126,12 +122,12 @@
 		<!---->
 	</div>
 	<div data-role="popup" id="deleteRequestAssure" >
-		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?<p>
+		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?</p>
 		<button id="deleteRequest-deleteButton" data-theme="g">Delete</button>
 		<button id="deleteRequest-cancelButton">Cancel</button>
 	</div>
 	<div data-role="popup" id="sendInviteAssure" >
-		<p style="text-align:center;">Are you sure you want to send an invite to <span id="sendInviteName">this person</span>?<p>
+		<p style="text-align:center;">Are you sure you want to send an invite to <span id="sendInviteName">this person</span>?</p>
 		<button id="sendInvite-sendButton" data-theme="f" >Send</button>
 		<button id="sendInvite-cancelButton">Cancel</button>
 	</div>
@@ -207,10 +203,10 @@
 			Invite your friends to use TaskMaster with you!
 		</h2>
 		<ul id="inviteFriendsList" data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
-            <li id="" data-role="list-divider" role="header"> Available Friends
+            <li id="" data-role="list-divider" role="header"> Available Friends </li>
         </ul>
         <div data-role="popup" id="inviteNotification" >
-			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?<p>
+			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?</p>
 			<button id="inviteFriend-cancelButton">Cancel</button>
 			<button id="inviteFriend-inviteButton" data-theme="f">Invite</button>
 
@@ -289,6 +285,9 @@
 		<div id="friendsListWrapper">
 			<ul class="shareFriendsList">
 			</ul>	
+		</div>
+		<div data-role="popup" id="completeTask" >
+			<p>Testing.</p>
 		</div>
 	</div>
 </div>	
@@ -469,7 +468,7 @@
 				</div>
 			</div>
 			<div class="ui-block-b">
-				<a data-role="button" id="mapButton" href="#home-map" data-theme="f"data-icon="arrow-r" data-iconpos="right" >
+				<a data-role="button" id="mapButton" href="#home-map" onclick="showSpecificTask = currentTask" data-theme="f"data-icon="arrow-r" data-iconpos="right" >
 					Map
 				</a>
 			</div>
@@ -517,7 +516,7 @@
 		<a id="taskDetails-editTask" data-role="button" href="#editTaskPage" data-theme="b"data-icon="gear" data-iconpos="left" class="ui-btn-left">
 			Edit Task
 		</a>
-		<a id="taskDetails-undoComplete" data-role="button" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+		<a id="taskDetails-undoComplete" data-role="button" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left" >
 			Undo Completion
 		</a>
 		<h3>
@@ -614,8 +613,8 @@
 				<input name="" id="editTask-priority" placeholder="" value="" type="text"/>
 			</fieldset>
 		</div-->
-		
-		
+	
+
 		<div data-role="fieldcontain" id="editTask-container-notes">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-notes">

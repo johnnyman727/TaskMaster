@@ -70,14 +70,15 @@ function updateTaskDetailsHTML(task){
 
 function removeCurrentTask(){
 	currentTask.owner.taskList.removeTask(currentTask.id);
-	if (currentTask.owner.name!='Me'){
-		alert(currentTask.owner.name+' has been notified that you have finished his task.');
-	}
 	updateContentHTML();
 }
 
 $(document).ready(function(){
-	$('#taskDetails-completeTask').click(removeCurrentTask);
+	$('#taskDetails-completeTask').click(function() {
+		completedTask_ = true;
+		removeCurrentTask();
+
+});
 	$('#taskDetails-undoComplete').click(function(){
 		currentTask.pending=null;
 		currentTask.completedBy=null;
