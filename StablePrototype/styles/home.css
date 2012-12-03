@@ -1,0 +1,17 @@
+.nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
+		
+.nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
+		
+#listIcon .ui-icon { background:  url(../assets/list-icon.png) 50% 50% no-repeat; background-size: 30px 30px; }
+		
+#addTaskIcon .ui-icon { background:  url(../assets/add-icon.png) 50% 50% no-repeat; background-size: 30px 30px;  }
+		
+#mapIcon .ui-icon { background:  url(../assets/map-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+		
+#addFriendsIcon .ui-icon { background:  url(../assets/add-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+
+#manageFriendsIcon .ui-icon { background:  url(../assets/manage-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+
+#inviteFriendsIcon .ui-icon { background:  url(../assets/invite-friends-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }
+
+#addGroupIcon .ui-icon { background:  url(../assets/add-group-icon.png) 50% 50% no-repeat;  background-size: 30px 30px; }

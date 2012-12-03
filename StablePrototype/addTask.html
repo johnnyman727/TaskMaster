@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="addTask">
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput1">
+                            Title:
+                        </label>
+                        <input name="" id="textinput1" placeholder="Enter Task Title" value="" type="text" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput3">
+                            Share This Task With:
+                        </label>
+                        <input name="" id="textinput3" placeholder="Tap Friends to Share With" value="" type="text" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput2">
+                            Location:
+                        </label>
+                        <input name="" id="textinput2" placeholder="Enter Task Location" value="" type="search" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput4">
+                            Brand:
+                        </label>
+                        <input name="" id="textinput4" placeholder="Enter Brand" value="" type="text" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput9">
+                            Price Range:
+                        </label>
+                        <input name="" id="textinput9" placeholder="Enter Price Range: Low-High" value="" type="range" />
+                    </fieldset>
+                </div>
+                <div id="checkboxes1" data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+                        <legend>
+                            Priority
+                        </legend>
+                        <input id="checkbox1" name="High Priority" type="checkbox" />
+                        <label for="checkbox1">
+                            High Priority: Need NOW!
+                        </label>
+                        <input id="checkbox3" name="Medium Priority" type="checkbox" />
+                        <label for="checkbox3">
+                            Medium Priority: Need Soon
+                        </label>
+                        <input id="checkbox4" name="Low Priority" type="checkbox" />
+                        <label for="checkbox4">
+                            Low Priority: Need Eventually
+                        </label>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textinput10">
+                            Notes:
+                        </label>
+                        <input name="" id="textinput10" placeholder="Enter Notes" value="" type="text" />
+                    </fieldset>
+                </div>
+            </div>
+            <div data-theme="a" data-role="footer" data-position="fixed">
+                <input type="submit" value="Add Task" />
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>

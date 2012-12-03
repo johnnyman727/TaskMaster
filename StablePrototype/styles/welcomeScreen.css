@@ -1,0 +1,33 @@
+#contentDiv{
+	position: absolute;
+	height: 100%;
+	padding:0;
+}
+
+#welcomeContinueButton {
+	position:relative;
+	bottom:-5%;
+	margin-top: -1.2em;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
+
+#taskMaster {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+}	
+
+h1{
+	padding: 5 px;
+	margin-top: 0.5em;
+	margin-left: 1em;
+	margin-right: 1em;	
+}
+
+h4{
+	padding: 5 px;
+	margin-top: .75em;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}

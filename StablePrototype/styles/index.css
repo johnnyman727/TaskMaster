@@ -1,0 +1,49 @@
+body { 
+	margin:0; 
+	padding:0; 
+	height:100%; 
+}
+
+@media screen{
+	#phone{
+	/*Container for the content from a computer screen*/
+		width:504px;
+		height:900px;
+		background-image:url('../assets/blank_phone.png');
+		background-size:504px;
+	}
+
+	#phoneContent{
+	/*The iframe that contains the content*/
+		position:relative;
+		width:318px;
+		height:478px;
+		left:94px;
+		top:172px;
+		
+		frameborder:1;
+		seamless:seamless;
+	}
+}
+
+@media handheld{
+	#phone{
+	/*Container for the content on a phone*/
+		width:100%;
+		height:100%;
+		background:#000000;
+	}
+	
+	#phoneContent{
+	/*iframe should hold the entire screen*/
+		width:100%;
+		height:100%;
+		
+		frameborder:1;
+		seamless:seamless;
+	}
+}
+
+#pushNotification {
+
+}

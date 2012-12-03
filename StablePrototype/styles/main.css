@@ -1,0 +1,171 @@
+body { 
+	margin:0; 
+	padding:0; 
+	height:100%; 
+}
+
+@media screen{
+	#phone{
+	/*Container for the content from a computer screen*/
+		width:504px;
+		height:900px;
+		background-image:url('../assets/blank_phone.png');
+		background-size:504px;
+	}
+
+	#phoneContent{
+	/*The iframe that contains the content*/
+		position:relative;
+		width:318px;
+		height:480px;
+		left:94px;
+		top:169px;
+		frameborder:1;
+		seamless:seamless;
+	}
+
+	#pageContent {
+		position:absolute;
+		width:254px;
+		height:100%;
+		left:0px;
+		top:0px;
+		frameborder:1;
+		seamless:seamless;
+	}
+	
+	#phoneGlare{
+	/*Decorative reflection*/
+		position:absolute;
+		left:0;
+		top:0;
+		width:504px;
+		height:900px;
+	}
+}
+
+
+	* {
+		font-family: "Rokkit", "Times New Roman",Georgia,Serif;
+		color: rgb(51, 51, 51); 
+		text-shadow: rgba(0, 0, 0, 0.298039) -5px 5px 5px; 
+		letter-spacing: 0px; 
+		text-decoration: none !important;
+	}
+
+
+	.nav-glyphish-example .ui-btn .ui-btn-inner { 
+		padding-top: 40px !important; 
+	}
+
+	.nav-glyphish-example .ui-btn .ui-icon {  
+		height: 30px!important; 
+		margin-left: -15px !important; 
+		box-shadow: none!important; 
+		-moz-box-shadow: none!important; 
+		-webkit-box-shadow: none!important; 
+		-webkit-border-radius: 0 !important; 
+		border-radius: 0 !important; 
+	}
+
+	.custom-icon { 
+		height:40px;
+	}
+
+
+	img.user-image {
+		width:100%;																												
+		margin:auto;
+		z-index: -100;
+	}
+
+	.ui-navbar li .ui-btn .ui-btn-inner { 
+		padding-top: 0px; 
+	}
+
+	.nav-glyphish-example .ui-btn .ui-btn-inner { 
+		padding-top: 10px !important; 
+	}
+
+	#below-menu {
+
+		position: relative;
+		height: 421px;
+		margin-top: 4px;
+		margin-bottom: 4px;
+	}
+
+	#share-list-container { 
+		width:60px; 
+		height:100%; 
+		float:right; 
+		border: 0;
+		padding-bottom: -4px;
+		overflow: scroll;
+/*		border-top-color: #8cc63f; 
+		border-top-width:3px;
+		-webkit-box-shadow: -2px 0px 4px 1px #000;
+		box-shadow: -2px 0px 4px 1px #000;*/
+	}
+
+	#share-list-container ul {
+		list-style-type: none;
+		height:100%;
+		width:100%;
+		margin:0px;
+		padding-left:0px;
+	}
+
+	#share-list-container li { 
+		position: relative;
+/*		border-bottom-width: 1px;
+		border-bottom-style: ridge; 
+		border-color: black; */
+		width:100%;
+		overflow: hidden;	
+		max-height: 60px;
+	}
+
+
+	#name-background {
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		background-color: black;
+		opacity: .6;
+		text-align: center;
+		width: 100%;
+		height: 20px;
+	}
+
+	#name-span {
+		color: White; 
+		position: absolute;
+		bottom: 0;
+		text-align: center;
+		width: 100%;
+		z-index: 2;
+	}
+
+@media handheld{
+	#phone{
+	/*Container for the content on a phone*/
+		width:100%;
+		height:100%;
+		background:#000000;
+	}
+	
+	#phoneContent{
+	/*iframe should hold the entire screen*/
+		width:100%;
+		height:100%;
+		
+		frameborder:1;
+		seamless:seamless;
+	}
+	
+	#phoneGlare{
+	/*Hides the decorative reflection when viewed from a mobile device*/
+		visibility:hidden;
+	}
+}
