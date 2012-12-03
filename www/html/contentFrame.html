@@ -40,6 +40,7 @@
 	<script src="../scripts/createTask.js"></script>
 	<script src="../scripts/editTask.js"></script>
 	<script src="../scripts/friendTaskComplete.js"></script>
+	<script src="../scripts/sortTasks.js"></script>
 </head>
 	
 <body>
@@ -262,7 +263,15 @@
 				<img src="../assets/upArrow.png" style="position:relative; left:45%;"/>
 				<p style="text-align:center; margin-top:5px;">Click here to add a task.</p>
 			</div>
-			<h2 style="margin-top:0"> Task List </h2>
+			<h2 style="text-align:center; margin-top:0; margin-bottom:0"> Task List </h2>
+			<div data-role="fieldcontain">
+				<select name="sortBy" id="sortBy" data-native-menu="false" data-mini="true">
+					<option>Sort By</option>
+					<option value="owner">Owner</option>
+					<option value="priority">Priority</option>
+					<option value="location">Location</option>
+				</select>
+			</div>
 			<ul data-role="listview" data-divider-theme="a" data-inset="true">
 				<li data-role="list-divider" role="heading">
 					My Tasks
