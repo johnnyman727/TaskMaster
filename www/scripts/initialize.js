@@ -80,7 +80,11 @@ for (var i = 0; i < noAppContactNames.length; i++) {
 	noAppPhoneContacts.addContact(new Contact(noAppContactNames[i], noAppContactImagePaths[i]));
 }
 
-for (var i=0; i < phoneContactNames.length; i++){
+var tempFriend = new Contact(phoneContactNames[0], phoneContactImgPaths[0]);
+addedFriends.addContact(tempFriend);
+selectedContacts.addContact(tempFriend);
+
+for (var i=1; i < phoneContactNames.length; i++){
 	phoneContacts.addContact(new Contact(phoneContactNames[i], phoneContactImgPaths[i]));
 }
 for (var i = 0; i < pendingContactNames.length; i++) {
@@ -94,23 +98,23 @@ newTaskList = new TaskList();
 /*phone Contacts*/
 var task_0_0 = new Task('Shampoo',phoneContacts.contacts[0]);
 task_0_0.setBrand('Dove');
-task_0_0.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
+task_0_0.setLocation ( 'CVS', random_lat(), random_long());
 task_0_0.setMaxPrice ('$7.00');
 task_0_0.setPriority ('Medium');
-phoneContacts.contacts[0].taskList.addTask(task_0_0);
+tempFriend.taskList.addTask(task_0_0);
 
 var task_0_1 = new Task('Pick Up Pizza',phoneContacts.contacts[0]);
-task_0_1.setLocation ( 'Tonys');
+task_0_1.setLocation ( 'Tonys', random_lat(), random_long());
 task_0_1.setMaxPrice ('$23.79');
 task_0_1.setPriority ('High');
 task_0_1.setNotes ('Under the name Marz. 3 Pizzas. Bring to my house for poker night.');
-phoneContacts.contacts[0].taskList.addTask(task_0_1);
+tempFriend.taskList.addTask(task_0_1);
 
 newTaskList = new TaskList();
 
 var task_1_0 = new Task('Gummy Vitamins',phoneContacts.contacts[1]);
 task_1_0.setBrand('Store Brand');
-task_1_0.setLocation ( 'Target', 42.27285127750455, 71.23019648439037);
+task_1_0.setLocation ( 'Target', random_lat(), random_long());
 task_1_0.setMaxPrice ('$10.00');
 task_1_0.setPriority ('Low');
 task_1_0.setNotes ('Get which ever size is the cheapest per oz.');
@@ -120,14 +124,14 @@ newTaskList = new TaskList();
 
 var task_3_0 = new Task('Advil',phoneContacts.contacts[3]);
 task_3_0.setBrand('Advil');
-task_3_0.setLocation ( 'CVS', 42.29285127750455, 71.23519648439037);
+task_3_0.setLocation ( 'CVS', random_lat(), random_long());
 task_3_0.setPriority ('High');
 task_3_0.setNotes ('Liqui-gels');
 phoneContacts.contacts[3].taskList.addTask(task_3_0);
 
 var task_3_1 = new Task('Dog Food',phoneContacts.contacts[3]);
 task_3_1.setBrand('Blue Buffalo');
-task_3_1.setLocation ( 'PetSmart', 42.285127750455, 71.24319648439037);
+task_3_1.setLocation ( 'PetSmart', random_lat(), random_long());
 task_3_1.setMaxPrice ('$25.00');
 task_3_1.setPriority ('Low');
 phoneContacts.contacts[3].taskList.addTask(task_3_1);
@@ -135,7 +139,7 @@ phoneContacts.contacts[3].taskList.addTask(task_3_1);
 newTaskList = new TaskList();
 
 var task_4_0 = new Task('Perennials',phoneContacts.contacts[4]);
-task_4_0.setLocation ( 'Home Depot', 42.2935127750455, 71.254319648439037);
+task_4_0.setLocation ( 'Home Depot', random_lat(), random_long());
 task_4_0.setMaxPrice ('$10');
 task_4_0.setPriority ('Low');
 task_4_0.setNotes ('I am ok with most types. I prefer red ones :)');
@@ -144,7 +148,7 @@ phoneContacts.contacts[4].taskList.addTask(task_4_0);
 newTaskList = new TaskList();
 
 var task_6_0 = new Task('Milk and Oil',phoneContacts.contacts[6]);
-task_6_0.setLocation ( 'Shaws', 42.2934, 71.2456);
+task_6_0.setLocation ( 'Shaws', random_lat(), random_long());
 task_6_0.setMaxPrice ('$10');
 task_6_0.setPriority ('High');
 task_6_0.setNotes ('Skim milk, Olive Oil');
@@ -155,7 +159,7 @@ phoneContacts.contacts[6].taskList.addTask(task_6_0);
 newTaskList = new TaskList();
 
 var task_1_0 = new Task('Dry Cleaning',pendingContacts.contacts[1]);
-task_1_0.setLocation ( 'Lucky Dry Cleaning', 42.28734, 71.242256);
+task_1_0.setLocation ( 'Lucky Dry Cleaning', random_lat(), random_long());
 task_1_0.setPriority ('Medium');
 task_1_0.setNotes ('Already paid for. It is 3 shirts and 1 pair of pants');
 pendingContacts.contacts[1].taskList.addTask(task_1_0);
