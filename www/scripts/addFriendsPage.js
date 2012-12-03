@@ -10,11 +10,16 @@ var contactToBeInvited = null;
 function updateRequestsHTML(cList) {
 
 	$('.pendingRequest').remove();
+	
+	
+	var noRequestsMessage = $('<li data-theme="c" class="pendingRequest" id="noRequestMessage">You Have No Pending Requests</li>');
 
-	if (!cList.contacts.length) return;
-
-	var lDivider = $("#requestsListDivider");
-
+    $('#RequestsList').append(noRequestsMessage);
+    
+    //if (cList.contacts.length){
+	//	noRequestMessage.hide();
+	//}
+	
 	for (var i=0; i<cList.contacts.length; i++){
 
 		var listItem = $('<li data-theme="c" class="pendingRequest"></li>').attr("id", "pendingRequestListItem-" + cList.contacts[i].id);
@@ -38,65 +43,72 @@ function updateRequestsHTML(cList) {
 
 	    listItem.append(profPic, name, acceptButton, rejectButton);
 
-	    lDivider.after(listItem);   
+	    $('#RequestsList').append(listItem);
 	}
+	updateRequestHeader();
 }
 
- function updateRequestHeader() {
- 	var lDivider = $("#requestsListDivider");
+ function updateRequestHeader(){
 
 	if (!pendingContacts.contacts.length) {
-		lDivider.hide();
-		return;
+		$('#noRequestMessage').show();
 	} else {
-		lDivider.show();
+		$('#noRequestMessage').hide();
 	}
  }
 
 
 function updateAddFriendsHTML(cList){
-	/* Empties and populates the addFriends page according to the
-	 * phoneContacts list
-	 */
+	
+	$('.friendsWithApp').remove();
 
-	$('.friendWithApp').remove();
+	var noFriendsWithAppMessage = $('<li data-theme="c" class="friendsWithApp" id="noFriendsWithAppMessage"></li>');
+	
+   	var message = $('<h1>None of your friends have the app</h1>')
+    
+    var noFriendsInviteLink = $('<div id="noFriendsInviteLink" data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Invite Some Friends</span></span></div>')
+    
+    noFriendsInviteLink.click(function (){
+		$.mobile.changePage('#friends-invite');
+	});
+	
+	noFriendsWithAppMessage.append(message, noFriendsInviteLink);
 
- // 	var list = $('<ul data-role="listview" id="AddFriendsList" data-inset="true" data-divider-theme="a">');
+    $('#FriendsWithAppList').append(noFriendsWithAppMessage);
 
-	// var lDivider = $('<li id="addFriendsListDivider" data-role="list-divider" role="header">Add Friends With The App</li>');
-
-	// list.append(lDivider);
-
-	// $('#addFriendsContent').append(list);
-
-	// if (!phoneContacts.contacts.length) {
-	// 	var newlistItem = $('<li">');
-	// 	var text = $('<h3 style="white-space:normal;padding-left:5px;padding-right:3px;">You have no more friends to share with. Click the invite tab to ask them to share this app with them.</h3>');
-	// 	newlistItem.append(text);	
-	// 	lDivider.after(newlistItem);
-
-	// 	return;
-	// }
-
-	var lDivider = $('#addFriendsListDivider')
 	for (var i=0; i<cList.contacts.length; i++){
 
-		var listItem = $('<li data-theme="c" data-icon="plus" class="friendWithApp"></li>').attr("id", "addFriendsListItem-" + cList.contacts[i].id);
+		var listItem = $('<li data-theme="c" class="friendsWithApp"></li>').attr("id", "friendsWithAppListItem-" + cList.contacts[i].id);
 	    var profPic = $('<img class="ui-li-thumb"></img>').attr('src', cList.contacts[i].imgPath);
-	    var name = $('<h1></h1>').text(cList.contacts[i].name);
-	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Invite</span></span></div>').attr('id', 'rejectButton-'+ cList.contacts[i].id);
-
-	    listItem.append(profPic, name, inviteButton);
-		lDivider.after(listItem);
+	   	var name = $('<h1></h1>').text(cList.contacts[i].name);
+	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Invite</span></span></div>').attr('id', 'inviteButton-'+ cList.contacts[i].id);
 
 		inviteButton.click({contact:cList.contacts[i]}, function(event) {
 	    	contactToBeInvited = event.data.contact;
 	    	$('#sendInviteName').text(contactToBeInvited.name);
 			$( "#sendInviteAssure" ).popup( "open" );
 	    });
+	    
+
+	    listItem.append(profPic, name, inviteButton);
+
+	    $('#FriendsWithAppList').append(listItem);
+	     
 	}
+	updateNoFriendsWithAppMessage();
 }
 
+function updateNoFriendsWithAppMessage(){
+	console.log('updateing the no friends message');
+	console.log(phoneContacts.contacts.length);
+	if (!phoneContacts.contacts.length) {
+		console.log('no more friends');
+		console.log($('#noFriendsWithAppMessage'));
+		$('#noFriendsWithAppMessage').show();
+	} else {
+		$('#noFriendsWithAppMessage').hide();
+	}
+}
 
 $(document).ready(function () {
 	updateAddFriendsHTML(phoneContacts);
@@ -126,12 +138,12 @@ $(document).ready(function () {
 	$( "#sendInvite-sendButton" ).bind( "click", function(event, ui) {
 		if (contactToBeInvited){
 			phoneContacts.removeContact(contactToBeInvited.id);
-			addedFriends.addContact(contactToBeInvited);	
-			console.log($('#addFriendsListItem-'+contactToBeInvited.id));	
-			$('#addFriendsListItem-'+contactToBeInvited.id).remove();
+			addedFriends.addContact(contactToBeInvited);
+			$('#friendsWithAppListItem-'+contactToBeInvited.id).remove();
+			updateNoFriendsWithAppMessage();
 			contactToBeInvited=null;
 		}
-		updateAddFriendsHTML(phoneContacts);
+		//updateAddFriendsHTML(phoneContacts);
 
 		$( "#sendInviteAssure" ).popup( "close" );
 	});
@@ -141,5 +153,6 @@ $(document).ready(function () {
 // 	if (d.toPage[0].id=='friends-add'){
 // 		updateAddFriendsHTML(phoneContacts);
 // 		updateRequestsHTML(pendingContacts);
+// 	}
 // 	}
 // });

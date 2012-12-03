@@ -80,7 +80,7 @@ for (var i = 0; i < noAppContactNames.length; i++) {
 	noAppPhoneContacts.addContact(new Contact(noAppContactNames[i], noAppContactImagePaths[i]));
 }
 
-for (var i=0; i < phoneContactNames.length-3; i++){
+for (var i=0; i < phoneContactNames.length; i++){
 	phoneContacts.addContact(new Contact(phoneContactNames[i], phoneContactImgPaths[i]));
 }
 for (var i = 0; i < pendingContactNames.length; i++) {

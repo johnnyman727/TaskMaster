@@ -34,12 +34,16 @@ function updateEditTaskHTML(){
 	}else{
 		$('#editTask-price').val(task.maxPrice);
 	}
+	
+	$('#editTask-priority-low').removeAttr('checked');
+	$('#editTask-priority-medium').removeAttr('checked');
+	$('#editTask-priority-high').removeAttr('checked');
 	if (task.priority == null){
-		$('#editTask-priority').val('');
-		$('#editTask-priority').attr('placeholder','Priority');
+		$('#editTask-priority-low').attr('checked','checked');
 	}else{
-		$('#editTask-priority').val(task.priority);
+		$('#editTask-priority-'+task.priority).attr('checked','checked');
 	}
+	
 	if (task.notes == null){
 		$('#editTask-notes').val('');
 		$('#editTask-notes').attr('placeholder','Additional Notes...');
@@ -47,6 +51,14 @@ function updateEditTaskHTML(){
 		$('#editTask-notes').val(task.notes);
 	}
 }
+
+$(document).bind('pagechange',function(e,d){
+ 	if (d.toPage[0].id=='editTaskPage'){
+		$('#editTask-priority-high').checkboxradio('refresh');
+		$('#editTask-priority-medium').checkboxradio('refresh');
+		$('#editTask-priority-low').checkboxradio('refresh');
+ 	}
+});
 
 function editTaskFromForm(){
 	//title
@@ -98,6 +110,13 @@ function removeCurrentTask(){
 }*/
 
 $(document).ready(function(){
-	$('#taskDetails-editTask').click(updateEditTaskHTML);
+	$('#taskDetails-editTask').click(function(){
+		updateEditTaskHTML();
+		deselectAllContacts();
+		selectContact(me);
+		for (var i=0; i<currentTask.sharedWith.contacts.length; i++){
+			selectContact(currentTask.sharedWith.contacts[i]);
+		}
+	});
 	$('#editTask-save').click(editTaskFromForm);
 });

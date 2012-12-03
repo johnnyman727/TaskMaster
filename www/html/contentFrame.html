@@ -55,7 +55,7 @@
                 <h4 style="text-align: center;">
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
-                <a data-role="button" data-theme="f" href="#home-taskList" id="welcomeContinueButton">
+                <a data-role="button" data-theme="f" href="#home-taskList" id="welcomeContinueButton">=
                     Get Crackin!
                 </a>
 	</div>
@@ -90,7 +90,7 @@
 	</div>
 
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-left friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -114,10 +114,12 @@
 			<li data-role="list-divider" id="requestsListDivider">Pending Requests</li>
 
 		</ul>
-		<ul data-role="listview" id="AddFriendsList" data-divider-theme="a" data-inset="true">
-			<li data-role="list-divider" id="addFriendsListDivider">Add Friends With The App</li>
+		<!---->
+		<ul data-role="listview" id="FriendsWithAppList" data-divider-theme="a" data-inset="true">
+			<li data-role="list-divider" id="friendsWithAppListDivider">Add Friends With The App</li>
 
 		</ul>
+		<!---->
 	</div>
 	<div data-role="popup" id="deleteRequestAssure" >
 		<p style="text-align:center;">Are you sure you want to delete <span id="deleteRequestName">this person</span> from your friends?<p>
@@ -130,7 +132,7 @@
 		<button id="sendInvite-cancelButton">Cancel</button>
 	</div>
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-left friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -172,10 +174,10 @@
 		</ul>-->
 	</div>
 	<div data-role="footer">
-		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-right" data-theme="f">
+		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
             Back To Task List
 		</a>
-		<a data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
+		<a id="save-group-button" data-role="button" data-icon="save" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
             Save Group
 		</a>
 		<h3></h3>
@@ -200,19 +202,19 @@
 		<h2>
 			Invite your friends to use TaskMaster with you!
 		</h2>
-		<ul data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
-            <li id="inviteFriendsList" id="" data-role="list-divider" role="header"> Available Friends
+		<ul id="inviteFriendsList" data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
+            <li id="" data-role="list-divider" role="header"> Available Friends
         </ul>
         <div data-role="popup" id="inviteNotification" >
 			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?<p>
 			<button id="inviteFriend-cancelButton">Cancel</button>
-			<button id="inviteFriend-inviteButton">Invite</button>
+			<button id="inviteFriend-inviteButton" data-theme="f">Invite</button>
 
 		</div>
 	</div>
 	
 	<div data-role="footer">
-		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-right friends-back' data-theme="f">
+		<a data-role="button" href="#home-taskList" data-icon="back" data-iconpos="right" class='ui-btn-left friends-back' data-theme="f">
             Back To Task List
 		</a>
 		<h3></h3>
@@ -332,25 +334,27 @@
 		                <input name="" id="addTask-price" placeholder="Enter Maximum Price" value="" type="text" />
 		            </fieldset>
 		        </div>
+		        
 				<div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup" data-type="vertical">
-                        <legend>
-                            Priority:
-                        </legend>
-                        <input id="addTask-priority-high" name="Priority:" value="addTask-priority-high" type="radio" />
-                        <label for="addTask-priority-high">
-                            Now
-                        </label>
-                        <input id="addTask-priority-medium" name="Priority:" value="addTask-priority-medium" type="radio" />
-                        <label for="addTask-priority-medium">
-                            Soon
-                        </label>
-                        <input id="addTask-priority-low" name="Priority:" value="addTask-priority-low" type="radio" checked />
-                        <label for="addTask-priority-low">
-                            Eventually
-                        </label>
-                    </fieldset>
-                </div>
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Priority:
+						</legend>
+						<input id="addTask-priority-high" class="addTask-priority" name="Priority:" value="high" type="radio" />
+						<label for="addTask-priority-high">
+							NOW!!
+						</label>
+						<input id="addTask-priority-medium" class="addTask-priority" name="Priority:" value="medium" type="radio" />
+						<label for="addTask-priority-medium">
+							Soon
+						</label>
+						<input id="addTask-priority-low" class="addTask-priority" name="Priority:" value="low" type="radio"/>
+						<label for="addTask-priority-low">
+							Eventually
+						</label>
+					</fieldset>
+		        </div>
+		        
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
 						<label for="addTask-notes">
@@ -557,14 +561,39 @@
 				<input name="" id="editTask-price"  value="" type="text"/>
 			</fieldset>
 		</div>
-		<div data-role="fieldcontain" id="editTask-container-priority">
+		
+		
+		
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup" data-type="vertical">
+				<legend>
+					Priority:
+				</legend>
+				<input id="editTask-priority-high" class="editTask-priority" name="Priority:" value="high" type="radio" />
+				<label for="editTask-priority-high">
+					Now
+				</label>
+				<input id="editTask-priority-medium" class="editTask-priority" name="Priority:" value="medium" type="radio" />
+				<label for="editTask-priority-medium">
+					Soon
+				</label>
+				<input id="editTask-priority-low" class="editTask-priority" name="Priority:" value="low" type="radio" checked />
+				<label for="editTask-priority-low">
+					Eventually
+				</label>
+			</fieldset>
+		</div>
+		
+		<!--div data-role="fieldcontain" id="editTask-container-priority">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-priority">
 					Priority:
 				</label>
 				<input name="" id="editTask-priority" placeholder="" value="" type="text"/>
 			</fieldset>
-		</div>
+		</div-->
+		
+		
 		<div data-role="fieldcontain" id="editTask-container-notes">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-notes">

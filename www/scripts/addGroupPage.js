@@ -3,9 +3,7 @@ function saveGroup() {
 	var groupName = $('#addGroup-title').val();	
 	
 	if (!groupName || friendsAddedToGroup.contacts.length < 2) {
-
 		$('#notifyGroupRequirements').popup( "open" );
-
 		return;
 	}
 

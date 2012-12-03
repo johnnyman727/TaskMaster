@@ -2,9 +2,16 @@ contactToBeInvited = null;
 	
 function updateInviteFriendsListHTML(cList) {
 
-	var ulFriendsNode = $("#inviteFriendsList");
+	var list = $("#inviteFriendsList");
 
 	$('.inviteFriends').remove();
+	
+	
+	var noFriendsWithoutAppMessage = $('<li data-theme="c" class="pendingRequest" id="noFriendsWithoutAppMessage">All of your friends have the app!!</li>');
+
+    $('#inviteFriendsList').append(noFriendsWithoutAppMessage);
+    
+	console.log('updating invite friends page')
 
 	for (var i=0; i<cList.contacts.length; i++){
 
@@ -25,7 +32,16 @@ function updateInviteFriendsListHTML(cList) {
 	    	$('#inviteName').text(contactToBeInvited.name);
 		 	$( "#inviteNotification" ).popup( "open" );
 		 });
-	    ulFriendsNode.after(listItem);    
+	    list.append(listItem);    
+	}
+	updateNoFriendsWithoutAppMessage();
+}
+
+function updateNoFriendsWithoutAppMessage(){
+	if (!noAppPhoneContacts.contacts.length){
+		$('#noFriendsWithoutAppMessage').show();
+	}else{
+		$('#noFriendsWithoutAppMessage').hide();
 	}
 }
 
@@ -43,6 +59,7 @@ $(document).ready(function(){
 			//add this to a temporary list in the future
 			$('#inviteFriendListItem-'+contactToBeInvited.id).remove();
 			contactToBeInvited=null;
+			updateNoFriendsWithoutAppMessage();
 		}
 
 		$( "#deleteNotification" ).popup( "close" );

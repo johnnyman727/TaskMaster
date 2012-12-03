@@ -135,6 +135,14 @@ function updateContentHTML(){
 			});
 	 	});
 	 });
+	 
+	 /*
+	  * 
+	  * Edit Task Page
+	  * 
+	  */
+	$('#editTask-sharedWith').val(selectedNames);
+	$('#editTask-sharedWith').trigger('keyup');
 }
 
 //formatting home pages

@@ -13,7 +13,6 @@ function toggleAddedContact(id){
 	//find the html
 	friendElement = $('#'+id);
 	if (addedFriends.hasContact(id)){
-		console.log(id+' removing');
 		//remove the contact
 		addedFriends.removeContact(id);
 		//change the style
@@ -24,7 +23,6 @@ function toggleAddedContact(id){
 		friendElement.removeClass('ui-btn-hover-c');
 		friendElement.attr('data-theme','c');
 	}else{
-		console.log(id+' adding');
 		//add the contact
 		addedFriends.addContact(phoneContacts.getContact(id));
 		//change the style

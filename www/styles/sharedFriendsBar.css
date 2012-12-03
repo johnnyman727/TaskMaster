@@ -54,7 +54,7 @@ div.name_background {
  height:100%;
  width:100%;
  background-color:black;
- opacity:.3;
+ opacity:.5;
 }	
 
 div .user.down {
@@ -70,6 +70,6 @@ div .img_shade.down {
 }
 div .name_background.down {
     background-color:#8cc63f;   
-    opacity:.3; 
+    opacity:.7; 
 }​
 
