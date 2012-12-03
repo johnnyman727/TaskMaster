@@ -1,4 +1,4 @@
-
+var selectedTaskDetails;
 /*
  * homePages.js
  * 
@@ -211,20 +211,30 @@ function updateContentHTML(){
 	 * 
 	 */
 
-	 // $('#map_canvas').gmap('clearMarkers');
+	 $('#map_canvas').gmap('clear', 'markers');
+
+	 $('#map_canvas').gmap('closeInfoWindow');
+
+	 $('#map_canvas').gmap('refresh');
 
 	 // For each selected contact
 	 $.each(selectedContacts.contacts, function(index, contact) {
 
 	 	// For each of their tasks
 	 	$.each(contact.taskList.tasks, function(index1, task) {
-		
-		if (task.location){
-		 	//	Create a new overlay
-			$('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true}).click(function() {
-				$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
-				});
-		}
+	 		//	Create a new overlay
+			var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'icon' :new google.maps.MarkerImage(contact.imgPath,
+			      // This marker is 20 pixels wide by 32 pixels tall.
+			      new google.maps.Size(32, 32),
+			      // The origin for this image is 0,0.
+			      new google.maps.Point(0,0),
+			      // The anchor for this image is the base of the flagpole at 0,32.
+			      new google.maps.Point(0, 32),
+
+			      new google.maps.Size(32, 32)) }).click(function() {
+				var innerHTML = '<p>' + task.title + '</p><button type="button" href="#taskDetailsPage" onclick="goToTaskDetails(\'' + contact.id.toString() + '\',\'' + task.id.toString() + '\' )">View Task Details</button>';
+				$('#map_canvas').gmap('openInfoWindow', {'content': innerHTML}, this);
+			});
 	 	});
 	 });
 	 
@@ -235,6 +245,14 @@ function updateContentHTML(){
 	  */
 	$('#editTask-sharedWith').val(selectedNames);
 	$('#editTask-sharedWith').trigger('keyup');
+}
+
+function goToTaskDetails(ownerID, taskID) {
+	console.log(ownerID);
+	console.log(taskID);
+	var task = selectedContacts.getContact(ownerID).taskList.getTask(taskID);
+	updateTaskDetailsHTML(task)
+	$.mobile.changePage('#taskDetailsPage');
 }
 
 //formatting home pages
