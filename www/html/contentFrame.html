@@ -532,6 +532,12 @@
 		</div>
 	</div><!-- /navbar -->	
     <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		
+		<div data-role="popup" id="notifyEditTaskRequirements" >
+			<p style="text-align:center;">You need a Title to save a task.<p>
+			<button id="notifyEditTaskRequirements-okayButton" data-theme='f'>Okay</button>
+		</div>
+		
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 		<input id="deleteTaskButton" type="button" value="Delete" onclick="deleteTask()" data-theme="g" data-mini="true" data-icon="delete" data-inline="true" style="position:absolute; display:inline;">
 		<div data-role="popup" id="deleteTaskConfirmation">
@@ -621,7 +627,7 @@
 		</a>
 		<h3>
 		</h3>
-		<a id="editTask-save" data-role="button" href="#home-taskList" data-theme="f" data-icon="check" data-iconpos="left" class="ui-btn-right">
+		<a id="editTask-save" data-role="button" data-theme="f" data-icon="check" data-iconpos="left" class="ui-btn-right">
 			Save
 		</a>
 	</div>

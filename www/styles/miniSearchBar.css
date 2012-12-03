@@ -1,0 +1,23 @@
+#addTask-location+a{
+	right:3px;
+	width:24px;
+	height:24px;
+	-moz-border-radius-bottomleft: 1em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-left-radius: 1em /*{global-radii-blocks}*/;
+	border-bottom-left-radius: 1em /*{global-radii-blocks}*/;
+	-moz-border-radius-bottomright: 1em /*{global-radii-blocks}*/;
+	-webkit-border-bottom-right-radius: 1em /*{global-radii-blocks}*/;
+	border-bottom-right-radius: 1em /*{global-radii-blocks}*/;
+	-moz-border-radius-topleft: 1em /*{global-radii-blocks}*/;
+	-webkit-border-top-left-radius: 1em /*{global-radii-blocks}*/;
+	border-bottom-left-radius: 1em /*{global-radii-blocks}*/;
+	-moz-border-radius-topright: 1em /*{global-radii-blocks}*/;
+	-webkit-border-top-right-radius: 1em /*{global-radii-blocks}*/;
+	border-top-right-radius: 1em /*{global-radii-blocks}*/;
+}
+
+#addTask-location+a span{
+	padding:0;
+	top:0px;
+	margin-top:1px;
+}

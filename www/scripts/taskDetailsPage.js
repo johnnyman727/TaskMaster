@@ -16,7 +16,7 @@ function updateTaskDetailsHTML(task){
 		$('#taskDetails-title').val(task.title);
 		$('#taskDetails-container-title').show();
 	}
-	console.log(task.sharedWith.isEmpty());
+	
 	if (task.sharedWith.isEmpty()){
 		$('#taskDetails-container-sharedWith').hide();
 	}else{

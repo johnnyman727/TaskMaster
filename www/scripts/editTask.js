@@ -120,10 +120,14 @@ $(document).ready(function(){
 	});
 	$('#editTask-save').click(function() {
 		if ($('#editTask-title').val() == "") {
-			$('#notifyTaskRequirementsEdit').popup();
-			$('#notifyTaskRequirementsEdit').popup('open');
+			$('#notifyEditTaskRequirements').popup('open');
+		}else{
+			editTaskFromForm();
+			$.mobile.changePage('#home-taskList');
 		}
-		editTaskFromForm();
+	});
+	$('#notifyEditTaskRequirements-okayButton').click(function(){
+		$('#notifyEditTaskRequirements').popup('close');
 	});
 	$('#deleteTask-deleteButton').click(function() {
 		currentTask.owner.taskList.removeTask(currentTask.id);

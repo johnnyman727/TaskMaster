@@ -76,8 +76,10 @@ function updateContentHTML(){
 						taskLink.attr('href','#taskDetailsPage');
 						var aTask = $('<li>').append(taskLink);
 						if (tasks[j].pending){
-							console.log('making something blue');
 							aTask.attr('pending','true');
+						}
+						if (tasks[j].proximity){
+							aTask.attr('proximity','true');
 						}
 						aTaskList.append(aTask);
 					}
@@ -151,6 +153,9 @@ function updateContentHTML(){
 			if (task.pending){
 				aTask.attr('pending','true');
 			}
+			if (task.proximity){
+				aTask.attr('proximity','true');
+			}
 			taskList.append(aTask);
 		}
 		
@@ -167,7 +172,7 @@ function updateContentHTML(){
 	$('#taskLists .noIcon').removeClass('ui-li-has-arrow');
 	
 	$('#taskLists [pending="true"]').toggleClass('ui-btn-up-c ui-btn-up-e').attr('data-theme','e');
-	$('#taskLists [proximity="true"]:not([pending="true"])').toggleClass('ui-btn-up-c ui-btn-up-f').attr('data-theme','e');
+	$('#taskLists [proximity="true"]:not([pending="true"])').toggleClass('ui-btn-up-c ui-btn-up-f').attr('data-theme','f');
 	/*
 	 * 
 	 * End Task List Page
