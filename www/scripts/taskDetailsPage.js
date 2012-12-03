@@ -74,13 +74,19 @@ function removeCurrentTask(){
 
 $(document).ready(function(){
 	$('#taskDetails-completeTask').click(function() {
-		completedTask_ = true;
-		removeCurrentTask();
-
-});
+		$('#confirmTaskComplete').popup('open');
+	});
 	$('#taskDetails-undoComplete').click(function(){
 		currentTask.pending=null;
 		currentTask.completedBy=null;
 		updateTaskDetailsHTML(currentTask);
+	});
+	$('#confirmTaskComplete-cancelButton').click(function(){
+		$('#confirmTaskComplete').popup('close');
+	});
+	$('#confirmTaskComplete-completeButton').click(function(){
+		completedTask_ = true;
+		removeCurrentTask();
+		$.mobile.changePage('#home-taskList');
 	});
 });

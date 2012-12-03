@@ -449,6 +449,11 @@
 	</div><!-- /navbar -->
 	
     <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		<div data-role="popup" id="confirmTaskComplete" >
+			<p style="text-align:center;">Are you sure you want to complete this task?<p>
+			<button id="confirmTaskComplete-completeButton" data-theme='f'>Complete</button>
+			<button id="confirmTaskComplete-cancelButton" data-theme='g'>Cancel</button>
+		</div>
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 		<div id="taskDetails-completedMessage" style="background:#FFEFAA" >
 			<p style="padding-right:10px; padding-left:10px"><span id="completedBy">Somebody</span> completed your task already. Confirm that it is complete.</p>
@@ -534,7 +539,7 @@
 		</a>
 		<h3>
 		</h3>
-		<a id="taskDetails-completeTask" data-role="button" href="#home-taskList" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
+		<a id="taskDetails-completeTask" data-role="button" data-theme="f"data-icon="check" data-iconpos="left" class="ui-btn-right">
 			Complete Task
 		</a>
 	</div>
