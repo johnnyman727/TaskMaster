@@ -29,7 +29,6 @@
 	<!--scripts-->
 	<script src="../scripts/map.js"></script>
 	<script src="../scripts/initialize.js"></script>
-	<script src="../scripts/firstUseAddFriendsPage.js"></script>
 	<script src="../scripts/manageFriendsPage.js"></script>
 	<script src="../scripts/addFriendsPage.js"></script>
 	<script src="../scripts/addGroupPage.js"></script>
@@ -129,7 +128,7 @@
 		<button id="deleteRequest-cancelButton">Cancel</button>
 	</div>
 	<div data-role="popup" id="sendInviteAssure" >
-		<p style="text-align:center;">Are you sure you want to send an invite to <span id="sendInviteName">this person</span>?</p>
+		<p style="text-align:center;">Are you sure you want to send a friend request to <span id="sendInviteName">this person</span>?</p>
 		<button id="sendInvite-sendButton" data-theme="f" >Send</button>
 		<button id="sendInvite-cancelButton">Cancel</button>
 	</div>
@@ -176,10 +175,6 @@
 				<button id="notifyGroupRequirements-okayButton" data-theme='f'>Okay</button>
 			</div>
         </div>
-
-        <!--<ul data-role="listview" data-divider-theme="a" data-inset="true">
-        	<li data-role="list-divider" id="availableFriendsForGrouping">Friends</li>
-		</ul>-->
 	</div>
 	<div data-role="footer">
 		<a data-role="button" id="add-friends-back" href="#home-taskList" data-icon="back" data-iconpos="right" class="ui-btn-left" data-theme="f">
@@ -211,12 +206,12 @@
 			Invite your friends to use TaskMaster with you!
 		</h2>
 		<ul id="inviteFriendsList" data-role="listview" data-inset="true" data-filter="true" data-divider-theme="a" data-filter-placeholder="Find your friends...">
-            <li id="" data-role="list-divider" role="header"> Available Friends </li>
+            <li id= data-role="list-divider" role="header"> Available Friends </li>
         </ul>
         <div data-role="popup" id="inviteNotification" >
 			<p style="text-align:center;">Are you sure you want to invite <span id="inviteName">this person</span> to be your friend?</p>
-			<button id="inviteFriend-cancelButton">Cancel</button>
 			<button id="inviteFriend-inviteButton" data-theme="f">Invite</button>
+			<button id="inviteFriend-cancelButton">Cancel</button>
 
 		</div>
 	</div>
@@ -237,33 +232,13 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom" data-theme="f"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom" data-theme="f"></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->
 
 	<div data-role="content" class="home-contentWrapper_header" style="padding:0;">
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
-
-		<!-- Hidden Push Notification Button -->
-		<!--
-		<a href="#cvsNotification" data-rel="popup" data-position-to="window" data-transition="pop" ><div id="pushNotification" >
-			<style>
-				#pushNotification { background-color: transparent; height:50px; width:50px; position: absolute; bottom: 0; cursor: pointer;}
-			</style>
-
-		</div></a>
-		<div data-role="popup" id="cvsNotification" >
-			<script>
-			$( "#close_button" ).bind( "click", function(event, ui) {
-				$( "#cvsNotification" ).popup( "close" );
-			});
-			</script>
-			<p style="text-align:center;">Karen has completed your task of "Getting Shampoo" at CVS.<p>
-			<button id="close_button">Great!</button>
-
-		</div>
-		-->
 		<div id="taskLists" style="padding:10px;">
 			<div id="firstTimeAddTask">
 				<img src="../assets/upArrow.png" style="position:relative; left:45%;"/>
@@ -288,6 +263,10 @@
 					</a>
 				</li>
 			</ul>
+			<div id="noSelectedContacts" style="text-align:center;">
+				<h3>Nobody is selected.</h3>
+				<h3>Tap a friend to see their tasks.</h3>
+			</div>
 		</div>
 		</div>
 		<div id="friendsListWrapper">
@@ -308,7 +287,7 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom"  data-theme="f"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom"  data-theme="f"></a></li>
 			</ul>
 		</div>
 	</div>
@@ -421,7 +400,7 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
-				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom"  data-theme="f"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom"  data-theme="f"></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->
@@ -443,17 +422,22 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom"  data-theme="f"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom"  data-theme="f"></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->
 	
     <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+		
 		<div data-role="popup" id="confirmTaskComplete" >
 			<p style="text-align:center;">Are you sure you want to complete this task?<p>
 			<button id="confirmTaskComplete-completeButton" data-theme='f'>Complete</button>
 			<button id="confirmTaskComplete-cancelButton" data-theme='g'>Cancel</button>
 		</div>
+    	<!--div data-role="popup" id="notifyTaskRequirementsEdit" >
+			<p style="text-align:center;">You need a Title to save a task.<p>
+			<button id="notifyTaskRequirementsEdit-okayButton" data-theme='f'>Okay</button>
+		</div-->
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 		<div id="taskDetails-completedMessage" style="background:#FFEFAA" >
 			<p style="padding-right:10px; padding-left:10px"><span id="completedBy">Somebody</span> completed your task already. Confirm that it is complete.</p>
@@ -553,11 +537,10 @@
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li class="configureFriendsButton"><a href="#friends-manage" id="addFriendsIcon" data-icon="custom"  data-theme="f"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom"  data-theme="f"></a></li>
 			</ul>
 		</div>
-	</div><!-- /navbar -->
-	
+	</div><!-- /navbar -->	
     <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		
 		<div data-role="popup" id="notifyEditTaskRequirements" >
@@ -634,17 +617,6 @@
 				</label>
 			</fieldset>
 		</div>
-		
-		<!--div data-role="fieldcontain" id="editTask-container-priority">
-			<fieldset data-role="controlgroup">
-				<label for="editTask-priority">
-					Priority:
-				</label>
-				<input name="" id="editTask-priority" placeholder="" value="" type="text"/>
-			</fieldset>
-		</div-->
-	
-
 		<div data-role="fieldcontain" id="editTask-container-notes">
 			<fieldset data-role="controlgroup">
 				<label for="editTask-notes">

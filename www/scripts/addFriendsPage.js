@@ -25,8 +25,8 @@ function updateRequestsHTML(cList) {
 		var listItem = $('<li data-theme="c" class="pendingRequest"></li>').attr("id", "pendingRequestListItem-" + cList.contacts[i].id);
 	    var profPic = $('<img class="ui-li-thumb"></img>').attr('src', cList.contacts[i].imgPath);
 	   	var name = $('<h1></h1>').text(cList.contacts[i].name);
-	    var rejectButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="g"><span class="ui-btn-corner-all"><span class="ui-btn-text">Delete</span></span></div>').attr('id', 'acceptButton-'+ cList.contacts[i].id);
-	    var acceptButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Accept</span></span></div>').attr('id', 'rejectButton-'+ cList.contacts[i].id);
+	    var rejectButton = $('<div data-role="button" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="g"><span class="ui-btn-corner-all"><span class="ui-btn-text">Delete</span></span></div>').attr('id', 'rejectButton-'+ cList.contacts[i].id);
+	    var acceptButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Accept</span></span></div>').attr('id', 'acceptButton-'+ cList.contacts[i].id);
 
 	    rejectButton.click({contact:cList.contacts[i]}, function(event) {
 	    	requestToBeDeleted = event.data.contact;
@@ -90,7 +90,7 @@ function updateAddFriendsHTML(cList){
 		var listItem = $('<li data-theme="c" class="friendsWithApp"></li>').attr("id", "friendsWithAppListItem-" + cList.contacts[i].id);
 	    var profPic = $('<img class="ui-li-thumb"></img>').attr('src', cList.contacts[i].imgPath);
 	   	var name = $('<h1></h1>').text(cList.contacts[i].name);
-	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Invite</span></span></div>').attr('id', 'inviteButton-'+ cList.contacts[i].id);
+	    var inviteButton = $('<div data-role="button" data-theme="f" data-inline="true" data-mini="true" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" ><span class=" ui-btn-corner-all"><span class="ui-btn-text">Send Request</span></span></div>').attr('id', 'inviteButton-'+ cList.contacts[i].id);
 
 		inviteButton.click({contact:cList.contacts[i]}, function(event) {
 	    	contactToBeInvited = event.data.contact;
@@ -153,11 +153,3 @@ $(document).ready(function () {
 		$( "#sendInviteAssure" ).popup( "close" );
 	});
 });
-
-// $(document).bind('pagechange',function(e,d){
-// 	if (d.toPage[0].id=='friends-add'){
-// 		updateAddFriendsHTML(phoneContacts);
-// 		updateRequestsHTML(pendingContacts);
-// 	}
-// 	}
-// });

@@ -28,6 +28,9 @@ function updateGroupFriendsListHTML(cList) {
 
 	list.append(ulFriendsNode);
 	//$('.availableFriends').remove();
+	if (cList.contacts.length<=1){
+		list.append($('<li data-theme="c" class="availableFriends">Add some friends before you make a group</li>').attr('id', 'noAvailableFriendsListItem'));
+	}
 
 	for (var i=0; i<cList.contacts.length; i++){
 

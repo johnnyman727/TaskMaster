@@ -22,6 +22,14 @@ function updateContentHTML(){
 	 	completedTask_ = false;
 	 }
 	$('#taskLists > ul').remove();
+	
+	//check that there are selected contacts
+	if (selectedContacts.contacts.length){
+		$('#noSelectedContacts').hide();
+	}else{
+		$('#noSelectedContacts').show();
+	}
+	
 	//build each list
 	if (sortMethod=='owner'){
 		for (var i=0; i<selectedContacts.contacts.length; i++){
@@ -100,7 +108,7 @@ function updateContentHTML(){
 			$('.groupHeadings').toggleClass('ui-bar-a ui-bar-f');
 			
 		}
-	}else{//FIXME: make me compatible with groups
+	}else{
 		sortedTasks = new TaskList();
 		for (var i=0;i<selectedContacts.contacts.length; i++){
 			var contact = selectedContacts.contacts[i];
@@ -249,8 +257,7 @@ function updateContentHTML(){
 }
 
 function createUserLocationOverlay() {
-	console.log("Placing user dot at : " + (center_lat + .01).toString() + "," + (center_long + .01).toString());
-	var marker = $('#map_canvas').gmap('addMarker', {'position': 42.3284308.toString() + "," + -71.1197732.toString(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage("../assets/location-icon.png",
+	var marker = $('#map_canvas').gmap('addMarker', {zIndex : 999, 'position': 42.3284308.toString() + "," + -71.1197732.toString(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage("../assets/location-icon.png",
 			      // This marker is 20 pixels wide by 32 pixels tall.
 			      new google.maps.Size(16, 16),
 			      // The origin for this image is 0,0.

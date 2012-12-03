@@ -109,9 +109,6 @@ deleteTask = function() {
 	$('#deleteTaskConfirmation').popup('open');
 }
 
-blockNoTitleTask = function() {
-
-}
 $(document).ready(function(){
 	$('#taskDetails-editTask').click(function(){
 		updateEditTaskHTML();

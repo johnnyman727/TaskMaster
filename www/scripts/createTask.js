@@ -79,6 +79,10 @@ $(document).ready(function(){
 		$('#firstTimeAddTask').hide();
 	});
 	
+	$('#addTaskButton *').click(function(){
+		$('#firstTimeAddTask').hide();
+	});
+	
 	$('#notifyTaskRequirements-okayButton').click(function (event) {
 		$('#notifyTaskRequirements').popup( "close" );
 	});
