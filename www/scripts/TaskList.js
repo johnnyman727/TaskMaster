@@ -54,5 +54,24 @@ function TaskList(){
 		}
 	}
 	
+	this.sort = function(method){
+		if (method=='location'){	this.sort = function(){
+			this.tasks.sort(function(a,b){
+				if (a.name=='Me'){return -1;}
+				if (b.name=='Me'){return 1;}
+				if (a.name<b.name){return -1;}
+				if (a.name==b.name){return 0;}
+				if (a.name>b.name){return 1;}});
+			}
+		}else if (method=='priority'){
+			this.tasks.sort(function(a,b){
+				if (a.priority==b.priority){return 0;}
+				if (a.priority=='high'){return 1;}
+				if (b.priority=='low'){return -1;}
+				if (a.priority<b.priority){return -1;}
+				if (a.priority>b.priority){return 1;}
+			});
+		}
+	}
 	//FIXME: include functionality for sorting tasks (alphabetically, by date, by urgency)
 }
