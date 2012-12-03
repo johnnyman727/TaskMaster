@@ -74,6 +74,12 @@ function Task(title,owner) {
 	}
 
 	this.lat_long_string = function() {
-		return this.lat.toString() + "," + this.lng.toString();
+
+		if (this.lat && this.lng) {
+			return this.lat.toString() + "," + this.lng.toString();
+
+		} else {
+			console.log("We've got some null buggers");
+		}
 	}
 }

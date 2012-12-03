@@ -17,7 +17,7 @@ function createTaskFromForm(){
 	
 	//location
 	if ($('#addTask-location').val()!=''){
-		newTask.setLocation($('#addTask-location',random_lat(),random_long()).val());//FIXME latitude and longitude
+		newTask.setLocation($('#addTask-location',random_lat(),random_long()).val());
 		$('#addTask-location').val('')
 	}
 	
