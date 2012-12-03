@@ -239,6 +239,7 @@
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 
 		<!-- Hidden Push Notification Button -->
+		<!--
 		<a href="#cvsNotification" data-rel="popup" data-position-to="window" data-transition="pop" ><div id="pushNotification" >
 			<style>
 				#pushNotification { background-color: transparent; height:50px; width:50px; position: absolute; bottom: 0; cursor: pointer;}
@@ -255,6 +256,7 @@
 			<button id="close_button">Great!</button>
 
 		</div>
+		-->
 		<div id="taskLists" style="padding:10px;">
 			<div id="firstTimeAddTask">
 				<img src="../assets/upArrow.png" style="position:relative; left:45%;"/>
@@ -424,6 +426,10 @@
 	
     <div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+		<div id="taskDetails-completedMessage" style="background:#FFEFAA" >
+			<p style="padding-right:10px; padding-left:10px"><span id="completedBy">Somebody</span> completed your task already. Confirm that it is complete.</p>
+		</div>
+
 		<div data-role="fieldcontain" id="taskDetails-container-title">
 			<fieldset data-role="controlgroup">
 				<label for="taskDetails-title">
@@ -499,6 +505,9 @@
 		<input type="button" value="Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
 		<a id="taskDetails-editTask" data-role="button" href="#editTaskPage" data-theme="b"data-icon="gear" data-iconpos="left" class="ui-btn-left">
 			Edit Task
+		</a>
+		<a id="taskDetails-undoComplete" data-role="button" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+			Undo Completion
 		</a>
 		<h3>
 		</h3>
