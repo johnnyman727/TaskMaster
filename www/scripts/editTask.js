@@ -109,6 +109,9 @@ deleteTask = function() {
 	$('#deleteTaskConfirmation').popup('open');
 }
 
+blockNoTitleTask = function() {
+	
+}
 $(document).ready(function(){
 	$('#taskDetails-editTask').click(function(){
 		updateEditTaskHTML();
@@ -118,7 +121,12 @@ $(document).ready(function(){
 			selectContact(currentTask.sharedWith.contacts[i]);
 		}
 	});
-	$('#editTask-save').click(editTaskFromForm);
+	$('#editTask-save').click(function() {
+		if ($('#editTask-title').val() == "") {
+			alert("Oh hot damn");
+		}
+		editTaskFromForm();
+	}
 	$('#deleteTask-deleteButton').click(function() {
 		currentTask.owner.taskList.removeTask(currentTask.id);
 		updateContentHTML();
