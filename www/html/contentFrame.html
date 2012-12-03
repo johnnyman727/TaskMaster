@@ -24,6 +24,7 @@
 	<script src="../scripts/Group.js"></script>
 	<script src="../scripts/Task.js"></script>
 	<script src="../scripts/TaskList.js"></script>
+	<script src="../scripts/TaskOverlay.js"></script>
 	<!--scripts-->
 	<script src="../scripts/initialize.js"></script>
 	<script src="../scripts/firstUseAddFriendsPage.js"></script>
@@ -423,24 +424,13 @@
 		</div>
 	</div><!-- /navbar -->
 	
-	<div data-role="content" class="home-contentWrapper_headerfooter" style="padding:0;">
+	<div data-role="content" class="home-contentWrapper_header" style="padding:0;">
 		<div id="map_canvas" style="padding:0; width:75%; float:left; height:100%">
 		</div>
-		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:hidden;">
-			<ul class="shareFriendsList">
-			</ul>
+		<div style="padding:0; width:25%; float:right; height:100%; overflow-y:scroll; overflow-x:visible;">
+			<ul class="shareFriendsList"></ul>
 		</div>
 	</div>
-	<div data-role="footer" data-position="fixed" data-theme="a">
-        <script>
-		function goBack()
-		{
-		window.history.back()
-		}
-		</script>
-        <input type="button" value="Go Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
-        <h3></h3>
-     </div>
 </div>
 
 <!-- Task Details Page -->
@@ -541,8 +531,7 @@
 	</div>
 </div>
 
-<!-- Edit Task Page -->
-<!--FIXME: write the javascript for this page-->
+<!-- Edit Task Page -->	
 <div data-role="page" data-theme="c" id="editTaskPage">
     <div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
