@@ -1,4 +1,4 @@
-
+var selectedTaskDetails;
 /*
  * homePages.js
  * 
@@ -147,8 +147,8 @@ function updateContentHTML(){
 			      new google.maps.Point(0, 32),
 
 			      new google.maps.Size(32, 32)) }).click(function() {
-				var innerHTML = '<p>' + task.title + '</p><button type="button" href="taskDetailsPage" onclick="alert("test");">View Task Details</button>';
-				$('#map_canvas').gmap('openInfoWindow', {'content': innerHTML }, this);
+				var innerHTML = '<p>' + task.title + '</p><button type="button" href="#taskDetailsPage" onclick="goToTaskDetails(\'' + contact.id.toString() + '\',\'' + task.id.toString() + '\' )">View Task Details</button>';
+				$('#map_canvas').gmap('openInfoWindow', {'content': innerHTML}, this);
 			});
 	 	});
 	 });
@@ -160,6 +160,14 @@ function updateContentHTML(){
 	  */
 	$('#editTask-sharedWith').val(selectedNames);
 	$('#editTask-sharedWith').trigger('keyup');
+}
+
+function goToTaskDetails(ownerID, taskID) {
+	console.log(ownerID);
+	console.log(taskID);
+	var task = selectedContacts.getContact(ownerID).taskList.getTask(taskID);
+	updateTaskDetailsHTML(task)
+	$.mobile.changePage('#taskDetailsPage');
 }
 
 //formatting home pages
