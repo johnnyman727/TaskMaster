@@ -112,9 +112,21 @@ function updateContentHTML(){
 		sortedTasks = new TaskList();
 		for (var i=0;i<selectedContacts.contacts.length; i++){
 			var contact = selectedContacts.contacts[i];
-			for (var j=0; j<contact.taskList.tasks.length;j++){
-				var task = contact.taskList.tasks[j];
-				sortedTasks.addTask(task);
+			if (contact.hasOwnProperty('contactList')){//groups
+				for (var k=0; k<contact.contactList.contacts.length; k++){
+					aContact = contact.contactList.contacts[k];
+					for (var j=0; j<aContact.taskList.tasks.length;j++){
+						var task = aContact.taskList.tasks[j];
+						if (sortedTasks.hasTask(task.id)){continue;}
+						sortedTasks.addTask(task);
+					}
+				}
+			}else{//individual contacts
+				for (var j=0; j<contact.taskList.tasks.length;j++){
+					var task = contact.taskList.tasks[j];
+					if (sortedTasks.hasTask(task.id)){continue;}
+					sortedTasks.addTask(task);
+				}
 			}
 		}
 		sortedTasks.sort(sortMethod);
