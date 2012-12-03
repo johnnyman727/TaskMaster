@@ -153,11 +153,3 @@ $(document).ready(function () {
 		$( "#sendInviteAssure" ).popup( "close" );
 	});
 });
-
-// $(document).bind('pagechange',function(e,d){
-// 	if (d.toPage[0].id=='friends-add'){
-// 		updateAddFriendsHTML(phoneContacts);
-// 		updateRequestsHTML(pendingContacts);
-// 	}
-// 	}
-// });
