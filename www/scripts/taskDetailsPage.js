@@ -55,6 +55,16 @@ function updateTaskDetailsHTML(task){
 		$('#taskDetails-notes').val(task.notes);
 		$('#taskDetails-container-notes').show();
 	}
+	if (task.pending){
+		$('#completedBy').text(task.completedBy.name);
+		$('#taskDetails-completedMessage').show();
+		$('#taskDetails-undoComplete').show();
+		$('#taskDetails-editTask').hide();
+	}else{
+		$('#taskDetails-completedMessage').hide();
+		$('#taskDetails-editTask').show();
+		$('#taskDetails-undoComplete').hide();
+	}
 }
 
 function removeCurrentTask(){
@@ -65,4 +75,11 @@ function removeCurrentTask(){
 	updateContentHTML();
 }
 
-$(document).ready(function(){$('#taskDetails-completeTask').click(removeCurrentTask)})
+$(document).ready(function(){
+	$('#taskDetails-completeTask').click(removeCurrentTask);
+	$('#taskDetails-undoComplete').click(function(){
+		currentTask.pending=null;
+		currentTask.completedBy=null;
+		updateTaskDetailsHTML(currentTask);
+	});
+});

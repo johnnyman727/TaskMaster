@@ -7,16 +7,19 @@ function friendTaskComplete(task){
 	var viewTaskButton = $('<button id="viewTask_button" data-theme="f">View the Task</button>');
 	var closeButton = $('<button id="closeFriendTaskComplete_button">Close</button>');
 	
+	currentTask = task;
+	task.pending = true;
+	task.completedBy = contact;
+		
 	viewTaskButton.click(function(){
-		currentTask = task;
-		console.log(task);
 		updateTaskDetailsHTML(task);
-		task.pending = true;
 		$.mobile.changePage('#taskDetailsPage');
 		popup.popup('close');
+		updateContentHTML();
 	});
 	closeButton.click(function(){
 		popup.popup('close');
+		updateContentHTML();
 	});
 	
 	popup.append(message,viewTaskButton,closeButton);

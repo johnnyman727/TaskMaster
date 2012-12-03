@@ -18,6 +18,7 @@ function updateContentHTML(){
 	//build each list
 	for (var i=0; i<selectedContacts.contacts.length; i++){
 		var aTaskList = $('<ul>');
+		aTaskList.attr('id','taskList'+selectedContacts.contacts[i].id);
 		aTaskList.attr('data-divider-theme','a');
 		aTaskList.attr('data-inset','true');
 		var listOwner = selectedContacts.contacts[i];
@@ -67,7 +68,8 @@ function updateContentHTML(){
 					taskLink.attr('href','#taskDetailsPage');
 					var aTask = $('<li>').append(taskLink);
 					if (tasks[j].pending){
-						taskLink.attr('data-theme','b');
+						console.log('making something blue');
+						aTask.attr('pending','true');
 					}
 					aTaskList.append(aTask);
 				}
@@ -80,11 +82,14 @@ function updateContentHTML(){
 				var aTask = $('<li>').append(taskLink);
 				aTask.addClass('noIcon');
 				aTaskList.append(aTask);
+				
 			}
 		}
 		$('#taskLists').append(aTaskList);
 		aTaskList.listview();
-		$('.groupHeadings').toggleClass('ui-bar-a ui-bar-f')
+		$('.groupHeadings').toggleClass('ui-bar-a ui-bar-f');
+		$('#taskListMe [pending="true"]').toggleClass('ui-btn-up-c ui-btn-up-e').attr('data-theme','e');
+		
 	}
 	//remove the icon on the list
 	$('#taskLists .noIcon').removeAttr('data-icon');
