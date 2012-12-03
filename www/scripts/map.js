@@ -6,14 +6,14 @@ $('#home-map').live("pageshow", function() {
 $('#home-map').live("pageinit", function() {
         $('#map_canvas').gmap({'center': center_lat.toString() + ", " + center_long.toString()});
         $('#map_canvas').gmap('option', 'zoom', 11);
-        $('#map_canvas').gmap('option', 'minZoom', 11);
-        $('#map_canvas').gmap('option', 'maxZoom', 11);
+        // $('#map_canvas').gmap('option', 'minZoom', 11);
+        // $('#map_canvas').gmap('option', 'maxZoom', 11);
         $('#map_canvas').gmap('option', 'zoomControl', false);
         $('#map_canvas').gmap('option', 'disableDefaultUI', true);
 });
 
 random_lat = function() {
-		var rando = ((Math.random() *2.0) - 1) * .01;
+		var rando = ((Math.random() *2.0) - 1) * .05;
 		return (center_lat + random_direction());
 }
 random_long = function() {
@@ -21,5 +21,5 @@ random_long = function() {
 }
 
 function random_direction() {
-	return ((Math.random() *2.0) - 1) * .01;
+	return ((Math.random() *2.0) - 1) * .05;
 }

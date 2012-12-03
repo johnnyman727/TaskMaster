@@ -123,6 +123,8 @@ function updateContentHTML(){
 	 * 
 	 */
 
+	 // $('#map_canvas').gmap('clearMarkers');
+
 	 // For each selected contact
 	 $.each(selectedContacts.contacts, function(index, contact) {
 
@@ -131,7 +133,7 @@ function updateContentHTML(){
 
 	 	//	Create a new overlay
 		$('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true}).click(function() {
-			$('#map_canvas').gmap('openInfoWindow', {'content': task.title}, this);
+			$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
 			});
 	 	});
 	 });
