@@ -74,7 +74,7 @@ function editTaskFromForm(){
 	
 	//location
 	if ($('#editTask-location').val()!=''){
-		updatedTask.setLocation($('#editTask-location',0,0).val());//FIXME latitude and longitude
+		updatedTask.setLocation($('#editTask-location').val(), random_lat(), random_long());
 	}
 	
 	//brand

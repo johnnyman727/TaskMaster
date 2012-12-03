@@ -208,6 +208,8 @@ function updateContentHTML(){
 
 	 $('#map_canvas').gmap('refresh');
 
+	 createUserLocationOverlay();
+
 	 // For each selected contact
 	 $.each(selectedContacts.contacts, function(index, contact) {
 
@@ -224,8 +226,6 @@ function updateContentHTML(){
 	 });
 
 	 if (showSpecificTask) {
-	 	console.log( $('#marker-' + showSpecificTask.id));
-	 	// $('#map_canvas').gmap('get', 'marker-' + showSpecificTask.id).trigger('click');
 	 	$('#map_canvas').gmap('find', 'markers', { }, function(marker) {
     	if(marker.id == ('marker-' +showSpecificTask.id)){
     		 google.maps.event.trigger(marker, 'click'); 
@@ -241,8 +241,21 @@ function updateContentHTML(){
 	$('#editTask-sharedWith').val(selectedNames);
 	$('#editTask-sharedWith').trigger('keyup');
 }
+
+function createUserLocationOverlay() {
+	console.log("Placing user dot at : " + (center_lat + .01).toString() + "," + (center_long + .01).toString());
+	var marker = $('#map_canvas').gmap('addMarker', {'position': 42.3284308.toString() + "," + -71.1197732.toString(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage("../assets/location-icon.png",
+			      // This marker is 20 pixels wide by 32 pixels tall.
+			      new google.maps.Size(16, 16),
+			      // The origin for this image is 0,0.
+			      new google.maps.Point(0,0),
+			      // The anchor for this image is the base of the flagpole at 0,32.
+			      new google.maps.Point(0, 16),
+
+			      new google.maps.Size(16, 16)) 
+		});
+}
 function createTaskOverlay(contact, task) {
-	console.log("New ID will be marker-" + task.id);
 	var marker = $('#map_canvas').gmap('addMarker', {id : 'marker-' + task.id, 'position': task.lat_long_string(), 'bounds': true, 'flat' : false,  'icon' :new google.maps.MarkerImage(contact.imgPath,
 			      // This marker is 20 pixels wide by 32 pixels tall.
 			      new google.maps.Size(32, 32),
