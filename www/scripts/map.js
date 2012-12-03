@@ -4,7 +4,7 @@ $('#home-map').live("pageshow", function() {
         $('#map_canvas').gmap('refresh');
 });
 $('#home-map').live("pageinit", function() {
-        $('#map_canvas').gmap({'center': center_lat.toString() + ", " + center_long.toString()});
+        map = $('#map_canvas').gmap({'center': center_lat.toString() + ", " + center_long.toString()});
         $('#map_canvas').gmap('option', 'zoom', 11);
         // $('#map_canvas').gmap('option', 'minZoom', 11);
         // $('#map_canvas').gmap('option', 'maxZoom', 11);

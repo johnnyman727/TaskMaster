@@ -48,7 +48,7 @@ function updateContentHTML(){
 						var taskLink = $('<a>').text(tasks[k].title);
 						taskLink.click({theTask:tasks[k]},function(e){updateTaskDetailsHTML(e.data.theTask)});
 						taskLink.attr('href','#taskDetailsPage');
-						var aTask = $('<li>').append(taskLink).bind('swipe', function(e) { alert('SWIPE');});
+						var aTask = $('<li>').append(taskLink);
 						aTaskList.append(aTask);
 					}
 				}else{
@@ -123,20 +123,33 @@ function updateContentHTML(){
 	 * 
 	 */
 
-	 // $('#map_canvas').gmap('clearMarkers');
+	 // $('#map_canvas').gmap('clear', 'markers');
 
-	 // For each selected contact
-	 $.each(selectedContacts.contacts, function(index, contact) {
+	 // $('#map_canvas').gmap('closeInfoWindow');
 
-	 	// For each of their tasks
-	 	$.each(contact.taskList.tasks, function(index1, task) {
+	 // var size = new google.maps.Size(64, 64, true, true);
+	 // var origin =  new google.maps.Size(64, 64, true, true);
 
-	 	//	Create a new overlay
-		$('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true}).click(function() {
-			$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
-			});
-	 	});
-	 });
+	 // // For each selected contact
+	 // $.each(selectedContacts.contacts, function(index, contact) {
+
+	 // 	// For each of their tasks
+	 // 	$.each(contact.taskList.tasks, function(index1, task) {
+	 // 		console.log(contact.imgPath);
+	 // 		//	Create a new overlay
+		// 	var marker = $('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true, 'icon' :new google.maps.MarkerImage(contact.imgPath,
+  //     // This marker is 20 pixels wide by 32 pixels tall.
+  //     new google.maps.Size(32, 32),
+  //     // The origin for this image is 0,0.
+  //     new google.maps.Point(0,0),
+  //     // The anchor for this image is the base of the flagpole at 0,32.
+  //     new google.maps.Point(0, 32),
+
+  //     new google.maps.Size(32, 32)) }).click(function() {
+		// 		$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
+		// 	});
+	 // 	});
+	 // });
 	 
 	 /*
 	  * 

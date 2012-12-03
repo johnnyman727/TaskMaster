@@ -9,7 +9,7 @@
  * Populates phoneContacts and populates each contact with a task list
  * 
  */
-
+ var map;
  var center_lat = 42.3384308;
  var center_long = -71.1097732;
 
@@ -80,11 +80,7 @@ for (var i = 0; i < noAppContactNames.length; i++) {
 	noAppPhoneContacts.addContact(new Contact(noAppContactNames[i], noAppContactImagePaths[i]));
 }
 
-var tempFriend = new Contact(phoneContactNames[0], phoneContactImgPaths[0]);
-addedFriends.addContact(tempFriend);
-selectedContacts.addContact(tempFriend);
-
-for (var i=1; i < phoneContactNames.length; i++){
+for (var i = 0; i < phoneContactNames.length; i++){
 	phoneContacts.addContact(new Contact(phoneContactNames[i], phoneContactImgPaths[i]));
 }
 for (var i = 0; i < pendingContactNames.length; i++) {
