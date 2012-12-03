@@ -20,11 +20,10 @@
 function Contact(name, imgPath){
 	this.name = name;
 	this.id = Contact.nameToId(name);
-	this.id = this.id.replace("\'", "");
 	this.imgPath = imgPath;
 	this.taskList = new TaskList();
 }
 
 Contact.nameToId = function(name){
-	return name.replace(/\s/g, "");
+	return name.replace(/\s/g, "").replace("\'", "");
 }

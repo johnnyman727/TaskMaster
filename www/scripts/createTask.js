@@ -10,6 +10,7 @@ function createTaskFromForm(){
 		contactNames = $('#addTask-sharedWith').val().split(', ');
 		for (var i=0; i<contactNames.length; i++){
 			newTask.shareWith(addedFriends.getContact(Contact.nameToId(contactNames[i])));
+			console.log(Contact.nameToId(contactNames[i]));
 		}
 		$('#addTask-sharedWith').val('');
 	}
@@ -44,10 +45,9 @@ function createTaskFromForm(){
 	me.taskList.addTask(newTask);
 	updateContentHTML();
 	
-	if (addedFriends.contacts.length){
-		console.log('a friend will complete your task in 3000ms');
+	if (newTask.sharedWith.contacts.length){
 		setTimeout(function(){
-			friendTaskComplete(addedFriends.selectRandomContact(),newTask);
+			friendTaskComplete(newTask);
 		},3000);
 	}
 }

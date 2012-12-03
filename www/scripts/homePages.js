@@ -130,11 +130,13 @@ function updateContentHTML(){
 
 	 	// For each of their tasks
 	 	$.each(contact.taskList.tasks, function(index1, task) {
-
-	 	//	Create a new overlay
-		$('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true}).click(function() {
-			$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
-			});
+		
+		if (task.location){
+		 	//	Create a new overlay
+			$('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true}).click(function() {
+				$('#map_canvas').gmap('openInfoWindow', {'content': '<button type="button">Click Me!</button>' }, this);
+				});
+		}
 	 	});
 	 });
 	 
