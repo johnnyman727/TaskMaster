@@ -10,6 +10,9 @@
  * 
  */
 
+ var center_lat = 42.3384308;
+ var center_long = -71.1097732;
+
 //populated immediately
 noAppPhoneContacts = new ContactList();
 phoneContacts = new ContactList();
@@ -21,8 +24,8 @@ addedFriends = new ContactList();
 //add myself to the list
 me = new Contact("Me","http://sphotos-b.xx.fbcdn.net/hphotos-ash4/422186_10151147600205676_1487493643_n.jpg");
 var myTask = new Task('Test', me);
+myTask.setLocation("Bathroom", random_lat(), random_long());
 me.taskList.addTask(myTask);
-
 addedFriends.addContact(me);
 selectedContacts.addContact(me);
 

@@ -48,7 +48,7 @@ function updateContentHTML(){
 						var taskLink = $('<a>').text(tasks[k].title);
 						taskLink.click({theTask:tasks[k]},function(e){updateTaskDetailsHTML(e.data.theTask)});
 						taskLink.attr('href','#taskDetailsPage');
-						var aTask = $('<li>').append(taskLink);
+						var aTask = $('<li>').append(taskLink).bind('swipe', function(e) { alert('SWIPE');});
 						aTaskList.append(aTask);
 					}
 				}else{
@@ -111,11 +111,30 @@ function updateContentHTML(){
 	}
 	$('#addTask-sharedWith').val(selectedNames);
 	$('#addTask-sharedWith').trigger('keyup');
+
+	/*
+	*
+	* End Add Task Page
+	*
+	/
 	/*
 	 * 
-	 * End Add Task Page
+	 * Maps Page
 	 * 
 	 */
+
+	 // For each selected contact
+	 $.each(selectedContacts.contacts, function(index, contact) {
+
+	 	// For each of their tasks
+	 	$.each(contact.taskList.tasks, function(index1, task) {
+
+	 	//	Create a new overlay
+		$('#map_canvas').gmap('addMarker', {'position': task.lat_long_string(), 'bounds': true}).click(function() {
+			$('#map_canvas').gmap('openInfoWindow', {'content': task.title}, this);
+			});
+	 	});
+	 });
 }
 
 //formatting home pages

@@ -16,7 +16,7 @@ function createTaskFromForm(){
 	
 	//location
 	if ($('#addTask-location').val()!=''){
-		newTask.setLocation($('#addTask-location',0,0).val());//FIXME latitude and longitude
+		newTask.setLocation($('#addTask-location',random_lat(),random_long()).val());//FIXME latitude and longitude
 		$('#addTask-location').val('')
 	}
 	
@@ -43,6 +43,8 @@ function createTaskFromForm(){
 		newTask.setNotes($('#addTask-notes').val());//FIXME make these references to contacts
 		$('#addTask-notes').val('');
 	}
+
+	newTask.longitude = 
 	
 	me.taskList.addTask(newTask);
 	updateContentHTML();

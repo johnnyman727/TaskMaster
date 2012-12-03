@@ -18,6 +18,7 @@
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 	<script src="../scripts/jquery.ui.map.full.min.js"></script>
+	<script type="text/javascript" src="../scripts/jquery-maps.js"></script>
 	<!--objects-->
 	<script src="../scripts/Contact.js"></script>
 	<script src="../scripts/ContactList.js"></script>
@@ -26,6 +27,7 @@
 	<script src="../scripts/TaskList.js"></script>
 	<script src="../scripts/TaskOverlay.js"></script>
 	<!--scripts-->
+	<script src="../scripts/map.js"></script>
 	<script src="../scripts/initialize.js"></script>
 	<script src="../scripts/firstUseAddFriendsPage.js"></script>
 	<script src="../scripts/manageFriendsPage.js"></script>
@@ -37,7 +39,6 @@
 	<script src="../scripts/homePages.js"></script>
 	<script src="../scripts/createTask.js"></script>
 	<script src="../scripts/editTask.js"></script>
-	<script src="../scripts/map.js"></script>
 </head>
 	
 <body>
@@ -54,39 +55,9 @@
                 <h4 style="text-align: center;">
                     TaskMaster makes it easier for you to get your tasks done with a little help from your friends.
                 </h4>
-                <a data-role="button" data-theme="f" href="#firstUseAddFriends" id="welcomeContinueButton">
+                <a data-role="button" data-theme="f" href="#home-taskList" id="welcomeContinueButton">
                     Get Crackin!
                 </a>
-	</div>
-</div>
-
-<!-- First Use Add Friends Screen-->
-<!--Add Friends-->
-<div data-role="page" id="firstUseAddFriends">
-    <div data-role="header" data-position="fixed">
-        <h3 style='margin-right:10%; margin-left:10%;'>
-            Add Friends
-        </h3>
-    </div>
-    <div data-role="content">
-        <ul id="firstUseAddFriendsList" data-role="listview" data-inset="false" data-filter="true" data-filter-placeholder="Find your friends...">
-            <li data-theme="c" data-icon="plus">
-                <a href="#" data-transition="turn">
-                    <img src="../assets/Friends/DannyMarz.jpg" class="ui-li-thumb">
-					<h1>Danny Marz</h1>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-		<a id="addFriends-cancel" data-role="button" href="#home-taskList" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
-				Cancel
-		</a>
-		<h3>
-		</h3>
-		<a id="continueButton" data-role="button" href="#home-taskList" data-theme="f"data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">
-			Continue
-		</a>
 	</div>
 </div>
 

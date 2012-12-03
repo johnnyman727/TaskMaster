@@ -72,4 +72,8 @@ function Task(title,owner) {
 		}
 		this.priority=priority;
 	}
+
+	this.lat_long_string = function() {
+		return this.lat.toString() + "," + this.lng.toString();
+	}
 }

@@ -1,6 +1,5 @@
 /* Toggle the state of the element */
 function toggleSelectedContact(id){
-	console.log($('.user_wrapper' + id));
 	$('.user_wrapper' + id).toggleClass('down');
     $('.img_shade' + id).toggleClass('down');
     $('.name_background' + id).toggleClass('down');

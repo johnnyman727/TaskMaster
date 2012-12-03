@@ -33,7 +33,7 @@ div.img_shade {
     top:0;
     height:100%;
     width:100%;
-    background-color:clear;   
+    background-color:transparent;   
     opacity:1;
 }
 div.user_name {
