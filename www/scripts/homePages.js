@@ -66,6 +66,9 @@ function updateContentHTML(){
 					taskLink.click({theTask:tasks[j]},function(e){updateTaskDetailsHTML(e.data.theTask)});
 					taskLink.attr('href','#taskDetailsPage');
 					var aTask = $('<li>').append(taskLink);
+					if (tasks[j].pending){
+						taskLink.attr('data-theme','b');
+					}
 					aTaskList.append(aTask);
 				}
 			}else{
