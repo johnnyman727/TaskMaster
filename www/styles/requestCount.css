@@ -1,0 +1,23 @@
+.requestCountText{
+	color: white;
+	font-size: 60%;
+	padding: 0;
+	position: absolute;
+	top: -1px;
+	width: 11px;
+	text-align: center;
+	text-shadow: none;
+}
+
+.requestCountCircle{
+	position: absolute;
+	height: 11px;
+	width: 11px;
+	background: red;
+	z-index: 15;
+	left: 90%;
+	top: 10px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}

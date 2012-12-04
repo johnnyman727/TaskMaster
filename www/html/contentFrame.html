@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="../styles/taskDetails.css" />
 	<link rel="stylesheet" href="../styles/addTask.css" />
 	<link rel="stylesheet" href="../styles/miniSearchBar.css" />
+	<link rel="stylesheet" href="../styles/requestCount.css" />
 	<!--jQuery and jQuery Mobile-->
 	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
@@ -40,6 +41,7 @@
 	<script src="../scripts/editTask.js"></script>
 	<script src="../scripts/friendTaskComplete.js"></script>
 	<script src="../scripts/sortTasks.js"></script>
+	<script src="../scripts/requestCount.js"></script>
 </head>
 	
 <body>
@@ -227,12 +229,13 @@
 <!-- Home Page - TaskList -->
 <div data-role="page" id="home-taskList">
 	<div data-role="header" class="nav-glyphish-example" data-position="fixed" data-theme="a">
+		<!--div class="requestCountCircle"><span class="requestCountText">3</span></div-->
 		<div data-role="navbar" class="nav-glyphish-example" data-grid="c">
 			<ul>
 				<li id="taskListButton"><a href="#home-taskList" id="listIcon" data-icon="custom" class="ui-btn-active ui-state-persist"></a></li>
 				<li id="addTaskButton"><a href="#home-addTask" id="addTaskIcon" data-icon="custom"></a></li>
 				<li id="viewMapButton"><a href="#home-map" id="mapIcon" data-icon="custom"></a></li>
-				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom" data-theme="f"></a></li>
+				<li class="configureFriendsButton"><a href="#friends-manage" id="friendsSettingsIcon" data-icon="custom" data-theme="f" ></a></li>
 			</ul>
 		</div>
 	</div><!-- /navbar -->
