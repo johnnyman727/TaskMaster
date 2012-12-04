@@ -301,7 +301,7 @@
 		
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
 			<div style="padding:10px;">
-				<h2 style="margin-top:0;">Add Task</h2>
+				<h2 style="margin-top:0; text-align:center;">Add Task</h2>
 		        <div data-role="fieldcontain">
 		            <fieldset data-role="controlgroup">
 		                <label for="addTask-title">
@@ -315,7 +315,7 @@
 		                <label for="addTask-sharedWith">
 							Share This Task With:
 						</label>
-						<textarea name="" id="addTask-sharedWith" placeholder="Tap friends to share this task with" value="" type="text" readonly></textarea>
+						<textarea name="" id="addTask-sharedWith" placeholder="Tap friends to share this task..." value="" type="text" readonly></textarea>
 					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
@@ -366,7 +366,7 @@
 						<label for="addTask-notes">
 							Notes:
 						</label>
-						<textarea name="" id="addTask-notes" placeholder="Enter Additional Notes" value="" type="text"></textarea>
+						<textarea name="" id="addTask-notes" placeholder="Additional Notes..." value="" type="text"></textarea>
 					</fieldset>
 				</div>
 			</div>
@@ -438,7 +438,9 @@
 			<p style="text-align:center;">You need a Title to save a task.<p>
 			<button id="notifyTaskRequirementsEdit-okayButton" data-theme='f'>Okay</button>
 		</div-->
+		<a id="editTask-cancel" onclick="goBack()" data-theme="g" data-role="button" data-icon="back" data-iconpos="notext" style="float:left; margin-left:5px;">Back</a>
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
+		<h2 style="margin-top:10px; text-align:center;">Details</h2>
 		<div id="taskDetails-completedMessage" style="background:#FFEFAA" >
 			<p style="padding-right:10px; padding-left:10px"><span id="completedBy">Somebody</span> completed your task already. Confirm that it is complete.</p>
 		</div>
@@ -514,7 +516,7 @@
 		</div>
 	</div>
 	<div data-theme="a" data-role="footer" data-position="fixed">
-		<input type="button" value="Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+		<!--input type="button" value="Back" onclick="goBack()" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left"-->
 		<a id="taskDetails-editTask" data-role="button" href="#editTaskPage" data-theme="b"data-icon="gear" data-iconpos="left" class="ui-btn-left">
 			Edit Task
 		</a>
@@ -549,7 +551,12 @@
 		</div>
 		
 		<div style="padding:0; width:75%; float:left; height:100%; overflow-y:scroll">
-		<input id="deleteTaskButton" type="button" value="Delete" onclick="deleteTask()" data-theme="g" data-mini="true" data-icon="delete" data-inline="true" style="position:absolute; display:inline;">
+		<a id="editTask-cancel" href="#taskDetailsPage" data-theme="g" data-role="button" data-icon="back" data-iconpos="notext" style="float:left; margin-left:5px;">Back</a>
+		<h2 style="margin-top: 10px; text-align: center; margin-right:10%;">Edit Task</h2>
+		<!--input id="editTask-cancel" type="button" href="#taskDetailsPage" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
+		Cancel
+		</a-->
+		<!--input id="deleteTaskButton" type="button" value="Delete" onclick="deleteTask()" data-theme="g" data-mini="true" data-icon="delete" data-inline="true" style="position:absolute; display:inline;"-->
 		<div data-role="popup" id="deleteTaskConfirmation">
 			<p> Are you sure you want to delete <span id='deleteTaskTitle'> this task</span>?</p>
 			<button id="deleteTask-deleteButton" data-theme="g">Delete</button>
@@ -632,8 +639,8 @@
 		</div>
 	</div>
 	<div data-theme="a" data-role="footer" data-position="fixed">
-		<a id="editTask-cancel" data-role="button" href="#taskDetailsPage" data-theme="g" data-icon="back" data-iconpos="left" class="ui-btn-left">
-			Cancel
+		<a id="deleteTaskButton" data-role="button" onclick="deleteTask()" data-theme="g" data-icon="delete" data-iconpos="left" class="ui-btn-left">
+			Delete
 		</a>
 		<h3>
 		</h3>
@@ -647,7 +654,7 @@
 
 <style>
 	label{
-		text-align: center;
+		/*text-align: center;*/
 	}
 	.ui-field-contain{
 		padding:5px;

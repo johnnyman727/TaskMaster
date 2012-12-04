@@ -14,7 +14,7 @@ function updateEditTaskHTML(){
 	
 	if (task.sharedWith.isEmpty()){
 		$('#editTask-sharedWith').val('');
-		$('#editTask-sharedWith').attr('placeholder','Tap friends to share with...');
+		$('#editTask-sharedWith').attr('placeholder','Tap friends to share this task...');
 	}else{
 		sharedWith = task.getSharedContactNames();
 		sharedWith = sharedWith.join(', ');
@@ -29,13 +29,13 @@ function updateEditTaskHTML(){
 	}
 	if (task.brand == null){
 		$('#editTask-brand').val('');
-		$('#editTask-brand').attr('placeholder','Brand');
+		$('#editTask-brand').attr('placeholder','Enter Brand');
 	}else{
 		$('#editTask-brand').val(task.brand);
 	}
 	if (task.maxPrice == null){;
 		$('#editTask-price').val('');
-		$('#editTask-price').attr('placeholder','Maximum Price');
+		$('#editTask-price').attr('placeholder','Enter Maximum Price');
 	}else{
 		$('#editTask-price').val(task.maxPrice);
 	}
